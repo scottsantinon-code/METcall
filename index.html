@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#f5f5f7">
+    <meta name="color-scheme" content="light">
+    <title>MET Call</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff453a'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='white'>M</text></svg>">
+    
+    <style>
+        :root {
+            --bg: #f5f5f7;
+            --card: rgba(0,0,0,0.03);
+            --border: rgba(0,0,0,0.08);
+            --text: #1d1d1f;
+            --text2: rgba(0,0,0,0.55);
+            --text3: rgba(0,0,0,0.35);
+            --red: #ff3b30;
+            --orange: #ff9500;
+            --green: #34c759;
+            --blue: #007aff;
+            --yellow: #ffcc00;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+            background-color: #f5f5f7;
+            color: var(--text);
+            height: 100vh; height: 100dvh;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+            font-size: 14px;
+        }
+        body { 
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            background-color: #f5f5f7;
+        }
+        .app { height: 100vh; height: 100dvh; display: flex; flex-direction: column; background-color: #f5f5f7; }
+        .page { display:none; flex:1; flex-direction:column; overflow:hidden; max-width:500px; margin:0 auto; width:100%; background-color:#f5f5f7; }
+        .page.active { display:flex; }
+
+        .header {
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+            background-color: #f5f5f7;
+        }
+        .header-left { display:flex; align-items:center; gap:10px; }
+        .back-btn { background:none; border:none; color:var(--blue); font-size:15px; cursor:pointer; padding:4px 0; }
+        .header-title { font-size:15px; font-weight:600; }
+
+        .content { flex:1; overflow-y:auto; padding:16px; background-color:#f5f5f7; }
+
+        .page-title { font-size: 22px; font-weight: 700; margin-bottom: 16px; }
+        .section-title { font-size: 11px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 8px; }
+        .section-title:first-child { margin-top: 0; }
+
+        /* Home */
+        .home-header { text-align:center; padding:40px 0 30px; }
+        .home-logo {
+            width:56px; height:56px;
+            background: linear-gradient(135deg, var(--red), #ff6b6b);
+            border-radius: 16px;
+            display: flex; align-items:center; justify-content:center;
+            margin: 0 auto 14px;
+            box-shadow: 0 6px 24px rgba(255,59,48,0.25);
+        }
+        .home-logo svg { width:28px; height:28px; }
+        .home-title { font-size:28px; font-weight:700; letter-spacing:-0.5px; }
+        .trigger-list { display:flex; flex-direction:column; gap:8px; }
+        .trigger-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            cursor: pointer;
+        }
+        .trigger-card:active { transform:scale(0.98); background:#f9f9f9; }
+        .trigger-icon {
+            width:36px; height:36px;
+            background: rgba(255,59,48,0.1);
+            border-radius: 10px;
+            display:flex; align-items:center; justify-content:center;
+        }
+        .trigger-icon svg { width:18px; height:18px; stroke:var(--red); stroke-width:2; fill:none; }
+        .trigger-name { font-size:15px; font-weight:600; flex:1; }
+        .trigger-arrow { color:var(--text3); font-size:16px; }
+        .coming-soon { opacity:0.4; pointer-events:none; }
+        .soon-badge { font-size:9px; background:var(--card); padding:3px 6px; border-radius:4px; color:var(--text3); text-transform:uppercase; }
+
+        /* Choice buttons */
+        .choice-container { display:flex; gap:12px; padding-top:4px; }
+        .choice-btn {
+            flex: 1;
+            padding: 20px 12px;
+            border-radius: 14px;
+            border: 2px solid var(--border);
+            background: #fff;
+            cursor: pointer;
+            text-align: center;
+        }
+        .choice-btn:active { transform:scale(0.98); }
+        .choice-btn.red { border-color: rgba(255,59,48,0.4); background: rgba(255,59,48,0.06); }
+        .choice-btn.green { border-color: rgba(52,199,89,0.4); background: rgba(52,199,89,0.06); }
+        .choice-title { font-size:18px; font-weight:700; margin-bottom:4px; }
+        .choice-btn.red .choice-title { color: var(--red); }
+        .choice-btn.green .choice-title { color: var(--green); }
+        .choice-sub { font-size:12px; color:var(--text2); }
+
+        /* Guidance box */
+        .guidance-box {
+            padding: 16px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 8px;
+        }
+        .guidance-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+        .guidance-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .guidance-list li {
+            font-size: 13px;
+            color: var(--text2);
+            padding: 8px 10px;
+            background: var(--card);
+            border-radius: 6px;
+        }
+        .guidance-gut {
+            margin-top: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+            font-style: italic;
+        }
+
+        /* Pause page */
+        .pause-box {
+            padding: 16px;
+            background: rgba(0,122,255,0.08);
+            border: 1px solid rgba(0,122,255,0.2);
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .pause-text {
+            font-size: 15px;
+            color: var(--text);
+            font-weight: 500;
+            text-align: center;
+        }
+        .pause-list { display: flex; flex-direction: column; gap: 8px; }
+        .pause-item {
+            padding: 14px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+        .pause-item-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+        .pause-item-sub { font-size: 13px; color: var(--text2); }
+        .pause-item-link { 
+            font-size: 12px; 
+            color: var(--blue); 
+            margin-top: 6px; 
+            cursor: pointer;
+        }
+        .pause-item-link:active { opacity: 0.7; }
+
+        /* Action items */
+        .action-list { display:flex; flex-direction:column; gap:6px; }
+        .action-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px;
+            background: rgba(255,59,48,0.06);
+            border: 1px solid rgba(255,59,48,0.12);
+            border-radius: 10px;
+        }
+        .action-num {
+            width:22px; height:22px;
+            margin-top: 2px;
+            background: var(--red);
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            display:flex; align-items:center; justify-content:center;
+            flex-shrink: 0;
+        }
+        .action-text { font-size:14px; line-height:1.4; flex:1; }
+        .action-text strong { font-weight:600; }
+        .action-sub { color:var(--text3); font-size:12px; display:block; margin-top:2px; }
+        .info-btn {
+            width:24px; height:24px;
+            background: rgba(0,0,0,0.05);
+            border: none;
+            border-radius: 50%;
+            color: var(--text3);
+            font-size: 12px;
+            font-family: Georgia, serif;
+            font-style: italic;
+            cursor: pointer;
+            display:flex; align-items:center; justify-content:center;
+            flex-shrink:0;
+        }
+        .action-btns {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        .fluid-link-btn {
+            background: #fff;
+            border: 1px solid var(--border);
+            color: var(--blue);
+            font-size: 11px;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .fluid-link-btn.caution {
+            color: var(--orange);
+            border-color: rgba(255,149,0,0.3);
+        }
+
+        /* Simple list */
+        .simple-list { display:flex; flex-direction:column; gap:2px; }
+        .simple-list-item {
+            padding: 14px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+        .simple-list-item-title { font-size: 15px; font-weight: 600; }
+        .simple-list-item-sub { font-size: 12px; color: var(--text3); margin-top: 2px; }
+
+        /* Cause cards */
+        .cause-card {
+            padding: 0;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+        .cause-header {
+            padding: 14px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cause-header:active { background: var(--card); }
+        .cause-arrow { color: var(--text3); font-size: 12px; transition: transform 0.2s; }
+        .cause-card.open .cause-arrow { transform: rotate(180deg); }
+        .cause-body {
+            display: none;
+            padding: 12px 14px 14px 14px;
+            border-top: 1px solid var(--border);
+        }
+        .cause-card.open .cause-body { display: block; }
+        .cause-title { font-size: 15px; font-weight: 600; }
+        .cause-clues { font-size: 13px; color: var(--text2); line-height: 1.5; }
+        .cause-clue-item { margin-bottom: 4px; }
+        .cause-clue-item:last-child { margin-bottom: 0; }
+        .clickable-clue { 
+            color: var(--blue); 
+            cursor: pointer; 
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .clickable-clue:active { opacity: 0.7; }
+        .info-badge {
+            font-size: 10px;
+            font-family: Georgia, serif;
+            font-style: italic;
+            color: #fff;
+            background: var(--blue);
+            padding: 2px 6px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .future-link {
+            color: var(--text3);
+        }
+        .coming-badge {
+            font-size: 9px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--text3);
+            margin-left: 6px;
+        }
+        .cause-link {
+            font-size: 12px;
+            color: var(--blue);
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .cause-link:active { opacity: 0.7; }
+        .cause-body .cause-link { margin-top: 12px; }
+
+        /* Overview cards */
+        .overview-card-static {
+            padding: 14px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 8px;
+        }
+        .overview-title { font-size: 16px; font-weight: 600; }
+        .overview-items { font-size: 13px; color: var(--text2); margin-top: 4px; }
+
+        /* Pearl box */
+        .pearl-box {
+            display: flex;
+            gap: 12px;
+            padding: 14px;
+            background: rgba(255,204,0,0.1);
+            border: 1px solid rgba(255,204,0,0.25);
+            border-radius: 10px;
+            margin-top: 16px;
+        }
+        .pearl-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .pearl-content { flex: 1; }
+        .pearl-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .pearl-text {
+            font-size: 13px;
+            color: var(--text2);
+            line-height: 1.5;
+        }
+
+        /* Progress indicator */
+        .progress-bar {
+            display: flex;
+            gap: 4px;
+            padding: 0 16px 12px;
+            background-color: #f5f5f7;
+        }
+        .progress-dot {
+            flex: 1;
+            height: 3px;
+            background: var(--border);
+            border-radius: 2px;
+        }
+        .progress-dot.active { background: var(--blue); }
+        .progress-dot.done { background: var(--green); }
+
+        /* Bottom nav */
+        .bottom-nav {
+            display: flex;
+            gap: 8px;
+            padding: 10px 16px;
+            padding-bottom: calc(10px + env(safe-area-inset-bottom));
+            border-top: 1px solid var(--border);
+            background-color: #f5f5f7;
+            flex-shrink: 0;
+        }
+        .nav-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .nav-btn:active { transform:scale(0.97); }
+        .nav-btn.secondary { background:#fff; border:1px solid var(--border); color:var(--text2); }
+        .nav-btn.primary { background:var(--blue); color:#fff; }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.active { display:flex; }
+        .modal {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        .modal-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+        .modal-title { font-size:16px; font-weight:600; }
+        .modal-close {
+            width:28px; height:28px;
+            background: var(--card);
+            border: none;
+            border-radius: 50%;
+            color: var(--text2);
+            font-size: 16px;
+            cursor: pointer;
+            display:flex; align-items:center; justify-content:center;
+        }
+        .modal-body { font-size:13px; line-height:1.5; color:var(--text2); }
+        
+        .fluid-table { width:100%; border-collapse:collapse; font-size:12px; }
+        .fluid-table th { text-align:left; padding:8px 4px; font-size:10px; color:var(--text3); text-transform:uppercase; border-bottom:1px solid var(--border); }
+        .fluid-table td { padding:10px 4px; border-bottom:1px solid var(--border); color:var(--text2); }
+        .fluid-table tr:last-child td { border-bottom:none; }
+        .fluid-table .name { font-weight:600; color:var(--text); }
+        .fluid-table .warn { color:var(--orange); }
+        .fluid-row { cursor:pointer; }
+        .fluid-row:active { background:var(--card); }
+
+        /* ECG Modal */
+        .ecg-selector { margin-bottom: 16px; }
+        .ecg-selector-title { font-size: 12px; color: var(--text3); margin-bottom: 8px; }
+        .ecg-selector-btns { display: flex; gap: 6px; }
+        .ecg-btn {
+            flex: 1;
+            padding: 8px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 12px;
+            color: var(--text2);
+            cursor: pointer;
+        }
+        .ecg-btn.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+        .ecg-section { margin-bottom: 16px; }
+        .ecg-section-title { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.3px; }
+        .ecg-criteria { background: rgba(0,122,255,0.06); padding: 12px; border-radius: 8px; font-size: 13px; }
+        .ecg-notes { margin-top: 10px; }
+        .ecg-item { margin-top: 6px; }
+        .ecg-item-sub { font-size: 11px; color: var(--text3); margin-top: 2px; margin-left: 12px; }
+        .ecg-note { font-size: 12px; color: var(--text2); margin-bottom: 4px; }
+        .ecg-note.highlight { color: var(--red); font-weight: 500; }
+        .ecg-equiv { display: flex; flex-direction: column; gap: 10px; }
+        .ecg-equiv-item { background: var(--card); padding: 10px; border-radius: 8px; font-size: 12px; }
+        .ecg-equiv-item strong { display: block; color: var(--text); margin-bottom: 2px; }
+        .ecg-equiv-item span { display: block; color: var(--text2); }
+        .ecg-meaning { font-style: italic; margin-top: 4px; }
+
+        /* AF Modal */
+        .af-warning { 
+            background: rgba(255,149,0,0.1); 
+            border: 1px solid rgba(255,149,0,0.3);
+            padding: 12px; 
+            border-radius: 8px; 
+            margin-bottom: 16px;
+            font-size: 13px;
+            color: var(--text);
+        }
+        .af-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+        .af-table th, .af-table td { padding: 8px 6px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); }
+        .af-table th { font-size: 10px; font-weight: 600; }
+        .af-question { font-weight: 500; color: var(--text); width: 30%; }
+        .af-col-bystander { background: rgba(52,199,89,0.06); color: var(--text2); }
+        .af-col-cause { background: rgba(255,59,48,0.06); color: var(--text2); }
+        .af-note { font-size: 10px; color: var(--text3); }
+
+        /* Caution modal */
+        .caution-list { display: flex; flex-direction: column; gap: 10px; }
+        .caution-item {
+            padding: 12px;
+            background: var(--card);
+            border-radius: 8px;
+        }
+        .caution-item-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+        .caution-item-sub { font-size: 12px; color: var(--text2); line-height: 1.4; }
+
+        /* ECG Dropdown sections */
+        .ecg-dropdown {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+        .ecg-dropdown-header {
+            padding: 12px;
+            background: var(--card);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .ecg-dropdown-header:active { background: rgba(0,0,0,0.05); }
+        .ecg-dropdown-arrow { color: var(--text3); transition: transform 0.2s; }
+        .ecg-dropdown.open .ecg-dropdown-arrow { transform: rotate(180deg); }
+        .ecg-dropdown-content {
+            display: none;
+            padding: 12px;
+            border-top: 1px solid var(--border);
+        }
+        .ecg-dropdown.open .ecg-dropdown-content { display: block; }
+
+        /* BP Modal */
+        .bp-section { margin-bottom: 16px; }
+        .bp-section-title { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.3px; }
+        .bp-text { font-size: 13px; color: var(--text2); line-height: 1.5; }
+        .bp-list { display: flex; flex-direction: column; gap: 8px; }
+        .bp-item { font-size: 12px; color: var(--text2); padding: 8px; background: var(--card); border-radius: 6px; }
+        .bp-pearl {
+            margin-top: 16px;
+            padding: 12px;
+            background: rgba(255,204,0,0.1);
+            border: 1px solid rgba(255,204,0,0.25);
+            border-radius: 8px;
+            font-size: 12px;
+            color: var(--text2);
+            line-height: 1.5;
+        }
+
+        /* Sepsis Modal */
+        .sepsis-section { margin-bottom: 12px; }
+        .sepsis-title { font-size: 14px; font-weight: 600; color: var(--text); }
+        .sepsis-def {
+            padding: 12px;
+            background: var(--card);
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .sepsis-def-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+        .sepsis-def-text { font-size: 12px; color: var(--text2); line-height: 1.4; }
+        .sepsis-def-detail { font-size: 11px; color: var(--text3); margin-top: 4px; }
+        .sepsis-qsofa { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 4px; 
+            margin-top: 8px;
+            padding-left: 12px;
+        }
+        .sepsis-qsofa-item { font-size: 12px; color: var(--text); }
+        .sepsis-note { font-size: 11px; color: var(--text3); font-style: italic; margin-top: 8px; }
+        .sepsis-mortality { 
+            font-size: 12px; 
+            color: var(--red); 
+            font-weight: 500; 
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <!-- HOME -->
+        <div class="page active" id="page-home">
+            <div class="content">
+                <div class="home-header">
+                    <div class="home-logo">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+                            <path d="M12 21s-8-7.5-8-12.5c0-3 2.5-5.5 5.5-5.5 1.54 0 2.5 1 2.5 1s.96-1 2.5-1c3 0 5.5 2.5 5.5 5.5 0 5-8 12.5-8 12.5z"/>
+                        </svg>
+                    </div>
+                    <h1 class="home-title">MET Call</h1>
+                </div>
+                <div class="trigger-list">
+                    <div class="trigger-card" onclick="goToPage('page-shock')">
+                        <div class="trigger-icon"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></div>
+                        <span class="trigger-name">Hypotension</span>
+                        <span class="trigger-arrow">›</span>
+                    </div>
+                    <div class="trigger-card coming-soon">
+                        <div class="trigger-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg></div>
+                        <span class="trigger-name">Hypoxia</span>
+                        <span class="soon-badge">Soon</span>
+                    </div>
+                    <div class="trigger-card coming-soon">
+                        <div class="trigger-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8l7-5 7 5"/></svg></div>
+                        <span class="trigger-name">Tachypnoea</span>
+                        <span class="soon-badge">Soon</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHOCKED? -->
+        <div class="page" id="page-shock">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goHome()">‹ Back</button>
+                    <span class="header-title">Hypotension</span>
+                </div>
+            </div>
+            <div class="content">
+                <div class="page-title">Is the patient shocked?</div>
+                
+                <div class="guidance-box">
+                    <div class="guidance-title">Look for signs of inadequate perfusion</div>
+                    <ul class="guidance-list">
+                        <li>Patient symptomatic</li>
+                        <li>Altered mental state</li>
+                        <li>Cool peripheries / mottled skin</li>
+                        <li>Cap refill >3s</li>
+                        <li>Oliguria</li>
+                        <li>Lactate >2</li>
+                    </ul>
+                </div>
+
+                <div class="choice-container">
+                    <div class="choice-btn red" onclick="setShocked(true)">
+                        <div class="choice-title">Shocked</div>
+                        <div class="choice-sub">Signs present</div>
+                    </div>
+                    <div class="choice-btn green" onclick="setShocked(false)">
+                        <div class="choice-title">Not Shocked</div>
+                        <div class="choice-sub">Perfusing OK</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOT SHOCKED -->
+        <div class="page" id="page-not-shocked">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goToPage('page-shock')">‹ Back</button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="page-title">Pause and Assess</div>
+
+                <div class="pause-list">
+                    <div class="pause-item">
+                        <div class="pause-item-title">Establish baseline</div>
+                        <div class="pause-item-sub">What is this patient's usual BP?</div>
+                    </div>
+                    <div class="pause-item">
+                        <div class="pause-item-title">Review the trend</div>
+                        <div class="pause-item-sub">Is BP falling, stable, or rising? A single reading may not be actionable.</div>
+                    </div>
+                    <div class="pause-item">
+                        <div class="pause-item-title">Check the measurement</div>
+                        <div class="pause-item-sub">Cuff size, arm position, artefact.</div>
+                        <div class="pause-item-link" onclick="showBPInfo()">How automated BP machines work ›</div>
+                    </div>
+                    <div class="pause-item">
+                        <div class="pause-item-title">Review medications</div>
+                        <div class="pause-item-sub">New or recent antihypertensives, sedatives, opioids?</div>
+                    </div>
+                </div>
+
+                <div class="pearl-box">
+                    <div class="pearl-icon">💡</div>
+                    <div class="pearl-content">
+                        <div class="pearl-title">Avoid reflexive fluid boluses</div>
+                        <div class="pearl-text">Not all hypotension needs fluid. Consider the clinical context — a well-perfused patient with low BP may need observation, not intervention.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-shock')">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-ix')">Continue to assessment ›</button>
+            </div>
+        </div>
+
+        <!-- IMMEDIATE ACTIONS -->
+        <div class="page" id="page-actions">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goToPage('page-shock')">‹ Back</button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="page-title">Immediate Actions</div>
+                <div class="action-list">
+                    <div class="action-item">
+                        <span class="action-num">1</span>
+                        <div class="action-text"><strong>Lie flat</strong>
+                            <span class="action-sub">Unless concomitant respiratory compromise. No evidence for Trendelenburg.</span>
+                        </div>
+                    </div>
+                    <div class="action-item">
+                        <span class="action-num">2</span>
+                        <div class="action-text">
+                            <strong>Large bore IV access</strong>
+                            <span class="action-sub">Consider IO if access difficult and patient in extremis</span>
+                            <div class="action-btns">
+                                <button class="fluid-link-btn" onclick="event.stopPropagation();showCannula()">Does size matter?</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-item">
+                        <span class="action-num">3</span>
+                        <span class="action-text"><strong>Send blood gas</strong></span>
+                    </div>
+                    <div class="action-item">
+                        <span class="action-num">4</span>
+                        <div class="action-text">
+                            <strong>Consider fluid bolus</strong>
+                            <span class="action-sub">Balanced crystalloid is a reasonable default. Large trials show similar mortality; pooled Bayesian analyses suggest a high probability of a small benefit. Avoid in traumatic brain injury.</span>
+                            <div class="action-btns">
+                                <button class="fluid-link-btn" onclick="event.stopPropagation();showFluids()">Compare fluids</button>
+                                <button class="fluid-link-btn caution" onclick="event.stopPropagation();showFluidCaution()">When NOT to give fluid</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-item">
+                        <span class="action-num">5</span>
+                        <div class="action-text"><strong>Chart review</strong>
+                            <span class="action-sub">Hold/review antihypertensives</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-shock')">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-ix')">Next ›</button>
+            </div>
+        </div>
+
+        <!-- INVESTIGATIONS -->
+        <div class="page" id="page-ix">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goBack()">‹ Back</button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="page-title">Consider requesting investigations whilst you start assessment</div>
+                <div class="simple-list">
+                    <div class="simple-list-item">
+                        <div class="simple-list-item-title">ECG</div>
+                    </div>
+                    <div class="simple-list-item">
+                        <div class="simple-list-item-title">Mobile CXR</div>
+                    </div>
+                    <div class="simple-list-item">
+                        <div class="simple-list-item-title">Bloods</div>
+                        <div class="simple-list-item-sub">Including group & hold, coags</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goBack()">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-overview')">Assess causes ›</button>
+            </div>
+        </div>
+
+        <!-- OVERVIEW -->
+        <div class="page" id="page-overview">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goToPage('page-ix')">‹ Back</button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="page-title">Causes of Shock</div>
+                
+                <div class="overview-card-static">
+                    <div class="overview-title">Distributive</div>
+                </div>
+
+                <div class="overview-card-static">
+                    <div class="overview-title">Hypovolaemic</div>
+                </div>
+
+                <div class="overview-card-static">
+                    <div class="overview-title">Cardiogenic</div>
+                </div>
+
+                <div class="overview-card-static">
+                    <div class="overview-title">Obstructive</div>
+                </div>
+
+                <div class="overview-card-static">
+                    <div class="overview-title">Endocrine</div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-ix')">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-dist')">Step through ›</button>
+            </div>
+        </div>
+
+        <!-- HYPOVOLAEMIC -->
+        <div class="page" id="page-hypo">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goToPage('page-dist')">‹ Back</button>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-dot done"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+            </div>
+            <div class="content">
+                <div class="page-title">Hypovolaemic</div>
+
+                <div class="section-title">Consider</div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">External blood loss</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">Visible bleeding, surgical drains</div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Occult blood loss</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">
+                            <div class="cause-clue-item"><strong>GI bleed</strong> — haematemesis, melaena, urea elevated out of proportion to creatinine</div>
+                            <div class="cause-clue-item"><strong>Retroperitoneal</strong> — post-procedure (renal/spinal/vascular), pelvic fracture, AAA, anticoagulation, pancreatitis</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">GI losses</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">Vomiting, diarrhoea, high-output stoma</div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Renal losses</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">Polyuria, over-diuresis, osmotic diuresis</div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Third spacing</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">Burns, pancreatitis, post-operative redistribution</div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Poor intake</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">Significantly decreased enteral intake</div>
+                    </div>
+                </div>
+
+                <div class="pearl-box">
+                    <div class="pearl-icon">💡</div>
+                    <div class="pearl-content">
+                        <div class="pearl-title">Hb in acute bleeding</div>
+                        <div class="pearl-text">A normal Hb does not exclude significant haemorrhage. In acute blood loss, Hb remains stable until interstitial fluid equilibrates — this takes hours. Trust clinical signs over initial Hb.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-dist')">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-card')">Next: Cardiogenic ›</button>
+            </div>
+        </div>
+
+        <!-- OBSTRUCTIVE -->
+        <div class="page" id="page-obst">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goToPage('page-card')">‹ Back</button>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-dot done"></div>
+                <div class="progress-dot done"></div>
+                <div class="progress-dot done"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+            </div>
+            <div class="content">
+                <div class="page-title">Obstructive</div>
+
+                <div class="section-title">Consider</div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Tension pneumothorax</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">
+                            <div class="cause-clue-item">Unilateral ↓ air entry, tracheal deviation (late)</div>
+                            <div class="cause-clue-item">Recent: central line, thoracentesis, lung biopsy, ventilation</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Pulmonary embolism</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">
+                            <div class="cause-clue-item">Sudden dyspnoea, hypoxia out of proportion to CXR findings</div>
+                            <div class="cause-clue-item">DVT signs — leg swelling, calf tenderness</div>
+                            <div class="cause-clue-item">ECG: S1Q3T3, RBBB, TWI V1-4</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Cardiac tamponade</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">
+                            <div class="cause-clue-item">Elevated JVP, muffled heart sounds, pulsus paradoxus</div>
+                            <div class="cause-clue-item">Recent: cardiac surgery, pericarditis, malignancy</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Abdominal compartment syndrome</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">Tense distended abdomen, post-laparotomy, massive resuscitation, severe pancreatitis</div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Dynamic LVOT obstruction</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">
+                            <div class="cause-clue-item">HOCM (may be undiagnosed) — worsens with hypovolaemia and inotropes</div>
+                            <div class="cause-clue-item">Clue: hypotension not responding to fluid/inotropes, systolic murmur</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pearl-box">
+                    <div class="pearl-icon">💡</div>
+                    <div class="pearl-content">
+                        <div class="pearl-title">PE in inpatients</div>
+                        <div class="pearl-text">Wells and Geneva scores are not validated for inpatients. D-dimer has high false positive rate. Use clinical gestalt: has patient been receiving DVT prophylaxis? Recent surgery, immobility, malignancy, previous VTE? If high suspicion, proceed to CTPA.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-card')">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-endo')">Next: Endocrine ›</button>
+            </div>
+        </div>
+
+        <!-- DISTRIBUTIVE -->
+        <div class="page" id="page-dist">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goToPage('page-overview')">‹ Back</button>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+            </div>
+            <div class="content">
+                <div class="page-title">Distributive</div>
+
+                <div class="section-title">Consider</div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Sepsis <span class="info-badge" onclick="event.stopPropagation();showSepsisInfo()">i</span></div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">
+                            <div class="cause-clue-item">Fever or hypothermia, known/suspected infection</div>
+                            <div class="cause-clue-item">Source: respiratory, urinary, abdominal, line-related, skin/soft tissue, bacteraemia/IE</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Anaphylaxis</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">
+                            <div class="cause-clue-item">Recent drug, transfusion, contrast, food</div>
+                            <div class="cause-clue-item">Urticaria, angioedema, wheeze, stridor</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Neurogenic shock</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">High spinal cord injury (above T6) — hypotension with bradycardia</div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Liver failure</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">Cirrhosis causes profound vasodilation — splanchnic pooling, low SVR</div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Drug-induced / Epidural</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">
+                            <div class="cause-clue-item">Epidural in situ — check block level</div>
+                            <div class="cause-clue-item">New vasodilators, sedatives, anaesthetic agents</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-overview')">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-hypo')">Next: Hypovolaemic ›</button>
+            </div>
+        </div>
+
+        <!-- CARDIOGENIC -->
+        <div class="page" id="page-card">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goToPage('page-hypo')">‹ Back</button>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-dot done"></div>
+                <div class="progress-dot done"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+            </div>
+            <div class="content">
+                <div class="page-title">Cardiogenic</div>
+
+                <div class="section-title">Consider</div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Acute coronary syndrome</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">
+                            <div class="cause-clue-item">Chest pain, dyspnoea</div>
+                        </div>
+                        <div class="cause-link" onclick="event.stopPropagation();showECGInfo()">ECG signs of occlusive myocardial infarction ›</div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Arrhythmia</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">
+                            <div class="cause-clue-item future-link">Tachyarrhythmia — AF, SVT, VT <span class="coming-badge">coming soon</span></div>
+                            <div class="cause-clue-item future-link">Bradyarrhythmia — complete heart block, sick sinus <span class="coming-badge">coming soon</span></div>
+                        </div>
+                        <div class="cause-link" onclick="event.stopPropagation();showAFInfo()">Is AF really causing the instability? ›</div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Acute valvular dysfunction</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">New murmur, recent MI (papillary rupture), endocarditis</div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Decompensated cardiomyopathy</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">Known heart failure, fluid overload, non-compliance</div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Takotsubo cardiomyopathy</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">Recent emotional/physical stress, post-operative, mimics ACS on ECG</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-hypo')">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-obst')">Next: Obstructive ›</button>
+            </div>
+        </div>
+
+        <!-- ENDOCRINE -->
+        <div class="page" id="page-endo">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goToPage('page-obst')">‹ Back</button>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-dot done"></div>
+                <div class="progress-dot done"></div>
+                <div class="progress-dot done"></div>
+                <div class="progress-dot done"></div>
+                <div class="progress-dot active"></div>
+            </div>
+            <div class="content">
+                <div class="page-title">Endocrine</div>
+
+                <div class="section-title">Consider</div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Adrenal insufficiency</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">
+                            <div class="cause-clue-item">Chronic steroid use — missed doses?</div>
+                            <div class="cause-clue-item">Known Addison's, recent pituitary surgery</div>
+                            <div class="cause-clue-item">Hyperkalaemia + hyponatraemia</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Myxoedema crisis</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">
+                            <div class="cause-clue-item">Hypothermia, bradycardia, altered mental state</div>
+                            <div class="cause-clue-item">Known hypothyroidism, recent thyroid surgery</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-obst')">‹ Back</button>
+                <button class="nav-btn primary" onclick="goHome()">Done ✓</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modal" onclick="closeModalFully()">
+        <div class="modal" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <span class="modal-title" id="modal-title"></span>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        let isShocked = false;
+
+        function goToPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function goHome() {
+            isShocked = false;
+            goToPage('page-home');
+        }
+
+        function goBack() {
+            goToPage(isShocked ? 'page-actions' : 'page-not-shocked');
+        }
+
+        function setShocked(shocked) {
+            isShocked = shocked;
+            goToPage(shocked ? 'page-actions' : 'page-not-shocked');
+        }
+
+        let modalHistory = [];
+
+        function showModal(title, body) {
+            // Save current modal state if one is open
+            const currentTitle = document.getElementById('modal-title').textContent;
+            const currentBody = document.getElementById('modal-body').innerHTML;
+            if (document.getElementById('modal').classList.contains('active') && currentTitle) {
+                modalHistory.push({ title: currentTitle, body: currentBody });
+            }
+            
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-body').innerHTML = body;
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function closeModal() {
+            if (modalHistory.length > 0) {
+                const prev = modalHistory.pop();
+                document.getElementById('modal-title').textContent = prev.title;
+                document.getElementById('modal-body').innerHTML = prev.body;
+            } else {
+                document.getElementById('modal').classList.remove('active');
+            }
+        }
+
+        function closeModalFully() {
+            modalHistory = [];
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        function showCannula() {
+            showModal('Cannula Flow Rates', `
+                <table class="fluid-table">
+                    <tr><th>Gauge</th><th>1L bolus</th></tr>
+                    <tr><td class="name">14G (orange)</td><td>~4 min</td></tr>
+                    <tr><td class="name">16G (grey)</td><td>~6 min</td></tr>
+                    <tr><td class="name">18G (green)</td><td>~10 min</td></tr>
+                    <tr><td class="name">20G (pink)</td><td>~17 min</td></tr>
+                    <tr><td class="name">22G (blue)</td><td>~30 min</td></tr>
+                </table>
+                <p style="font-size:11px;color:var(--text3);margin-top:12px;">Under gravity. Pressure bag speeds this up.</p>
+            `);
+        }
+
+        function showFluidCaution() {
+            const html = `
+                <div class="caution-list">
+                    <div class="caution-item">
+                        <div class="caution-item-title">Cardiogenic shock with pulmonary oedema</div>
+                        <div class="caution-item-sub">Fluid will worsen pulmonary congestion and hypoxia. These patients need afterload reduction ± inotropes, not volume.</div>
+                    </div>
+                    <div class="caution-item">
+                        <div class="caution-item-title">RV failure</div>
+                        <div class="caution-item-sub">Overdistension of the RV can worsen cardiac output via ventricular interdependence. Small fluid challenges with close monitoring may be appropriate.</div>
+                    </div>
+                    <div class="caution-item">
+                        <div class="caution-item-title">Already had significant fluid resuscitation</div>
+                        <div class="caution-item-sub">If patient has already received substantial volume and is not responding, further fluid is unlikely to help and may cause harm. Consider other causes and vasopressors.</div>
+                    </div>
+                </div>
+            `;
+            showModal('When to Be Cautious About a Fluid Bolus', html);
+        }
+
+        function showBPInfo() {
+            const html = `
+                <div class="bp-section">
+                    <div class="bp-section-title">How oscillometric BP works</div>
+                    <div class="bp-text">Automated machines detect oscillations in cuff pressure as it deflates. The point of <strong>maximal oscillation = MAP</strong> (most accurate). SBP and DBP are <strong>derived/calculated</strong> from this — less reliable.</div>
+                </div>
+
+                <div class="bp-section">
+                    <div class="bp-section-title">When readings are unreliable</div>
+                    <div class="bp-list">
+                        <div class="bp-item"><strong>Arrhythmias</strong> — especially AF. Irregular R-R intervals cause variable oscillations.</div>
+                        <div class="bp-item"><strong>Very low BP</strong> — weak oscillations may not be detected.</div>
+                        <div class="bp-item"><strong>Movement/shivering</strong> — creates artefact.</div>
+                        <div class="bp-item"><strong>Wrong cuff size</strong> — too small overestimates, too large underestimates.</div>
+                        <div class="bp-item"><strong>Calcified/stiff vessels</strong> — may overestimate (pseudo-hypertension).</div>
+                        <div class="bp-item"><strong>Extreme HR</strong> — very fast or slow rates affect accuracy.</div>
+                    </div>
+                </div>
+
+                <div class="bp-pearl">
+                    <strong>Clinical pearl:</strong> If the BP reading doesn't match the clinical picture, check it manually. A patient who "looks well" with a BP of 70 systolic may have a measurement error.
+                </div>
+            `;
+            showModal('Automated BP Machines', html);
+        }
+
+        function showSepsisInfo() {
+            const html = `
+                <div class="sepsis-section">
+                    <div class="sepsis-title">Sepsis-3 Definitions</div>
+                </div>
+
+                <div class="sepsis-def">
+                    <div class="sepsis-def-title">Sepsis</div>
+                    <div class="sepsis-def-text">Life-threatening organ dysfunction due to dysregulated host response to infection</div>
+                </div>
+
+                <div class="sepsis-def">
+                    <div class="sepsis-def-title">qSOFA (Quick SOFA)</div>
+                    <div class="sepsis-def-text">Sepsis screening if ≥2 present:</div>
+                    <div class="sepsis-qsofa">
+                        <div class="sepsis-qsofa-item">SBP ≤100 mmHg</div>
+                        <div class="sepsis-qsofa-item">GCS <15</div>
+                        <div class="sepsis-qsofa-item">RR ≥22</div>
+                    </div>
+                    <div class="sepsis-note">Note: qSOFA is more a mortality predictor than diagnostic tool</div>
+                </div>
+
+                <div class="sepsis-def">
+                    <div class="sepsis-def-title">Septic Shock</div>
+                    <div class="sepsis-def-text">Sepsis with, despite adequate fluid resuscitation:</div>
+                    <div class="sepsis-qsofa">
+                        <div class="sepsis-qsofa-item">Vasopressors required to maintain MAP ≥65</div>
+                        <div class="sepsis-qsofa-item"><strong>AND</strong> Lactate >2 mmol/L</div>
+                    </div>
+                    <div class="sepsis-mortality">If both criteria present: mortality >40%</div>
+                </div>
+            `;
+            showModal('Sepsis Definitions', html);
+        }
+
+        function showFluids() {
+            showModal('Compare Fluids', `
+                <table class="fluid-table">
+                    <tr><th>Fluid</th><th>Na⁺</th><th>K⁺</th><th>Cl⁻</th><th>Ca²⁺</th></tr>
+                    <tr class="fluid-row" onclick="showModal('0.9% NaCl','High Cl⁻ (154) → hyperchloraemic acidosis with large volumes.')"><td class="name">0.9% NaCl</td><td>154</td><td>0</td><td class="warn">154</td><td>0</td></tr>
+                    <tr class="fluid-row" onclick="showModal('CSL','K⁺ 5 — avoid in hyperkalaemia. Ca²⁺ 2 — caution with citrated blood. Lactate 29 — caution in liver failure.')"><td class="name">CSL</td><td>131</td><td class="warn">5</td><td>111</td><td>2</td></tr>
+                    <tr class="fluid-row" onclick="showModal('Albumin 5%','Contraindicated in TBI.')"><td class="name">Albumin 5%</td><td>140</td><td>0</td><td>128</td><td>0</td></tr>
+                    <tr class="fluid-row" onclick="showModal('Albumin 20%','Contraindicated in TBI.')"><td class="name">Albumin 20%</td><td>48</td><td>0</td><td>—</td><td>0</td></tr>
+                </table>
+                <p style="font-size:12px;color:var(--text2);margin-top:12px;font-weight:500;">⚠ Albumin contraindicated in TBI</p>
+                <p style="font-size:11px;color:var(--text3);margin-top:8px;text-align:center;">Tap row for details</p>
+            `);
+        }
+
+        function showECGInfo() {
+            const html = `
+                <div class="ecg-dropdown" onclick="toggleDropdown(this)">
+                    <div class="ecg-dropdown-header">
+                        <span>Classic STEMI criteria</span>
+                        <span class="ecg-dropdown-arrow">▼</span>
+                    </div>
+                    <div class="ecg-dropdown-content">
+                        <div class="ecg-selector">
+                            <div class="ecg-selector-title">Select patient:</div>
+                            <div class="ecg-selector-btns">
+                                <button class="ecg-btn active" onclick="event.stopPropagation();updateSTEMI('m-young')">Male <40</button>
+                                <button class="ecg-btn" onclick="event.stopPropagation();updateSTEMI('m-old')">Male ≥40</button>
+                                <button class="ecg-btn" onclick="event.stopPropagation();updateSTEMI('f')">Female</button>
+                            </div>
+                        </div>
+                        <div class="ecg-criteria" id="stemi-criteria">
+                            <div>≥2 contiguous leads with:</div>
+                            <div class="ecg-item"><strong>V2-V3:</strong> ≥2.5 mm STE</div>
+                            <div class="ecg-item"><strong>All other leads:</strong> ≥1 mm STE</div>
+                            <div class="ecg-item ecg-item-sub">(including inferior II, III, aVF and lateral I, aVL, V5, V6)</div>
+                            <div class="ecg-item"><strong>Posterior (V7-9):</strong> ≥0.5 mm STE</div>
+                        </div>
+                        <div class="ecg-notes">
+                            <div class="ecg-note">• Measure J point vs TP segment (or PR if unclear)</div>
+                            <div class="ecg-note">• New J-point elevation ≥1 mm from prior = ischaemic</div>
+                            <div class="ecg-note highlight">• 20% of STEMI have initially normal ECG — repeat, repeat, repeat!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ecg-dropdown" onclick="toggleDropdown(this)">
+                    <div class="ecg-dropdown-header">
+                        <span>STEMI equivalents</span>
+                        <span class="ecg-dropdown-arrow">▼</span>
+                    </div>
+                    <div class="ecg-dropdown-content">
+                        <div class="ecg-equiv">
+                            <div class="ecg-equiv-item">
+                                <strong>Wellens</strong>
+                                <span>V2/3 deep TWI or biphasic T waves</span>
+                                <span class="ecg-meaning">→ Critical LAD stenosis (recent resolved chest pain)</span>
+                            </div>
+                            <div class="ecg-equiv-item">
+                                <strong>De Winter</strong>
+                                <span>Hyperacute T waves + upsloping STD >1mm, aVR 0.5-1mm STE</span>
+                                <span class="ecg-meaning">→ Anterior STEMI equivalent</span>
+                            </div>
+                            <div class="ecg-equiv-item">
+                                <strong>aVR STE + lateral STD</strong>
+                                <span class="ecg-meaning">→ Global subendocardial ischaemia (left main, TVD, proximal LAD)</span>
+                            </div>
+                            <div class="ecg-equiv-item">
+                                <strong>STE I, aVL, V2 + STD III</strong>
+                                <span class="ecg-meaning">→ High lateral MI</span>
+                            </div>
+                            <div class="ecg-equiv-item">
+                                <strong>V1-3 STD ≥0.5mm</strong>
+                                <span class="ecg-meaning">→ Posterior MI — do posterior ECG</span>
+                            </div>
+                            <div class="ecg-equiv-item">
+                                <strong>V1 STE ± V2 STD</strong>
+                                <span class="ecg-meaning">→ Right sided MI — do right sided ECG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ecg-dropdown" onclick="toggleDropdown(this)">
+                    <div class="ecg-dropdown-header">
+                        <span>Sgarbossa (LBBB / Paced)</span>
+                        <span class="ecg-dropdown-arrow">▼</span>
+                    </div>
+                    <div class="ecg-dropdown-content">
+                        <div class="ecg-note">• ≥1 lead with ≥1 mm concordant STE</div>
+                        <div class="ecg-note">• ≥1 lead V1-V3 with ≥1 mm concordant STD</div>
+                        <div class="ecg-note">• ≥1 lead with ≥5 mm discordant STE</div>
+                    </div>
+                </div>
+            `;
+            showModal('ECG in ACS', html);
+        }
+
+        function toggleDropdown(el) {
+            if (event.target.classList.contains('ecg-btn')) return;
+            el.classList.toggle('open');
+        }
+
+        function updateSTEMI(type) {
+            event.stopPropagation();
+            document.querySelectorAll('.ecg-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            let criteria = '';
+            if (type === 'm-young') {
+                criteria = `
+                    <div>≥2 contiguous leads with:</div>
+                    <div class="ecg-item"><strong>V2-V3:</strong> ≥2.5 mm STE</div>
+                    <div class="ecg-item"><strong>All other leads:</strong> ≥1 mm STE</div>
+                    <div class="ecg-item ecg-item-sub">(including inferior II, III, aVF and lateral I, aVL, V5, V6)</div>
+                    <div class="ecg-item"><strong>Posterior (V7-9):</strong> ≥0.5 mm STE</div>
+                `;
+            } else if (type === 'm-old') {
+                criteria = `
+                    <div>≥2 contiguous leads with:</div>
+                    <div class="ecg-item"><strong>V2-V3:</strong> ≥2 mm STE</div>
+                    <div class="ecg-item"><strong>All other leads:</strong> ≥1 mm STE</div>
+                    <div class="ecg-item ecg-item-sub">(including inferior II, III, aVF and lateral I, aVL, V5, V6)</div>
+                    <div class="ecg-item"><strong>Posterior (V7-9):</strong> ≥1 mm STE</div>
+                `;
+            } else {
+                criteria = `
+                    <div>≥2 contiguous leads with:</div>
+                    <div class="ecg-item"><strong>V2-V3:</strong> ≥1.5 mm STE</div>
+                    <div class="ecg-item"><strong>All other leads:</strong> ≥1 mm STE</div>
+                    <div class="ecg-item ecg-item-sub">(including inferior II, III, aVF and lateral I, aVL, V5, V6)</div>
+                    <div class="ecg-item"><strong>Posterior (V7-9):</strong> ≥0.5 mm STE</div>
+                `;
+            }
+            document.getElementById('stemi-criteria').innerHTML = criteria;
+        }
+
+        function showAFInfo() {
+            const html = `
+                <div class="af-warning">
+                    <strong>Think carefully before attributing shock to AF</strong>
+                </div>
+                
+                <table class="af-table">
+                    <tr>
+                        <th></th>
+                        <th class="af-col-bystander">AF is bystander</th>
+                        <th class="af-col-cause">AF causing instability</th>
+                    </tr>
+                    <tr>
+                        <td class="af-question">Heart rate?</td>
+                        <td class="af-col-bystander">HR <150<br><span class="af-note">(diastolic filling likely adequate)</span></td>
+                        <td class="af-col-cause">HR >>150</td>
+                    </tr>
+                    <tr>
+                        <td class="af-question">AF history?</td>
+                        <td class="af-col-bystander">Chronic AF</td>
+                        <td class="af-col-cause">New-onset AF</td>
+                    </tr>
+                    <tr>
+                        <td class="af-question">Timeline?</td>
+                        <td class="af-col-bystander">Instability preceded AF</td>
+                        <td class="af-col-cause">Deterioration after AF onset</td>
+                    </tr>
+                    <tr>
+                        <td class="af-question">Other cause?</td>
+                        <td class="af-col-bystander">Yes (sepsis, PE, pancreatitis...)</td>
+                        <td class="af-col-cause">No other explanation</td>
+                    </tr>
+                    <tr>
+                        <td class="af-question">Structural heart disease?</td>
+                        <td class="af-col-bystander">No (structurally normal)</td>
+                        <td class="af-col-cause">Yes:<br>• Pulmonary HTN<br>• Mitral stenosis<br>• Diastolic dysfunction<br>• Severe AS</td>
+                    </tr>
+                    <tr>
+                        <td class="af-question">WPW?</td>
+                        <td class="af-col-bystander">No</td>
+                        <td class="af-col-cause">WPW is notorious for causing instability in AF</td>
+                    </tr>
+                </table>
+            `;
+            showModal('AF and Haemodynamic Instability', html);
+        }
+
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    </script>
+</body>
+</html>
