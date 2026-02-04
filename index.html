@@ -3286,57 +3286,30 @@
             margin-bottom: 20px;
         }
 
-        /* Shared layout for History and Exam top sections */
+        /* Top row with Airway + DDx */
         .assess-top-row {
             display: flex;
             gap: 12px;
             align-items: flex-start;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+        }
+        .assess-top-row .abcde-card {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        .assess-top-row .ddx-box {
+            width: 130px;
+            flex-shrink: 0;
         }
         .assess-top-left {
             flex: 1;
             min-width: 0;
-        }
-        .assess-top-row .ddx-box {
-            width: 120px;
-            flex-shrink: 0;
-        }
-        .assess-top-row .abcde-card {
-            flex: 1;
-        }
-        .abcde-card.compact {
-            margin-bottom: 0;
         }
         .history-prompts {
             width: 100%;
         }
         .onset-section {
             flex: 1;
-        }
-        .ddx-box {
-            background: rgba(0,0,0,0.03);
-            border-radius: 8px;
-            padding: 10px 12px;
-            min-width: 110px;
-        }
-        .ddx-box-title {
-            font-size: 10px;
-            font-weight: 600;
-            color: var(--text3);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
-        }
-        .ddx-item {
-            font-size: 12px;
-            color: var(--text3);
-            padding: 2px 0;
-            text-align: right;
-            transition: all 0.2s;
-        }
-        .ddx-item.top {
-            font-weight: 600;
-            color: var(--text);
         }
         .section-label {
             font-size: 11px;
@@ -3365,12 +3338,13 @@
             color: #fff;
             border-color: var(--blue);
         }
-        /* ABCDE cards for Exam page */
+
+        /* ABCDE Cards */
         .abcde-card {
             background: #fff;
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 14px 16px;
+            padding: 12px 14px;
             margin-bottom: 10px;
         }
         .abcde-header {
@@ -3379,66 +3353,47 @@
             gap: 10px;
         }
         .abcde-badge {
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
             background: var(--blue);
             color: #fff;
-            border-radius: 8px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 13px;
             font-weight: 600;
-            font-size: 14px;
             flex-shrink: 0;
         }
         .abcde-title {
+            font-size: 15px;
             font-weight: 600;
-            font-size: 16px;
             color: var(--text);
         }
-        .abcde-hint {
-            margin-left: auto;
-            font-size: 13px;
-            color: var(--text3);
-        }
-        .abcde-checklist {
+
+        /* Items list - TIGHT spacing */
+        .abcde-items {
             margin-top: 8px;
         }
-        .abcde-check-item {
-            font-size: 13px;
-            color: var(--text2);
-            padding: 4px 0;
+        .abcde-item {
+            font-size: 14px;
+            color: var(--text);
+            padding: 3px 0;
+            line-height: 1.3;
         }
-        .abcde-content {
-            margin-top: 12px;
-        }
-        .exam-row {
+
+        /* Row with controls on right */
+        .abcde-item-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            padding: 3px 0;
         }
-        .exam-label {
+        .abcde-item-row span {
             font-size: 14px;
             color: var(--text);
         }
-        .exam-item {
-            font-size: 13px;
-            color: var(--text2);
-            padding: 4px 0;
-        }
-        .exam-link {
-            margin-top: 8px;
-        }
-        .exam-link a {
-            font-size: 13px;
-            color: var(--blue);
-            cursor: pointer;
-        }
-        .control-label {
-            font-size: 13px;
-            color: var(--text2);
-        }
+
         .toggle-btns {
             display: flex;
             gap: 6px;
@@ -3449,8 +3404,8 @@
             border: 1px solid var(--border);
             background: #fff;
             font-size: 13px;
+            color: var(--text);
             cursor: pointer;
-            transition: all 0.15s;
         }
         .toggle-btn.active {
             background: var(--blue);
@@ -3461,14 +3416,52 @@
             background: var(--orange);
             border-color: var(--orange);
         }
-        .count-rr-link {
-            background: none;
-            border: none;
-            color: var(--blue);
+
+        /* Count RR button */
+        .count-btn {
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--blue);
+            background: rgba(0, 122, 255, 0.08);
             font-size: 13px;
+            color: var(--blue);
             cursor: pointer;
-            padding: 0;
-            margin-left: auto;
+        }
+        .count-btn:active {
+            background: rgba(0, 122, 255, 0.15);
+        }
+
+        /* DDx box - tight spacing */
+        .ddx-box {
+            background: rgba(0,0,0,0.02);
+            border-radius: 10px;
+            padding: 10px 12px;
+        }
+        .ddx-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .ddx-box-title {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .ddx-item {
+            font-size: 13px;
+            color: var(--text2);
+            padding: 2px 0;
+            text-align: right;
+        }
+        .ddx-item.top {
+            font-weight: 600;
+            color: var(--text);
         }
         /* RR Modal button */
         .rr-modal-btn {
@@ -4919,7 +4912,7 @@
                         </div>
                     </div>
                     <div class="ddx-box" id="shock-ddx-box">
-                        <div class="ddx-box-title">DDx</div>
+                        <div class="ddx-label">DDX</div>
                         <div class="ddx-item">Distributive</div>
                         <div class="ddx-item">Hypovolaemic</div>
                         <div class="ddx-item">Cardiogenic</div>
@@ -4970,15 +4963,19 @@
                 <div class="page-title">Examination</div>
 
                 <div class="assess-top-row">
-                    <div class="abcde-card compact">
+                    <div class="abcde-card">
                         <div class="abcde-header">
                             <span class="abcde-badge">A</span>
                             <span class="abcde-title">Airway</span>
-                            <span class="abcde-hint">Patent? Stridor? Angioedema?</span>
+                        </div>
+                        <div class="abcde-items">
+                            <div class="abcde-item">Patent?</div>
+                            <div class="abcde-item">Stridor?</div>
+                            <div class="abcde-item">Angioedema?</div>
                         </div>
                     </div>
                     <div class="ddx-box" id="shock-ddx-box-exam">
-                        <div class="ddx-box-title">DDx</div>
+                        <div class="ddx-label">DDX</div>
                         <div class="ddx-item">Distributive</div>
                         <div class="ddx-item">Hypovolaemic</div>
                         <div class="ddx-item">Cardiogenic</div>
@@ -4992,18 +4989,21 @@
                         <span class="abcde-badge">B</span>
                         <span class="abcde-title">Breathing</span>
                     </div>
-                    <div class="abcde-content">
-                        <div class="exam-row">
-                            <span class="exam-label">Respiratory distress or hypoxia?</span>
+                    <div class="abcde-items">
+                        <div class="abcde-item-row">
+                            <span>Respiratory distress or hypoxia?</span>
                             <div class="toggle-btns">
-                                <button class="toggle-btn" id="resp-distress-no" onclick="setRespDistress(false)">No</button>
-                                <button class="toggle-btn" id="resp-distress-yes" onclick="setRespDistress(true)">Yes</button>
+                                <button class="toggle-btn" id="resp-distress-no" onclick="setHypoRespiratory('none')">No</button>
+                                <button class="toggle-btn" id="resp-distress-yes" onclick="setHypoRespiratory('distress')">Yes</button>
                             </div>
                         </div>
-                        <div class="exam-item">SpO₂, RR</div>
-                        <div class="exam-item">Work of breathing (tripoding, recession, accessory muscles)</div>
-                        <div class="exam-item">Auscultation (crackles, wheeze, reduced breath sounds)</div>
-                        <div class="exam-link"><a onclick="openRRModal()">Count RR ›</a></div>
+                        <div class="abcde-item">SpO₂</div>
+                        <div class="abcde-item-row">
+                            <span>Respiratory rate</span>
+                            <button class="count-btn" onclick="openRRModal()">Count RR</button>
+                        </div>
+                        <div class="abcde-item">Work of breathing (tripoding, recession, accessory muscles)</div>
+                        <div class="abcde-item">Auscultation (crackles, wheeze, reduced breath sounds)</div>
                     </div>
                 </div>
 
@@ -5012,15 +5012,16 @@
                         <span class="abcde-badge">C</span>
                         <span class="abcde-title">Circulation</span>
                     </div>
-                    <div class="abcde-content">
-                        <div class="exam-row">
-                            <span class="exam-label">Peripheries</span>
+                    <div class="abcde-items">
+                        <div class="abcde-item-row">
+                            <span>Peripheries</span>
                             <div class="toggle-btns">
                                 <button class="toggle-btn" id="btn-periph-warm" onclick="setHypoPeripheries('warm')">Warm</button>
                                 <button class="toggle-btn" id="btn-periph-cool" onclick="setHypoPeripheries('cool')">Cool</button>
                             </div>
                         </div>
-                        <div class="exam-item">HR, BP, rhythm, cap refill</div>
+                        <div class="abcde-item">Heart rate, BP</div>
+                        <div class="abcde-item">Rhythm</div>
                     </div>
                 </div>
 
@@ -5028,7 +5029,11 @@
                     <div class="abcde-header">
                         <span class="abcde-badge">D</span>
                         <span class="abcde-title">Disability</span>
-                        <span class="abcde-hint">Conscious state, pupils, BSL</span>
+                    </div>
+                    <div class="abcde-items">
+                        <div class="abcde-item">Conscious state</div>
+                        <div class="abcde-item">Pupils</div>
+                        <div class="abcde-item">BSL</div>
                     </div>
                 </div>
 
@@ -5036,7 +5041,12 @@
                     <div class="abcde-header">
                         <span class="abcde-badge">E</span>
                         <span class="abcde-title">Exposure</span>
-                        <span class="abcde-hint">Temp, rash, abdomen, calves</span>
+                    </div>
+                    <div class="abcde-items">
+                        <div class="abcde-item">Temperature</div>
+                        <div class="abcde-item">Rash</div>
+                        <div class="abcde-item">Abdomen</div>
+                        <div class="abcde-item">Calves</div>
                     </div>
                 </div>
             </div>
@@ -8777,7 +8787,7 @@
             ['shock-ddx-box', 'shock-ddx-box-exam'].forEach(id => {
                 const container = document.getElementById(id);
                 if (container) {
-                    container.innerHTML = '<div class="ddx-box-title">DDx</div>' + order.map((name, i) =>
+                    container.innerHTML = '<div class="ddx-label">DDX</div>' + order.map((name, i) =>
                         `<div class="ddx-item${i < topCount ? ' top' : ''}">${name}</div>`
                     ).join('');
                 }
