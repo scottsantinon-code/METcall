@@ -190,6 +190,557 @@
             margin-top: 14px;
             margin-bottom: 24px;
         }
+
+        /* Gate buttons */
+        .gate-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .gate-btn {
+            flex: 1;
+            padding: 14px 16px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .gate-btn:active {
+            transform: scale(0.98);
+        }
+
+        .gate-btn.primary {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        .gate-btn.warning {
+            background: rgba(255, 149, 0, 0.15);
+            color: #c45500;
+            border: 1px solid rgba(255, 149, 0, 0.3);
+        }
+
+        /* Wizard progress bar */
+        .wizard-progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding: 0 8px;
+        }
+
+        .wizard-progress-step {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text3);
+            position: relative;
+        }
+
+        .wizard-progress-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            width: calc(100% - 32px);
+            height: 2px;
+            background: var(--border);
+            transform: translateY(-50%);
+        }
+
+        .wizard-progress-step.completed {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: #fff;
+        }
+
+        .wizard-progress-step.completed::after {
+            background: var(--blue);
+        }
+
+        .wizard-progress-step.active {
+            border-color: var(--blue);
+            color: var(--blue);
+            background: rgba(0,122,255,0.1);
+        }
+
+        .wizard-progress-step.escalate {
+            border-color: #ff9500;
+            color: #ff9500;
+            background: rgba(255,149,0,0.1);
+        }
+
+        /* Wizard question box */
+        .wizard-question-box {
+            text-align: center;
+            padding: 24px;
+            background: rgba(255,149,0,0.08);
+            border: 1px solid rgba(255,149,0,0.2);
+            border-radius: 16px;
+            margin-bottom: 24px;
+        }
+
+        .wizard-question-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .wizard-question-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .wizard-question-hint {
+            font-size: 14px;
+            color: var(--text2);
+        }
+
+        /* Wizard options */
+        .wizard-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .wizard-option {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 16px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.15s;
+            text-align: left;
+        }
+
+        .wizard-option:active {
+            transform: scale(0.98);
+        }
+
+        .wizard-option.primary {
+            background: var(--blue);
+            border-color: var(--blue);
+        }
+
+        .wizard-option.primary .wizard-option-title,
+        .wizard-option.primary .wizard-option-hint {
+            color: #fff;
+        }
+
+        .wizard-option.muted {
+            background: var(--card-bg);
+        }
+
+        .wizard-option-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .wizard-option-hint {
+            font-size: 13px;
+            color: var(--text3);
+            margin-top: 2px;
+        }
+
+        /* Wizard step card */
+        .wizard-step-card {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+            background: #fff;
+            border: 2px solid var(--blue);
+            border-radius: 16px;
+            margin-bottom: 20px;
+        }
+
+        .wizard-step-num {
+            width: 40px;
+            height: 40px;
+            background: var(--blue);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .wizard-step-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .wizard-step-hint {
+            font-size: 14px;
+            color: var(--text2);
+            margin-top: 4px;
+        }
+
+        /* Wizard decision */
+        .wizard-decision {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .wizard-decision-question {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .wizard-decision-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .wizard-decision-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 16px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .wizard-decision-btn:active {
+            transform: scale(0.97);
+        }
+
+        .wizard-decision-btn.success {
+            background: rgba(52,199,89,0.15);
+            color: #34c759;
+        }
+
+        .wizard-decision-btn.continue {
+            background: rgba(0,122,255,0.1);
+            color: var(--blue);
+        }
+
+        .wizard-decision-btn.escalate {
+            background: rgba(255,149,0,0.15);
+            color: #ff9500;
+        }
+
+        .wizard-btn-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .wizard-btn-text {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Wizard success box */
+        .wizard-success-box {
+            text-align: center;
+            padding: 24px;
+            background: rgba(52,199,89,0.1);
+            border: 2px solid rgba(52,199,89,0.3);
+            border-radius: 16px;
+            margin-bottom: 24px;
+        }
+
+        .wizard-success-box.large {
+            padding: 40px 24px;
+        }
+
+        .wizard-success-icon {
+            width: 48px;
+            height: 48px;
+            background: #34c759;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 16px;
+        }
+
+        .wizard-success-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #34c759;
+        }
+
+        .wizard-success-hint {
+            font-size: 14px;
+            color: var(--text2);
+            margin-top: 8px;
+        }
+
+        /* Wizard escalate box */
+        .wizard-escalate-box {
+            text-align: center;
+            padding: 24px;
+            background: rgba(255,59,48,0.1);
+            border: 2px solid rgba(255,59,48,0.3);
+            border-radius: 16px;
+            margin-bottom: 24px;
+        }
+
+        .wizard-escalate-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .wizard-escalate-title {
+            font-size: 16px;
+            color: var(--text2);
+            margin-bottom: 8px;
+        }
+
+        .wizard-escalate-action {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ff3b30;
+        }
+
+        /* Wizard plans */
+        .wizard-plans {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .wizard-plan-card {
+            padding: 16px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .wizard-plan-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--blue);
+            margin-bottom: 4px;
+        }
+
+        .wizard-plan-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .wizard-plan-hint {
+            font-size: 13px;
+            color: var(--text2);
+            margin-top: 4px;
+        }
+
+        /* Wizard checklist */
+        .wizard-checklist {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+
+        .wizard-check-item {
+            padding: 10px 0;
+            font-size: 14px;
+            color: var(--text2);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .wizard-check-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Wizard action cards */
+        .wizard-action-card {
+            display: flex;
+            gap: 12px;
+            padding: 14px 16px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .wizard-action-card.escalate {
+            border-color: rgba(255,149,0,0.5);
+            background: rgba(255,149,0,0.05);
+        }
+
+        .wizard-action-num {
+            width: 24px;
+            height: 24px;
+            background: var(--blue);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .wizard-action-content {
+            flex: 1;
+        }
+
+        .wizard-action-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .wizard-action-hint {
+            font-size: 13px;
+            color: var(--text2);
+            margin-top: 2px;
+        }
+
+        /* Wizard next steps */
+        .wizard-next-steps {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .wizard-next-item {
+            padding: 10px 0;
+            font-size: 14px;
+            color: var(--text2);
+            border-bottom: 1px solid var(--border);
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .wizard-next-item::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--blue);
+        }
+
+        .wizard-next-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Wizard prompt */
+        .wizard-prompt {
+            text-align: center;
+            padding: 16px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .wizard-prompt-text {
+            font-size: 14px;
+            color: var(--text2);
+        }
+
+        /* O2 modal improvements */
+        .o2-modal {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .o2-device-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .o2-device-card.highlight {
+            background: rgba(0,122,255,0.06);
+            border: 1px solid rgba(0,122,255,0.15);
+        }
+
+        .o2-device-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .o2-device-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .o2-device-fio2 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--blue);
+        }
+
+        .o2-device-table {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .o2-device-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .o2-device-row:last-child {
+            border-bottom: none;
+        }
+
+        .o2-flow {
+            font-size: 14px;
+            color: var(--text2);
+        }
+
+        .o2-percent {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--blue);
+        }
+
+        .o2-device-note {
+            font-size: 12px;
+            color: var(--text3);
+            font-style: italic;
+        }
+
+        .o2-device-body {
+            font-size: 14px;
+            color: var(--text2);
+            line-height: 1.5;
+        }
+
         .choice-container.compact {
             padding-top: 0;
         }
@@ -2199,6 +2750,73 @@
             line-height: 1.4;
         }
 
+        /* Management cards */
+        .mgmt-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .mgmt-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .mgmt-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 16px;
+            background: rgba(0,0,0,0.02);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mgmt-card-icon {
+            font-size: 18px;
+        }
+
+        .mgmt-card-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .mgmt-card-body {
+            padding: 14px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mgmt-card-item {
+            font-size: 14px;
+            color: var(--text2);
+            line-height: 1.5;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .mgmt-card-item::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--text3);
+        }
+
+        .mgmt-card-link {
+            font-size: 13px;
+            color: var(--blue);
+            cursor: pointer;
+            margin-top: 4px;
+            padding-left: 12px;
+        }
+
+        .mgmt-card-link:active {
+            opacity: 0.7;
+        }
+
         /* Toggle buttons */
         .toggle-group {
             display: flex;
@@ -3208,6 +3826,7 @@
                     <div class="hypo-seg-item">Actions</div>
                     <div class="hypo-seg-item">Assess</div>
                     <div class="hypo-seg-item">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -3259,6 +3878,7 @@
                     <div class="hypo-seg-item current">Actions</div>
                     <div class="hypo-seg-item">Assess</div>
                     <div class="hypo-seg-item">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -3320,6 +3940,7 @@
                     <div class="hypo-seg-item current">Actions</div>
                     <div class="hypo-seg-item">Assess</div>
                     <div class="hypo-seg-item">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -3421,6 +4042,7 @@
                     <div class="hypo-seg-item completed" onclick="goBack()">Actions</div>
                     <div class="hypo-seg-item current">Assess</div>
                     <div class="hypo-seg-item">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -3445,6 +4067,9 @@
                         <div class="action-tile-content">
                             <div class="action-tile-title">ECG</div>
                             <div class="action-tile-sub">Rhythm, ischaemia, RV strain</div>
+                            <div class="action-tile-links">
+                                <button class="action-tile-link" onclick="event.stopPropagation();showECGInfo()">What to look for ›</button>
+                            </div>
                         </div>
                     </div>
                     <div class="action-tile" style="border-color: var(--border);">
@@ -3461,7 +4086,7 @@
                         </div>
                         <div class="action-tile-content">
                             <div class="action-tile-title">Bloods</div>
-                            <div class="action-tile-sub">Blood gas, coags, group & hold</div>
+                            <div class="action-tile-sub">Including blood gas, coags, group & hold</div>
                         </div>
                     </div>
                     <div class="action-tile" style="border-color: var(--border);">
@@ -3500,6 +4125,7 @@
                     <div class="hypo-seg-item completed" onclick="goBack()">Actions</div>
                     <div class="hypo-seg-item current">Assess</div>
                     <div class="hypo-seg-item">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -3528,7 +4154,7 @@
                     </div>
                     <div class="killer-card">
                         <div class="killer-card-name">Unstable arrhythmia</div>
-                        <div class="killer-card-clue">Check rhythm — VT, fast AF, complete heart block</div>
+                        <div class="killer-card-clue">VT, fast AF, complete heart block</div>
                     </div>
                 </div>
             </div>
@@ -3549,6 +4175,7 @@
                     <div class="hypo-seg-item completed" onclick="goBack()">Actions</div>
                     <div class="hypo-seg-item current">Assess</div>
                     <div class="hypo-seg-item">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -3606,6 +4233,7 @@
                     <div class="hypo-seg-item completed" onclick="goBack()">Actions</div>
                     <div class="hypo-seg-item current">Assess</div>
                     <div class="hypo-seg-item">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -3723,6 +4351,7 @@
                     <div class="hypo-seg-item current">Actions</div>
                     <div class="hypo-seg-item">Assess</div>
                     <div class="hypo-seg-item">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -3792,6 +4421,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
                     <div class="hypo-seg-item current">Assess</div>
                     <div class="hypo-seg-item">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -4008,6 +4638,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypo-exam')">Assess</div>
                     <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -4086,6 +4717,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
                     <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -4196,6 +4828,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
                     <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -4273,6 +4906,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
                     <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -4348,6 +4982,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
                     <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -4403,6 +5038,100 @@
             </div>
         </div>
 
+        <!-- HYPOTENSION MANAGEMENT -->
+        <div class="page" id="page-hypo-mgmt">
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-shock-assess')">‹</button>
+                </div>
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">DDx</div>
+                    <div class="hypo-seg-item current">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="page-title">Management Principles</div>
+
+                <div class="mgmt-section">
+                    <div class="section-title">Based on your working diagnosis</div>
+
+                    <div class="mgmt-card">
+                        <div class="mgmt-card-header">
+                            <span class="mgmt-card-icon">💧</span>
+                            <span class="mgmt-card-title">Hypovolaemic / Distributive</span>
+                        </div>
+                        <div class="mgmt-card-body">
+                            <div class="mgmt-card-item">IV fluid resuscitation — bolus and reassess</div>
+                            <div class="mgmt-card-item">Identify and treat source (bleeding, sepsis, third-spacing)</div>
+                            <div class="mgmt-card-item">Consider vasopressors if refractory</div>
+                            <div class="mgmt-card-link" onclick="fluidResusSource='shock'; goToPage('page-fluid-resus')">Fluid resuscitation guide ›</div>
+                        </div>
+                    </div>
+
+                    <div class="mgmt-card">
+                        <div class="mgmt-card-header">
+                            <span class="mgmt-card-icon">❤️</span>
+                            <span class="mgmt-card-title">Cardiogenic</span>
+                        </div>
+                        <div class="mgmt-card-body">
+                            <div class="mgmt-card-item">Cautious with fluids — may worsen pulmonary oedema</div>
+                            <div class="mgmt-card-item">Treat underlying cause (ACS, arrhythmia)</div>
+                            <div class="mgmt-card-item">Consider inotropes early, avoid vasoconstrictors</div>
+                            <div class="mgmt-card-link" onclick="showECGInfo()">ECG findings to look for ›</div>
+                        </div>
+                    </div>
+
+                    <div class="mgmt-card">
+                        <div class="mgmt-card-header">
+                            <span class="mgmt-card-icon">🚧</span>
+                            <span class="mgmt-card-title">Obstructive</span>
+                        </div>
+                        <div class="mgmt-card-body">
+                            <div class="mgmt-card-item">Relieve obstruction urgently</div>
+                            <div class="mgmt-card-item">Tension pneumothorax → needle decompression</div>
+                            <div class="mgmt-card-item">Tamponade → pericardiocentesis</div>
+                            <div class="mgmt-card-item">PE → anticoagulation, consider thrombolysis</div>
+                        </div>
+                    </div>
+
+                    <div class="mgmt-card">
+                        <div class="mgmt-card-header">
+                            <span class="mgmt-card-icon">⚗️</span>
+                            <span class="mgmt-card-title">Endocrine</span>
+                        </div>
+                        <div class="mgmt-card-body">
+                            <div class="mgmt-card-item">Adrenal crisis → IV hydrocortisone 100mg stat</div>
+                            <div class="mgmt-card-item">Myxoedema → IV T3/T4, hydrocortisone, supportive care</div>
+                            <div class="mgmt-card-item">Fluid resuscitation for both</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pearl-box" style="margin-top: 20px;">
+                    <div class="pearl-icon">💡</div>
+                    <div class="pearl-content">
+                        <div class="pearl-title">Reassess frequently</div>
+                        <div class="pearl-text">Shock is dynamic. Re-evaluate after each intervention — response to treatment helps confirm or refute your diagnosis.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-shock-assess')">‹ Back to DDx</button>
+                <button class="nav-btn primary" onclick="goHome()">Done</button>
+            </div>
+        </div>
+
         <!-- HYPOXIA LANDING -->
         <div class="page" id="page-hypoxia">
             <div class="hypo-header">
@@ -4426,6 +5155,8 @@
                 </div>
             </div>
             <div class="content">
+                <div class="page-title">Check for emergencies</div>
+
                 <div class="code-blue-box">
                     <div class="code-blue-title">Call CODE BLUE if:</div>
                     <div class="code-blue-list">
@@ -4434,16 +5165,16 @@
                     </div>
                 </div>
 
-                <div class="trache-branch" style="margin-top: 20px;">
-                    <div class="section-title">Does the patient have a tracheostomy?</div>
-                    <div class="branch-buttons">
-                        <button class="branch-btn" onclick="goToPage('page-hypoxia-trache')">Yes → Emergency pathway</button>
-                        <button class="branch-btn primary" onclick="goToPage('page-hypoxia-o2')">No → Continue</button>
-                    </div>
+                <div class="consider-cxr-box">
+                    Consider calling for mobile CXR whilst you continue assessment
                 </div>
 
-                <div class="consider-cxr-box" style="margin-top: 20px;">
-                    Consider calling for mobile CXR whilst you continue assessment
+                <div class="trache-gate" style="margin-top: 20px;">
+                    <div class="section-title">Does the patient have a tracheostomy?</div>
+                    <div class="gate-buttons">
+                        <button class="gate-btn warning" onclick="goToPage('page-hypoxia-trache-gate')">Yes</button>
+                        <button class="gate-btn primary" onclick="goToPage('page-hypoxia-o2')">No → Continue</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -4574,11 +5305,9 @@
                 <div class="o2-tiles">
                     <div class="o2-tile" onclick="showMildHypoxiaDevices()">
                         <div class="o2-tile-title">Mild</div>
-                        <div class="o2-tile-hint">SpO₂ 90-94%</div>
                     </div>
                     <div class="o2-tile" onclick="showModSevereHypoxiaDevices()">
                         <div class="o2-tile-title">Moderate-Severe</div>
-                        <div class="o2-tile-hint">SpO₂ &lt;90%</div>
                     </div>
                 </div>
 
@@ -4586,11 +5315,9 @@
                 <div class="o2-tiles">
                     <div class="o2-tile" onclick="showOSAAPODevices()">
                         <div class="o2-tile-title">OSA / APO</div>
-                        <div class="o2-tile-hint">CPAP</div>
                     </div>
                     <div class="o2-tile" onclick="showHypercapnicDevices()">
                         <div class="o2-tile-title">Hypercapnic failure</div>
-                        <div class="o2-tile-hint">Venturi / BiPAP</div>
                     </div>
                 </div>
             </div>
@@ -4939,8 +5666,8 @@
             </div>
         </div>
 
-        <!-- TRACHEOSTOMY EMERGENCY -->
-        <div class="page" id="page-hypoxia-trache">
+        <!-- TRACHEOSTOMY WIZARD: Gate Page -->
+        <div class="page" id="page-hypoxia-trache-gate">
             <div class="header">
                 <div class="header-left">
                     <button class="back-btn" onclick="goToPage('page-hypoxia')">‹ Back</button>
@@ -4956,6 +5683,122 @@
                 </div>
             </div>
             <div class="content">
+                <div class="wizard-question-box">
+                    <div class="wizard-question-icon">⚠️</div>
+                    <div class="wizard-question-title">Is this a laryngectomy?</div>
+                    <div class="wizard-question-hint">Laryngectomy patients have NO upper airway connection — different management</div>
+                </div>
+
+                <div class="wizard-options">
+                    <button class="wizard-option" onclick="goToPage('page-hypoxia-trache-laryngectomy')">
+                        <span class="wizard-option-title">Yes — Laryngectomy</span>
+                        <span class="wizard-option-hint">Stoma is ONLY airway</span>
+                    </button>
+                    <button class="wizard-option primary" onclick="goToPage('page-hypoxia-trache-step0')">
+                        <span class="wizard-option-title">No — Standard tracheostomy</span>
+                        <span class="wizard-option-hint">Upper airway may be intact</span>
+                    </button>
+                    <button class="wizard-option muted" onclick="goToPage('page-hypoxia-trache-step0')">
+                        <span class="wizard-option-title">Unknown</span>
+                        <span class="wizard-option-hint">Proceed as standard, reassess</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRACHEOSTOMY WIZARD: Laryngectomy Pathway -->
+        <div class="page" id="page-hypoxia-trache-laryngectomy">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goToPage('page-hypoxia-trache-gate')">‹ Back</button>
+                    <span class="header-title">Laryngectomy Emergency</span>
+                </div>
+                <div class="header-right">
+                    <button class="home-btn" onclick="goHome()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="code-blue-box">
+                    <div class="code-blue-title">Critical: Stoma is ONLY airway</div>
+                    <div class="code-blue-list">
+                        <div class="code-blue-item">Do NOT attempt oral/nasal ventilation</div>
+                        <div class="code-blue-item">All oxygenation via stoma</div>
+                    </div>
+                </div>
+
+                <div class="wizard-action-card">
+                    <div class="wizard-action-num">1</div>
+                    <div class="wizard-action-content">
+                        <div class="wizard-action-title">Apply high-flow O₂ directly to stoma</div>
+                    </div>
+                </div>
+
+                <div class="wizard-action-card">
+                    <div class="wizard-action-num">2</div>
+                    <div class="wizard-action-content">
+                        <div class="wizard-action-title">Remove any stoma cover, HME, or speaking valve</div>
+                    </div>
+                </div>
+
+                <div class="wizard-action-card">
+                    <div class="wizard-action-num">3</div>
+                    <div class="wizard-action-content">
+                        <div class="wizard-action-title">Suction stoma</div>
+                    </div>
+                </div>
+
+                <div class="wizard-action-card">
+                    <div class="wizard-action-num">4</div>
+                    <div class="wizard-action-content">
+                        <div class="wizard-action-title">If tube present — remove inner cannula, check patency</div>
+                    </div>
+                </div>
+
+                <div class="wizard-action-card escalate">
+                    <div class="wizard-action-num">5</div>
+                    <div class="wizard-action-content">
+                        <div class="wizard-action-title">If unable to ventilate via stoma</div>
+                        <div class="wizard-action-hint">Paediatric mask over stoma, or size 6 ETT/trache into stoma</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-trache-gate')">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-hypoxia-o2')">Continue to O₂ targets ›</button>
+            </div>
+        </div>
+
+        <!-- TRACHEOSTOMY WIZARD: Step 0 - Immediate Actions -->
+        <div class="page" id="page-hypoxia-trache-step0">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goToPage('page-hypoxia-trache-gate')">‹ Back</button>
+                    <span class="header-title">Tracheostomy Emergency</span>
+                </div>
+                <div class="header-right">
+                    <button class="home-btn" onclick="goHome()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="wizard-progress">
+                    <div class="wizard-progress-step active">Start</div>
+                    <div class="wizard-progress-step">1</div>
+                    <div class="wizard-progress-step">2</div>
+                    <div class="wizard-progress-step">3</div>
+                    <div class="wizard-progress-step">4</div>
+                    <div class="wizard-progress-step">5</div>
+                </div>
+
                 <div class="code-blue-box">
                     <div class="code-blue-title">Immediate actions</div>
                     <div class="code-blue-list">
@@ -4965,56 +5808,331 @@
                     </div>
                 </div>
 
-                <div class="page-title" style="margin-top: 24px;">Stepwise troubleshooting</div>
+                <div class="wizard-prompt">
+                    <div class="wizard-prompt-text">Complete these actions, then proceed</div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-trache-gate')">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-hypoxia-trache-step1')">Next step ›</button>
+            </div>
+        </div>
 
-                <div class="trache-step">
-                    <div class="trache-step-num">1</div>
-                    <div class="trache-step-content">
-                        <div class="trache-step-action">Remove speaking valve and inner cannula</div>
-                        <div class="trache-step-check">→ Breathing improved? <strong>Stop and reassess</strong></div>
+        <!-- TRACHEOSTOMY WIZARD: Step 1 -->
+        <div class="page" id="page-hypoxia-trache-step1">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goToPage('page-hypoxia-trache-step0')">‹ Back</button>
+                    <span class="header-title">Tracheostomy Emergency</span>
+                </div>
+                <div class="header-right">
+                    <button class="home-btn" onclick="goHome()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="wizard-progress">
+                    <div class="wizard-progress-step completed">Start</div>
+                    <div class="wizard-progress-step active">1</div>
+                    <div class="wizard-progress-step">2</div>
+                    <div class="wizard-progress-step">3</div>
+                    <div class="wizard-progress-step">4</div>
+                    <div class="wizard-progress-step">5</div>
+                </div>
+
+                <div class="wizard-step-card">
+                    <div class="wizard-step-num">1</div>
+                    <div class="wizard-step-title">Remove speaking valve and inner cannula</div>
+                </div>
+
+                <div class="wizard-decision">
+                    <div class="wizard-decision-question">Breathing improved?</div>
+                    <div class="wizard-decision-buttons">
+                        <button class="wizard-decision-btn success" onclick="goToPage('page-hypoxia-trache-success')">
+                            <span class="wizard-btn-icon">✓</span>
+                            <span class="wizard-btn-text">Yes — Improved</span>
+                        </button>
+                        <button class="wizard-decision-btn continue" onclick="goToPage('page-hypoxia-trache-step2')">
+                            <span class="wizard-btn-icon">→</span>
+                            <span class="wizard-btn-text">No — Continue</span>
+                        </button>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="trache-step">
-                    <div class="trache-step-num">2</div>
-                    <div class="trache-step-content">
-                        <div class="trache-step-action">Attempt to pass suction catheter</div>
-                        <div class="trache-step-check">→ Passes? Trache is <strong>patent</strong> — suction and reassess</div>
-                        <div class="trache-step-check">→ Blocked? Continue to step 3</div>
+        <!-- TRACHEOSTOMY WIZARD: Step 2 -->
+        <div class="page" id="page-hypoxia-trache-step2">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goToPage('page-hypoxia-trache-step1')">‹ Back</button>
+                    <span class="header-title">Tracheostomy Emergency</span>
+                </div>
+                <div class="header-right">
+                    <button class="home-btn" onclick="goHome()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="wizard-progress">
+                    <div class="wizard-progress-step completed">Start</div>
+                    <div class="wizard-progress-step completed">1</div>
+                    <div class="wizard-progress-step active">2</div>
+                    <div class="wizard-progress-step">3</div>
+                    <div class="wizard-progress-step">4</div>
+                    <div class="wizard-progress-step">5</div>
+                </div>
+
+                <div class="wizard-step-card">
+                    <div class="wizard-step-num">2</div>
+                    <div class="wizard-step-title">Attempt to pass suction catheter</div>
+                </div>
+
+                <div class="wizard-decision">
+                    <div class="wizard-decision-question">Does catheter pass?</div>
+                    <div class="wizard-decision-buttons">
+                        <button class="wizard-decision-btn success" onclick="goToPage('page-hypoxia-trache-patent')">
+                            <span class="wizard-btn-icon">✓</span>
+                            <span class="wizard-btn-text">Yes — Patent</span>
+                        </button>
+                        <button class="wizard-decision-btn continue" onclick="goToPage('page-hypoxia-trache-step3')">
+                            <span class="wizard-btn-icon">✗</span>
+                            <span class="wizard-btn-text">No — Blocked</span>
+                        </button>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="trache-step">
-                    <div class="trache-step-num">3</div>
-                    <div class="trache-step-content">
-                        <div class="trache-step-action">Deflate cuff</div>
-                        <div class="trache-step-hint">May allow patient to breathe around blocked trache via upper airway</div>
-                        <div class="trache-step-check">→ Breathing improved? <strong>Stop and reassess</strong></div>
+        <!-- TRACHEOSTOMY WIZARD: Patent Trache -->
+        <div class="page" id="page-hypoxia-trache-patent">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goToPage('page-hypoxia-trache-step2')">‹ Back</button>
+                    <span class="header-title">Tracheostomy Emergency</span>
+                </div>
+                <div class="header-right">
+                    <button class="home-btn" onclick="goHome()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="wizard-success-box">
+                    <div class="wizard-success-icon">✓</div>
+                    <div class="wizard-success-title">Tracheostomy is patent</div>
+                </div>
+
+                <div class="wizard-action-card">
+                    <div class="wizard-action-content">
+                        <div class="wizard-action-title">Suction thoroughly and reassess</div>
+                        <div class="wizard-action-hint">If still hypoxic after suctioning, consider other causes of respiratory distress</div>
                     </div>
                 </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-trache-step2')">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-hypoxia-o2')">Continue assessment ›</button>
+            </div>
+        </div>
 
-                <div class="trache-step">
-                    <div class="trache-step-num">4</div>
-                    <div class="trache-step-content">
-                        <div class="trache-step-action">Assess position</div>
-                        <div class="trache-step-hint">Subcutaneous emphysema? Obvious migration? Loss of EtCO₂?</div>
-                        <div class="trache-step-hint">Consider bronchoscopy if available</div>
+        <!-- TRACHEOSTOMY WIZARD: Step 3 -->
+        <div class="page" id="page-hypoxia-trache-step3">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goToPage('page-hypoxia-trache-step2')">‹ Back</button>
+                    <span class="header-title">Tracheostomy Emergency</span>
+                </div>
+                <div class="header-right">
+                    <button class="home-btn" onclick="goHome()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="wizard-progress">
+                    <div class="wizard-progress-step completed">Start</div>
+                    <div class="wizard-progress-step completed">1</div>
+                    <div class="wizard-progress-step completed">2</div>
+                    <div class="wizard-progress-step active">3</div>
+                    <div class="wizard-progress-step">4</div>
+                    <div class="wizard-progress-step">5</div>
+                </div>
+
+                <div class="wizard-step-card">
+                    <div class="wizard-step-num">3</div>
+                    <div class="wizard-step-title">Deflate the cuff</div>
+                    <div class="wizard-step-hint">May allow patient to breathe around blocked trache via upper airway</div>
+                </div>
+
+                <div class="wizard-decision">
+                    <div class="wizard-decision-question">Breathing improved?</div>
+                    <div class="wizard-decision-buttons">
+                        <button class="wizard-decision-btn success" onclick="goToPage('page-hypoxia-trache-success')">
+                            <span class="wizard-btn-icon">✓</span>
+                            <span class="wizard-btn-text">Yes — Improved</span>
+                        </button>
+                        <button class="wizard-decision-btn continue" onclick="goToPage('page-hypoxia-trache-step4')">
+                            <span class="wizard-btn-icon">→</span>
+                            <span class="wizard-btn-text">No — Continue</span>
+                        </button>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="trache-step">
-                    <div class="trache-step-num">5</div>
-                    <div class="trache-step-content">
-                        <div class="trache-step-action">If still unable to oxygenate → Remove tracheostomy</div>
-                        <div class="trache-step-hint"><strong>Plan A:</strong> O₂ via face AND stoma simultaneously</div>
-                        <div class="trache-step-hint"><strong>Plan B:</strong> (if stoma >10 days) Size 6 ETT through stoma</div>
+        <!-- TRACHEOSTOMY WIZARD: Step 4 -->
+        <div class="page" id="page-hypoxia-trache-step4">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goToPage('page-hypoxia-trache-step3')">‹ Back</button>
+                    <span class="header-title">Tracheostomy Emergency</span>
+                </div>
+                <div class="header-right">
+                    <button class="home-btn" onclick="goHome()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="wizard-progress">
+                    <div class="wizard-progress-step completed">Start</div>
+                    <div class="wizard-progress-step completed">1</div>
+                    <div class="wizard-progress-step completed">2</div>
+                    <div class="wizard-progress-step completed">3</div>
+                    <div class="wizard-progress-step active">4</div>
+                    <div class="wizard-progress-step">5</div>
+                </div>
+
+                <div class="wizard-step-card">
+                    <div class="wizard-step-num">4</div>
+                    <div class="wizard-step-title">Assess position</div>
+                    <div class="wizard-step-hint">Look for signs of displacement or malposition</div>
+                </div>
+
+                <div class="wizard-checklist">
+                    <div class="wizard-check-item">Subcutaneous emphysema?</div>
+                    <div class="wizard-check-item">Obvious migration?</div>
+                    <div class="wizard-check-item">Loss of EtCO₂?</div>
+                    <div class="wizard-check-item">Consider bronchoscopy if available</div>
+                </div>
+
+                <div class="wizard-decision">
+                    <div class="wizard-decision-question">Able to oxygenate?</div>
+                    <div class="wizard-decision-buttons">
+                        <button class="wizard-decision-btn success" onclick="goToPage('page-hypoxia-trache-success')">
+                            <span class="wizard-btn-icon">✓</span>
+                            <span class="wizard-btn-text">Yes — Stable</span>
+                        </button>
+                        <button class="wizard-decision-btn escalate" onclick="goToPage('page-hypoxia-trache-step5')">
+                            <span class="wizard-btn-icon">⚠</span>
+                            <span class="wizard-btn-text">No — Escalate</span>
+                        </button>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="warning-box" style="margin-top: 20px;">
-                    <span class="warning-icon">⚠️</span>
-                    <span>Assumes NO laryngectomy. Laryngectomy patients have no upper airway — do not attempt oral ventilation.</span>
+        <!-- TRACHEOSTOMY WIZARD: Step 5 - Escalation -->
+        <div class="page" id="page-hypoxia-trache-step5">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goToPage('page-hypoxia-trache-step4')">‹ Back</button>
+                    <span class="header-title">Tracheostomy Emergency</span>
                 </div>
+                <div class="header-right">
+                    <button class="home-btn" onclick="goHome()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="wizard-progress">
+                    <div class="wizard-progress-step completed">Start</div>
+                    <div class="wizard-progress-step completed">1</div>
+                    <div class="wizard-progress-step completed">2</div>
+                    <div class="wizard-progress-step completed">3</div>
+                    <div class="wizard-progress-step completed">4</div>
+                    <div class="wizard-progress-step active escalate">5</div>
+                </div>
+
+                <div class="wizard-escalate-box">
+                    <div class="wizard-escalate-icon">⚠️</div>
+                    <div class="wizard-escalate-title">Unable to oxygenate</div>
+                    <div class="wizard-escalate-action">REMOVE THE TRACHEOSTOMY</div>
+                </div>
+
+                <div class="wizard-plans">
+                    <div class="wizard-plan-card">
+                        <div class="wizard-plan-label">Plan A</div>
+                        <div class="wizard-plan-title">O₂ via face AND stoma simultaneously</div>
+                        <div class="wizard-plan-hint">BVM to face + O₂ to stoma</div>
+                    </div>
+                    <div class="wizard-plan-card">
+                        <div class="wizard-plan-label">Plan B</div>
+                        <div class="wizard-plan-title">Intubate via stoma</div>
+                        <div class="wizard-plan-hint">If stoma >10 days old: size 6 ETT or trache through stoma</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-trache-step4')">‹ Back</button>
+            </div>
+        </div>
+
+        <!-- TRACHEOSTOMY WIZARD: Success Page -->
+        <div class="page" id="page-hypoxia-trache-success">
+            <div class="header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="goBack()">‹ Back</button>
+                    <span class="header-title">Tracheostomy Emergency</span>
+                </div>
+                <div class="header-right">
+                    <button class="home-btn" onclick="goHome()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="wizard-success-box large">
+                    <div class="wizard-success-icon">✓</div>
+                    <div class="wizard-success-title">Breathing improved</div>
+                    <div class="wizard-success-hint">Continue to monitor and reassess</div>
+                </div>
+
+                <div class="wizard-next-steps">
+                    <div class="section-title">Next steps</div>
+                    <div class="wizard-next-item">Review what caused the obstruction</div>
+                    <div class="wizard-next-item">Consider if inner cannula needs replacement</div>
+                    <div class="wizard-next-item">Continue with hypoxia assessment if still hypoxic</div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goBack()">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-hypoxia-o2')">Continue assessment ›</button>
             </div>
         </div>
 
@@ -7124,7 +8242,7 @@
             // Peripheries is the strongest discriminator
             if (hypoPeripheries === 'warm') {
                 // Warm = vasodilated = distributive (sepsis, anaphylaxis, neurogenic)
-                order = ['Distributive', 'Endocrine', 'Hypovolaemic', 'Cardiogenic', 'Obstructive'];
+                order = ['Distributive', 'Hypovolaemic', 'Cardiogenic', 'Obstructive', 'Endocrine'];
             } else if (hypoPeripheries === 'cool') {
                 // Cool peripheries - need more info
                 if (hypoRespiratory === 'distress') {
@@ -7356,8 +8474,8 @@
                 const nextKey = shockOrder[currentIndex + 1];
                 goToPage(shockCategories[nextKey].page);
             } else {
-                // Last one - go back to shock assess
-                goToPage('page-shock-assess');
+                // Last one - go to management page
+                goToPage('page-hypo-mgmt');
             }
         }
 
@@ -7925,34 +9043,61 @@
         }
 
         function showModSevereHypoxiaDevices() {
-            const html = `
-                <div class="o2-device-section" style="margin-bottom:16px;">
-                    <div class="o2-device-title">Simple face mask</div>
-                    <div class="o2-device-fio2">FiO₂ ~40-60%</div>
-                    <div class="o2-device-table" style="margin-top:8px;">
-                        <div class="o2-device-row"><span>5 lpm</span><span>~40%</span></div>
-                        <div class="o2-device-row"><span>6-7 lpm</span><span>~50%</span></div>
-                        <div class="o2-device-row"><span>8-10 lpm</span><span>~60%</span></div>
+            showModal('Moderate–Severe Hypoxia (SpO₂ <90%)', `
+                <div class="o2-modal">
+                    <div class="o2-device-card">
+                        <div class="o2-device-header">
+                            <span class="o2-device-name">Simple face mask</span>
+                            <span class="o2-device-fio2">FiO₂ 40-60%</span>
+                        </div>
+                        <div class="o2-device-table">
+                            <div class="o2-device-row">
+                                <span class="o2-flow">5 lpm</span>
+                                <span class="o2-percent">~40%</span>
+                            </div>
+                            <div class="o2-device-row">
+                                <span class="o2-flow">6-7 lpm</span>
+                                <span class="o2-percent">~50%</span>
+                            </div>
+                            <div class="o2-device-row">
+                                <span class="o2-flow">8-10 lpm</span>
+                                <span class="o2-percent">~60%</span>
+                            </div>
+                        </div>
+                        <div class="o2-device-note">Minimum 5 lpm to prevent CO₂ rebreathing</div>
                     </div>
-                    <div style="font-size:12px;color:var(--text3);margin-top:4px;">Minimum 5 lpm to prevent CO₂ rebreathing</div>
+
+                    <div class="o2-device-card highlight">
+                        <div class="o2-device-header">
+                            <span class="o2-device-name">Non-rebreather mask</span>
+                            <span class="o2-device-fio2">FiO₂ 60-80%</span>
+                        </div>
+                        <div class="o2-device-body">
+                            Run at 15 lpm. Ensure reservoir bag stays inflated.
+                        </div>
+                    </div>
+
+                    <div class="o2-device-card highlight">
+                        <div class="o2-device-header">
+                            <span class="o2-device-name">High-flow nasal prongs (HFNP)</span>
+                            <span class="o2-device-fio2">FiO₂ 21-100%</span>
+                        </div>
+                        <div class="o2-device-body">
+                            Heated, humidified O₂ up to 60 lpm. Provides small amount of PEEP. Washout of pharyngeal dead space.
+                        </div>
+                    </div>
+
+                    <div class="o2-device-card">
+                        <div class="o2-device-header">
+                            <span class="o2-device-name">Bag valve mask (BVM)</span>
+                            <span class="o2-device-fio2">FiO₂ ~100%</span>
+                        </div>
+                        <div class="o2-device-body">
+                            15 lpm wall O₂ with reservoir. Can be used for assisted ventilation or as high-flow passive oxygenation.
+                        </div>
+                    </div>
                 </div>
-                <div class="o2-device-section" style="margin-bottom:16px;">
-                    <div class="o2-device-title">Non-rebreather mask</div>
-                    <div class="o2-device-fio2">FiO₂ ~60-80%</div>
-                    <div style="font-size:13px;color:var(--text2);margin-top:4px;">Run at 15 lpm. Ensure reservoir bag stays inflated.</div>
-                </div>
-                <div class="o2-device-section" style="margin-bottom:16px;">
-                    <div class="o2-device-title">High-flow nasal prongs (HFNP)</div>
-                    <div class="o2-device-fio2">FiO₂ 21-100%</div>
-                    <div style="font-size:13px;color:var(--text2);margin-top:4px;">Heated, humidified O₂ up to 60 lpm. Provides small amount of PEEP. Washout of pharyngeal dead space.</div>
-                </div>
-                <div class="o2-device-section">
-                    <div class="o2-device-title">Bag valve mask (BVM)</div>
-                    <div class="o2-device-fio2">FiO₂ ~100%</div>
-                    <div style="font-size:13px;color:var(--text2);margin-top:4px;">15 lpm wall O₂ with reservoir. Can be used for assisted ventilation or as high-flow passive oxygenation.</div>
-                </div>
-            `;
-            showModal('Moderate-Severe Hypoxia (SpO₂ <90%)', html);
+            `);
         }
 
         function showOSAAPODevices() {
