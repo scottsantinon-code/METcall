@@ -1611,6 +1611,64 @@
         }
         .cause-info-btn:active { opacity: 0.7; }
 
+        /* DDx tiles - standardized */
+        .ddx-section-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text2);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            margin-top: 24px;
+        }
+        .ddx-section-title:first-of-type {
+            margin-top: 0;
+        }
+        .ddx-tile {
+            background: #fff;
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .ddx-tile:active {
+            background: rgba(0,0,0,0.04);
+        }
+        .ddx-tile-content {
+            flex: 1;
+        }
+        .ddx-tile-title {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text);
+            display: block;
+        }
+        .ddx-tile-subtitle {
+            font-size: 13px;
+            color: var(--text3);
+            margin-top: 2px;
+            display: block;
+        }
+        .ddx-tile-chevron {
+            font-size: 20px;
+            color: var(--text3);
+            margin-left: 12px;
+        }
+        .ddx-tile-info-btn {
+            font-size: 12px;
+            color: var(--blue);
+            background: rgba(0,122,255,0.08);
+            border: none;
+            padding: 4px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
         /* Cause grid tiles */
         .cause-grid {
             display: grid;
@@ -5126,16 +5184,17 @@
             <div class="content">
                 <div class="page-title">Hypovolaemic</div>
 
-                <div class="section-title">Blood loss</div>
-                <div class="cause-grid">
-                    <div class="cause-tile" onclick="showExternalBleedInfo()">
-                        <div class="cause-tile-title">External</div>
-                        <div class="cause-tile-hint">Wounds, drains, visible GI bleeding</div>
+                <div class="ddx-section-title">Blood loss</div>
+                <div class="ddx-tile" onclick="showExternalBleedInfo()">
+                    <span class="ddx-tile-title">External</span>
+                    <span class="ddx-tile-chevron">›</span>
+                </div>
+                <div class="ddx-tile" onclick="showOccultBleedInfo()">
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Occult</span>
+                        <span class="ddx-tile-subtitle">Retroperitoneal, intra-abdominal, fractures</span>
                     </div>
-                    <div class="cause-tile" onclick="showOccultBleedInfo()">
-                        <div class="cause-tile-title">Occult</div>
-                        <div class="cause-tile-hint">Retroperitoneal, intra-abdominal, fractures</div>
-                    </div>
+                    <span class="ddx-tile-chevron">›</span>
                 </div>
 
                 <div class="warning-box" style="margin-top: 12px;">
@@ -5143,28 +5202,30 @@
                     <span>Normal Hb does NOT exclude significant acute bleeding — equilibration takes hours</span>
                 </div>
 
-                <div class="section-title" style="margin-top: 20px;">Fluid losses</div>
-                <div class="cause-grid">
-                    <div class="cause-tile" onclick="showGILossInfo()">
-                        <div class="cause-tile-title">GI losses</div>
-                        <div class="cause-tile-hint">Vomiting, diarrhoea, high NG output</div>
+                <div class="ddx-section-title">Fluid losses</div>
+                <div class="ddx-tile" onclick="showGILossInfo()">
+                    <span class="ddx-tile-title">GI losses</span>
+                    <span class="ddx-tile-chevron">›</span>
+                </div>
+                <div class="ddx-tile" onclick="showRenalLossInfo()">
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Renal losses</span>
+                        <span class="ddx-tile-subtitle">Diuretics, DKA, diabetes insipidus</span>
                     </div>
-                    <div class="cause-tile" onclick="showRenalLossInfo()">
-                        <div class="cause-tile-title">Renal losses</div>
-                        <div class="cause-tile-hint">Diuretics, DKA, diabetes insipidus</div>
-                    </div>
+                    <span class="ddx-tile-chevron">›</span>
                 </div>
 
-                <div class="section-title" style="margin-top: 20px;">Other</div>
-                <div class="cause-grid">
-                    <div class="cause-tile" onclick="showThirdSpacingInfo()">
-                        <div class="cause-tile-title">Third spacing</div>
-                        <div class="cause-tile-hint">Pancreatitis, burns, bowel obstruction</div>
+                <div class="ddx-section-title">Other</div>
+                <div class="ddx-tile" onclick="showThirdSpacingInfo()">
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Third spacing</span>
+                        <span class="ddx-tile-subtitle">Pancreatitis, burns, bowel obstruction</span>
                     </div>
-                    <div class="cause-tile" onclick="showPoorIntakeInfo()">
-                        <div class="cause-tile-title">Poor intake</div>
-                        <div class="cause-tile-hint">Prolonged NBM, reduced oral intake</div>
-                    </div>
+                    <span class="ddx-tile-chevron">›</span>
+                </div>
+                <div class="ddx-tile" onclick="showPoorIntakeInfo()">
+                    <span class="ddx-tile-title">Poor intake</span>
+                    <span class="ddx-tile-chevron">›</span>
                 </div>
             </div>
             <div class="bottom-nav">
@@ -5205,69 +5266,37 @@
             <div class="content">
                 <div class="page-title">Obstructive</div>
 
-                <div class="section-title">Consider</div>
+                <div class="ddx-section-title">Consider</div>
 
-                <div class="cause-card" onclick="this.classList.toggle('open')">
-                    <div class="cause-header">
-                        <div class="cause-title">Tension pneumothorax</div>
-                        <span class="cause-arrow">▼</span>
-                    </div>
-                    <div class="cause-body">
-                        <div class="cause-clues">
-                            <div class="cause-clue-item">Unilateral ↓ air entry, tracheal deviation (late)</div>
-                            <div class="cause-clue-item">Recent: central line, thoracentesis, lung biopsy, ventilation</div>
-                        </div>
-                    </div>
+                <div class="ddx-tile" onclick="showTensionPneumoInfo()">
+                    <span class="ddx-tile-title">Tension pneumothorax</span>
+                    <span class="ddx-tile-chevron">›</span>
                 </div>
 
-                <div class="cause-card" onclick="this.classList.toggle('open')">
-                    <div class="cause-header">
-                        <div class="cause-title">Pulmonary embolism</div>
-                        <span class="cause-arrow">▼</span>
-                    </div>
-                    <div class="cause-body">
-                        <div class="cause-clues">
-                            <div class="cause-clue-item">Sudden dyspnoea, hypoxia out of proportion to CXR findings</div>
-                            <div class="cause-clue-item">DVT signs — leg swelling, calf tenderness</div>
-                            <div class="cause-clue-item">ECG: S1Q3T3, RBBB, TWI V1-4</div>
-                        </div>
-                    </div>
+                <div class="ddx-tile" onclick="showPEInfo()">
+                    <span class="ddx-tile-title">Pulmonary embolism</span>
+                    <span class="ddx-tile-chevron">›</span>
                 </div>
 
-                <div class="cause-card" onclick="this.classList.toggle('open')">
-                    <div class="cause-header">
-                        <div class="cause-title">Cardiac tamponade</div>
-                        <span class="cause-arrow">▼</span>
-                    </div>
-                    <div class="cause-body">
-                        <div class="cause-clues">
-                            <div class="cause-clue-item">Muffled heart sounds, pulsus paradoxus, hypotension</div>
-                            <div class="cause-clue-item">Recent: cardiac surgery, pericarditis, malignancy</div>
-                        </div>
-                    </div>
+                <div class="ddx-tile" onclick="showTamponadeInfo()">
+                    <span class="ddx-tile-title">Cardiac tamponade</span>
+                    <span class="ddx-tile-chevron">›</span>
                 </div>
 
-                <div class="cause-card" onclick="this.classList.toggle('open')">
-                    <div class="cause-header">
-                        <div class="cause-title">Abdominal compartment syndrome</div>
-                        <span class="cause-arrow">▼</span>
+                <div class="ddx-tile" onclick="showACSInfo()">
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Abdominal compartment syndrome</span>
+                        <span class="ddx-tile-subtitle">Tense abdomen, high bladder pressures</span>
                     </div>
-                    <div class="cause-body">
-                        <div class="cause-clues">Tense distended abdomen, post-laparotomy, massive resuscitation, severe pancreatitis</div>
-                    </div>
+                    <span class="ddx-tile-chevron">›</span>
                 </div>
 
-                <div class="cause-card" onclick="this.classList.toggle('open')">
-                    <div class="cause-header">
-                        <div class="cause-title">Dynamic LVOT obstruction</div>
-                        <span class="cause-arrow">▼</span>
+                <div class="ddx-tile" onclick="showLVOTInfo()">
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Dynamic LVOT obstruction</span>
+                        <span class="ddx-tile-subtitle">HOCM, SAM</span>
                     </div>
-                    <div class="cause-body">
-                        <div class="cause-clues">
-                            <div class="cause-clue-item">HOCM (may be undiagnosed) — worsens with hypovolaemia and inotropes</div>
-                            <div class="cause-clue-item">Clue: hypotension not responding to fluid/inotropes, systolic murmur</div>
-                        </div>
-                    </div>
+                    <span class="ddx-tile-chevron">›</span>
                 </div>
             </div>
             <div class="bottom-nav">
@@ -5308,44 +5337,40 @@
             <div class="content">
                 <div class="page-title">Distributive</div>
 
-                <div class="section-title">Consider</div>
+                <div class="ddx-section-title">Consider</div>
 
-                <div class="cause-card">
-                    <div class="cause-header">
-                        <div class="cause-title">Sepsis</div>
-                    </div>
+                <div class="ddx-tile" onclick="showSepsisInfo()">
+                    <span class="ddx-tile-title">Sepsis</span>
+                    <span class="ddx-tile-chevron">›</span>
                 </div>
 
-                <div class="cause-card">
-                    <div class="cause-header">
-                        <div class="cause-title">Anaphylaxis</div>
-                    </div>
+                <div class="ddx-tile" onclick="showAnaphylaxisShockInfo()">
+                    <span class="ddx-tile-title">Anaphylaxis</span>
+                    <span class="ddx-tile-chevron">›</span>
                 </div>
 
-                <div class="cause-card" onclick="this.classList.toggle('open')">
-                    <div class="cause-header">
-                        <div class="cause-title">Neurogenic shock</div>
-                        <span class="cause-arrow">▼</span>
+                <div class="ddx-tile" onclick="showNeurogenicInfo()">
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Neurogenic shock</span>
+                        <span class="ddx-tile-subtitle">High spinal cord injury</span>
                     </div>
-                    <div class="cause-body">
-                        <div class="cause-clues">High spinal cord injury (above T6) — hypotension with bradycardia</div>
-                    </div>
+                    <span class="ddx-tile-chevron">›</span>
                 </div>
 
-                <div class="cause-card" onclick="this.classList.toggle('open')">
-                    <div class="cause-header">
-                        <div class="cause-title">Liver failure</div>
-                        <span class="cause-arrow">▼</span>
+                <div class="ddx-tile" onclick="showLiverFailureInfo()">
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Liver failure</span>
+                        <span class="ddx-tile-subtitle">Cirrhosis, splanchnic pooling</span>
                     </div>
-                    <div class="cause-body">
-                        <div class="cause-clues">Cirrhosis causes profound vasodilation — splanchnic pooling, low SVR</div>
-                    </div>
+                    <span class="ddx-tile-chevron">›</span>
                 </div>
 
-                <div class="cause-card">
-                    <div class="cause-header">
-                        <div class="cause-title">Drug-induced / Epidural</div>
+                <div class="ddx-tile" onclick="showDrugInducedInfo()">
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Drug-induced</span>
+                        <span class="ddx-tile-subtitle">Epidural, vasodilators</span>
                     </div>
+                    <span class="ddx-tile-chevron">›</span>
                 </div>
             </div>
             <div class="bottom-nav">
@@ -5386,42 +5411,37 @@
             <div class="content">
                 <div class="page-title">Cardiogenic</div>
 
-                <div class="section-title">Consider</div>
+                <div class="ddx-section-title">Consider</div>
 
-                <div class="cause-card">
-                    <div class="cause-header">
-                        <div class="cause-title">Acute coronary syndrome</div>
-                        <button class="cause-info-btn" onclick="event.stopPropagation();showIschemiaInfo()">ECG signs ›</button>
-                    </div>
+                <div class="ddx-tile" onclick="showIschemiaInfo()">
+                    <span class="ddx-tile-title">Acute coronary syndrome</span>
+                    <button class="ddx-tile-info-btn" onclick="event.stopPropagation();showIschemiaInfo()">ECG signs ›</button>
                 </div>
 
-                <div class="cause-card">
-                    <div class="cause-header">
-                        <div class="cause-title">Arrhythmia</div>
-                        <button class="cause-info-btn" onclick="event.stopPropagation();showAFInfo()">Can you blame the AF? ›</button>
-                    </div>
+                <div class="ddx-tile" onclick="showUnstableArrhythmiaInfo()">
+                    <span class="ddx-tile-title">Arrhythmia</span>
+                    <button class="ddx-tile-info-btn" onclick="event.stopPropagation();showAFInfo()">Can you blame the AF? ›</button>
                 </div>
 
-                <div class="cause-card" onclick="this.classList.toggle('open')">
-                    <div class="cause-header">
-                        <div class="cause-title">Acute valvular dysfunction</div>
-                        <span class="cause-arrow">▼</span>
+                <div class="ddx-tile" onclick="showValvularInfo()">
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Acute valvular dysfunction</span>
+                        <span class="ddx-tile-subtitle">New murmur, papillary rupture</span>
                     </div>
-                    <div class="cause-body">
-                        <div class="cause-clues">New murmur, recent MI (papillary rupture), endocarditis</div>
-                    </div>
+                    <span class="ddx-tile-chevron">›</span>
                 </div>
 
-                <div class="cause-card">
-                    <div class="cause-header">
-                        <div class="cause-title">Decompensated cardiomyopathy</div>
-                    </div>
+                <div class="ddx-tile" onclick="showCardiomyopathyInfo()">
+                    <span class="ddx-tile-title">Decompensated cardiomyopathy</span>
+                    <span class="ddx-tile-chevron">›</span>
                 </div>
 
-                <div class="cause-card">
-                    <div class="cause-header">
-                        <div class="cause-title">Takotsubo cardiomyopathy</div>
+                <div class="ddx-tile" onclick="showTakotsuboInfo()">
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Takotsubo cardiomyopathy</span>
+                        <span class="ddx-tile-subtitle">Stress cardiomyopathy</span>
                     </div>
+                    <span class="ddx-tile-chevron">›</span>
                 </div>
             </div>
             <div class="bottom-nav">
@@ -5462,33 +5482,22 @@
             <div class="content">
                 <div class="page-title">Endocrine</div>
 
-                <div class="section-title">Consider</div>
+                <div class="ddx-section-title">Consider</div>
 
-                <div class="cause-card" onclick="this.classList.toggle('open')">
-                    <div class="cause-header">
-                        <div class="cause-title">Adrenal insufficiency</div>
-                        <span class="cause-arrow">▼</span>
+                <div class="ddx-tile" onclick="showAdrenalInfo()">
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Adrenal insufficiency</span>
+                        <span class="ddx-tile-subtitle">Steroid use, Addison's</span>
                     </div>
-                    <div class="cause-body">
-                        <div class="cause-clues">
-                            <div class="cause-clue-item">Chronic steroid use — missed doses?</div>
-                            <div class="cause-clue-item">Known Addison's, recent pituitary surgery</div>
-                            <div class="cause-clue-item">Hyperkalaemia + hyponatraemia</div>
-                        </div>
-                    </div>
+                    <span class="ddx-tile-chevron">›</span>
                 </div>
 
-                <div class="cause-card" onclick="this.classList.toggle('open')">
-                    <div class="cause-header">
-                        <div class="cause-title">Myxoedema crisis</div>
-                        <span class="cause-arrow">▼</span>
+                <div class="ddx-tile" onclick="showMyxoedemaInfo()">
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Myxoedema crisis</span>
+                        <span class="ddx-tile-subtitle">Severe hypothyroidism</span>
                     </div>
-                    <div class="cause-body">
-                        <div class="cause-clues">
-                            <div class="cause-clue-item">Hypothermia, bradycardia, altered mental state</div>
-                            <div class="cause-clue-item">Known hypothyroidism, recent thyroid surgery</div>
-                        </div>
-                    </div>
+                    <span class="ddx-tile-chevron">›</span>
                 </div>
             </div>
             <div class="bottom-nav">
@@ -9016,6 +9025,192 @@
                         <li>Signs of heart failure</li>
                     </ul>
                     <p><strong style="color:var(--text);">Management:</strong> Synchronised DC cardioversion for unstable tachyarrhythmias. Atropine/pacing for unstable bradycardia.</p>
+                </div>
+            `);
+        }
+
+        function showPEInfo() {
+            showModal('Pulmonary Embolism', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Look for:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Sudden dyspnoea, hypoxia out of proportion to CXR</li>
+                        <li>DVT signs — leg swelling, calf tenderness</li>
+                        <li>ECG: S1Q3T3, RBBB, TWI V1-4</li>
+                        <li>Risk factors: immobility, malignancy, recent surgery</li>
+                    </ul>
+                    <p><strong style="color:var(--text);">Management:</strong> Anticoagulation (LMWH or UFH), consider thrombolysis if massive PE with haemodynamic instability.</p>
+                </div>
+            `);
+        }
+
+        function showACSInfo() {
+            showModal('Abdominal Compartment Syndrome', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Look for:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Tense, distended abdomen</li>
+                        <li>Oliguria despite adequate fluid resuscitation</li>
+                        <li>High peak airway pressures if ventilated</li>
+                        <li>Bladder pressure >20 mmHg with organ dysfunction</li>
+                    </ul>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Risk factors:</strong> post-laparotomy, massive resuscitation, severe pancreatitis, abdominal trauma</p>
+                    <p><strong style="color:var(--text);">Management:</strong> Urgent surgical decompression (laparostomy)</p>
+                </div>
+            `);
+        }
+
+        function showLVOTInfo() {
+            showModal('Dynamic LVOT Obstruction', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Consider in:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>HOCM (may be undiagnosed)</li>
+                        <li>Systolic anterior motion (SAM) of mitral valve</li>
+                        <li>Hypotension not responding to fluid/inotropes</li>
+                        <li>New systolic murmur that increases with Valsalva</li>
+                    </ul>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--red);">Warning:</strong> Inotropes and vasodilators make this WORSE</p>
+                    <p><strong style="color:var(--text);">Management:</strong> Volume loading, beta-blockers, avoid inotropes/vasodilators. Echo to confirm.</p>
+                </div>
+            `);
+        }
+
+        function showSepsisInfo() {
+            showModal('Sepsis', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Look for source:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Respiratory — cough, sputum, hypoxia</li>
+                        <li>Urinary — dysuria, loin pain, indwelling catheter</li>
+                        <li>Abdominal — pain, distension, recent surgery</li>
+                        <li>Skin/soft tissue — cellulitis, wounds, lines</li>
+                    </ul>
+                    <p><strong style="color:var(--text);">Management:</strong> Sepsis 6 — O2, lactate, blood cultures, IV antibiotics, IV fluids, urine output monitoring.</p>
+                </div>
+            `);
+        }
+
+        function showNeurogenicInfo() {
+            showModal('Neurogenic Shock', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Classic triad:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Hypotension</li>
+                        <li>Bradycardia (loss of sympathetic tone)</li>
+                        <li>Warm, dry skin (vasodilation)</li>
+                    </ul>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Causes:</strong> High spinal cord injury (above T6), severe head injury, spinal anaesthesia</p>
+                    <p><strong style="color:var(--text);">Management:</strong> IV fluids (cautious), vasopressors (noradrenaline preferred), atropine for bradycardia.</p>
+                </div>
+            `);
+        }
+
+        function showLiverFailureInfo() {
+            showModal('Liver Failure', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Mechanism:</strong> Cirrhosis causes profound vasodilation with splanchnic pooling and low SVR</p>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Look for:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Known liver disease, ascites, jaundice</li>
+                        <li>Spider naevi, palmar erythema</li>
+                        <li>Hepatorenal syndrome</li>
+                        <li>Often precipitated by infection (SBP)</li>
+                    </ul>
+                    <p><strong style="color:var(--text);">Management:</strong> Treat underlying cause (often infection), albumin infusion, consider terlipressin for HRS.</p>
+                </div>
+            `);
+        }
+
+        function showDrugInducedInfo() {
+            showModal('Drug-Induced Hypotension', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Common causes:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Epidural/spinal anaesthesia — sympathetic block</li>
+                        <li>Antihypertensives — ACEi, ARBs, CCBs, beta-blockers</li>
+                        <li>Sedatives/anaesthetics — propofol, midazolam</li>
+                        <li>Vasodilators — GTN, hydralazine</li>
+                    </ul>
+                    <p><strong style="color:var(--text);">Management:</strong> Stop/reduce offending agent, IV fluids, vasopressors if needed.</p>
+                </div>
+            `);
+        }
+
+        function showValvularInfo() {
+            showModal('Acute Valvular Dysfunction', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Look for:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>New or changed murmur</li>
+                        <li>Recent MI (papillary muscle rupture → acute MR)</li>
+                        <li>Endocarditis features (fever, embolic phenomena)</li>
+                        <li>Aortic dissection extending to aortic valve</li>
+                    </ul>
+                    <p><strong style="color:var(--text);">Management:</strong> Urgent echo, cardiothoracic surgery consultation.</p>
+                </div>
+            `);
+        }
+
+        function showCardiomyopathyInfo() {
+            showModal('Decompensated Cardiomyopathy', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Look for:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Known heart failure, low EF</li>
+                        <li>Pulmonary oedema, raised JVP, peripheral oedema</li>
+                        <li>Medication non-compliance or recent fluid overload</li>
+                        <li>New arrhythmia (often AF) as precipitant</li>
+                    </ul>
+                    <p><strong style="color:var(--text);">Management:</strong> Diuretics (if congested), inotropes (dobutamine), vasodilators (if BP allows). Consider IABP/ECMO if refractory.</p>
+                </div>
+            `);
+        }
+
+        function showTakotsuboInfo() {
+            showModal('Takotsubo Cardiomyopathy', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Aka:</strong> Stress cardiomyopathy, "broken heart syndrome"</p>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Classic presentation:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Post-menopausal woman after emotional/physical stress</li>
+                        <li>Chest pain, ECG changes mimicking STEMI</li>
+                        <li>Apical ballooning on echo with preserved base</li>
+                        <li>Mild troponin elevation (less than expected for STEMI)</li>
+                    </ul>
+                    <p><strong style="color:var(--text);">Management:</strong> Supportive care, usually resolves in weeks. Avoid inotropes. May need temporary support if severe.</p>
+                </div>
+            `);
+        }
+
+        function showAdrenalInfo() {
+            showModal('Adrenal Insufficiency', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Consider in:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Chronic steroid use — missed doses or stress without dose increase</li>
+                        <li>Known Addison's disease</li>
+                        <li>Recent pituitary surgery or head injury</li>
+                        <li>Critically ill patients on prolonged steroids</li>
+                    </ul>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Clues:</strong> Hyperkalaemia + hyponatraemia, hypoglycaemia, eosinophilia</p>
+                    <p><strong style="color:var(--text);">Management:</strong> IV hydrocortisone 100mg stat, then 50mg QID. IV fluids (often need large volumes).</p>
+                </div>
+            `);
+        }
+
+        function showMyxoedemaInfo() {
+            showModal('Myxoedema Crisis', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Look for:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Hypothermia (often <35°C)</li>
+                        <li>Bradycardia</li>
+                        <li>Altered mental state → coma</li>
+                        <li>Hyponatraemia, hypoglycaemia</li>
+                        <li>Known hypothyroidism, non-compliance with thyroxine</li>
+                    </ul>
+                    <p><strong style="color:var(--text);">Management:</strong> IV T4 (or T3), IV hydrocortisone, supportive care (warming, ventilation). Get ICU involved early.</p>
                 </div>
             `);
         }
