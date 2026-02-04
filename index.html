@@ -4954,28 +4954,44 @@
 
                 <!-- MANAGEMENT TAB -->
                 <div class="tab-content" id="shock-tab-mgmt">
-                    <div class="pearl-box" style="margin-bottom: 16px;">
-                        <div class="pearl-icon">⚠️</div>
+                    <div class="pearl-box" style="margin-bottom: 16px; background: rgba(255,59,48,0.06); border: 1px solid rgba(255,59,48,0.2);">
                         <div class="pearl-content">
-                            <div class="pearl-text"><strong>Obstructive, cardiogenic and endocrine shock require escalation to a critical care specialist.</strong><br><span style="color: var(--text2);">The principles below support initial ward-based resuscitation of hypovolaemic and distributive shock.</span></div>
+                            <div class="pearl-text"><strong style="color: var(--red);">Escalate early</strong><br><span style="color: var(--text2);">Obstructive, cardiogenic and endocrine shock require critical care input.</span></div>
                         </div>
                     </div>
 
-                    <!-- Fluid Resuscitation Button -->
-                    <div class="gi-mx-box" style="margin-bottom: 16px; cursor: pointer;" onclick="fluidResusSource='shock'; goToPage('page-fluid-resus')">
+                    <!-- Fluid Resuscitation link -->
+                    <div class="gi-mx-box" style="margin-bottom: 12px; cursor: pointer;" onclick="fluidResusSource='shock'; goToPage('page-fluid-resus')">
                         <div style="display: flex; align-items: center; justify-content: space-between;">
                             <div style="display: flex; align-items: center; gap: 12px;">
-                                <div style="width: 40px; height: 40px; background: rgba(255,59,48,0.08); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-                                    <svg viewBox="0 0 500 500" style="width: 24px; height: 24px; color: var(--red);">
-                                        <path fill="currentColor" d="m416.814 89.9h-7.921v-6.942a41.56 41.56 0 0 0 -19.175-34.992v-12.446a6 6 0 0 0 -6-6h-20a6 6 0 0 0 -6 6v7a24.977 24.977 0 0 0 -9.378 3.48v-15.249c0-8.075-6.439-16-13-16h-241.554c-13.055 0-19 8.294-19 16v32.391a4.689 4.689 0 1 1 -9.378 0v-27.622a6 6 0 0 0 -6-6h-20a6 6 0 0 0 -6 6v27.622a36.689 36.689 0 1 0 73.378 0v-16.391h88.777v445.049a6 6 0 0 0 6 6h20a6 6 0 0 0 6-6v-445.049h88.777v16.391a36.543 36.543 0 0 0 9.474 24.577l.025 2.183h-8.35a56.063 56.063 0 0 0 -56 56v196.344a56.063 56.063 0 0 0 56 56h19.268v10.763a18.02 18.02 0 0 0 -11.8 17.125c0 9.956 7.729 18.055 17.228 18.055h9.515v21.611a6 6 0 0 0 6 6h19.251a6 6 0 0 0 6-6v-21.612h9.522c9.5 0 17.227-8.1 17.227-18.055a18 18 0 0 0 -12.155-17.254v-10.633h19.269a56.063 56.063 0 0 0 56-56v-196.346a56.063 56.063 0 0 0 -56-56zm-27.114-26.237a29.431 29.431 0 0 1 7.193 19.3v6.937h-9.41l.016-6.93v-.014a20.074 20.074 0 0 0 -.749-5.372 36.612 36.612 0 0 0 2.95-13.921zm-19.982 5.48v-27.623h8v21.622a24.711 24.711 0 0 1 -18.564 23.914v-4.1a8.2 8.2 0 0 1 5.969-7.872c3.877-1.084 4.596-5.942 4.596-5.942zm-12.051-14.115v10.239a20.25 20.25 0 0 0 -10.512 17.691v6.942h-9.315l-.08-6.944a29.762 29.762 0 0 1 19.907-27.928zm-35.327-20.277h-100.777a6 6 0 0 0 -6 6v445.049h-8v-445.049a6 6 0 0 0 -6-6h-100.777a6 6 0 0 0 -6 6v22.391a24.689 24.689 0 1 1 -49.378 0v-21.622h8v21.622a16.689 16.689 0 1 0 33.378 0v-32.391c0-3.711 5.357-4 7-4h240.687a5.787 5.787 0 0 1 1.867 4v24.549a41.68 41.68 0 0 0 -7.6 12.254 24.714 24.714 0 0 1 -.4-4.413v-22.39a6 6 0 0 0 -6-6zm48.612 425.049h-7.252v-15.612h7.251zm26.748-33.667c0 3.339-2.345 6.055-5.227 6.055h-50.3c-2.883 0-5.228-2.716-5.228-6.055s2.345-6.055 5.228-6.055h50.3c2.883 0 5.227 2.716 5.227 6.055zm-48.945-18.055v-9.833h36.79v9.833zm112.059-227.892h-40.352v12h40.353v17.484h-40.353v12h40.353v17.484h-40.353v12h40.353v17.484h-40.353v12h40.353v17.484h-40.353v12h40.353v17.484h-40.353v12h40.353v2.64a44.05 44.05 0 0 1 -44 44h-99.327a44.05 44.05 0 0 1 -44-44v-196.346a44.05 44.05 0 0 1 44-44h99.326a44.05 44.05 0 0 1 44 44z"/>
+                                <div style="width: 40px; height: 40px; background: rgba(0,122,255,0.08); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" style="width: 20px; height: 20px;">
+                                        <path d="M12 2v20M2 12h20"/>
                                     </svg>
                                 </div>
                                 <div>
-                                    <div style="font-weight: 600; font-size: 15px;">Fluid Resuscitation</div>
+                                    <div style="font-weight: 600; font-size: 15px;">Fluid resuscitation guide</div>
                                     <div style="font-size: 12px; color: var(--text3);">Which fluid, how much, how fast</div>
                                 </div>
                             </div>
                             <span style="font-size: 20px; color: var(--text3);">›</span>
+                        </div>
+                    </div>
+
+                    <!-- Major Haemorrhage link - coming soon -->
+                    <div class="gi-mx-box" style="margin-bottom: 12px; opacity: 0.5; cursor: not-allowed;">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <div style="width: 40px; height: 40px; background: rgba(255,59,48,0.08); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2" style="width: 20px; height: 20px;">
+                                        <path d="M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5-6.5 4.5 2-7.5L2 9h7z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div style="font-weight: 600; font-size: 15px;">Major haemorrhage protocol</div>
+                                    <div style="font-size: 12px; color: var(--text3);">Coming soon</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -5155,14 +5171,6 @@
                             <div class="cause-clue-item">HOCM (may be undiagnosed) — worsens with hypovolaemia and inotropes</div>
                             <div class="cause-clue-item">Clue: hypotension not responding to fluid/inotropes, systolic murmur</div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="pearl-box">
-                    <div class="pearl-icon">💡</div>
-                    <div class="pearl-content">
-                        <div class="pearl-title">PE in inpatients</div>
-                        <div class="pearl-text">Wells and Geneva scores are not validated for inpatients. D-dimer has high false positive rate. Use clinical gestalt: has patient been receiving DVT prophylaxis? Recent surgery, immobility, malignancy, previous VTE?</div>
                     </div>
                 </div>
             </div>
@@ -9271,9 +9279,9 @@
 
         function showECGChoices() {
             const html = `
-                <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; flex-direction: column; gap: 10px;">
                     <button onclick="closeModal(); showRVStrainInfo()" style="
-                        padding: 16px;
+                        padding: 14px 16px;
                         background: #fff;
                         border: 1px solid var(--border);
                         border-radius: 10px;
@@ -9281,12 +9289,10 @@
                         font-weight: 600;
                         text-align: left;
                         cursor: pointer;
-                    ">
-                        <div style="color: var(--text);">Looking for RV strain</div>
-                        <div style="font-size: 12px; color: var(--text2); font-weight: 400; margin-top: 4px;">PE, pulmonary hypertension</div>
-                    </button>
+                        color: var(--text);
+                    ">RV strain</button>
                     <button onclick="closeModal(); showIschemiaInfo()" style="
-                        padding: 16px;
+                        padding: 14px 16px;
                         background: #fff;
                         border: 1px solid var(--border);
                         border-radius: 10px;
@@ -9294,10 +9300,8 @@
                         font-weight: 600;
                         text-align: left;
                         cursor: pointer;
-                    ">
-                        <div style="color: var(--text);">Looking for ischaemia</div>
-                        <div style="font-size: 12px; color: var(--text2); font-weight: 400; margin-top: 4px;">STEMI, STEMI equivalents, Sgarbossa</div>
-                    </button>
+                        color: var(--text);
+                    ">Ischaemia</button>
                 </div>
             `;
             showModal('ECG: What to look for', html);
