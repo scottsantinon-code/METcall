@@ -84,6 +84,8 @@
         }
         .home-logo svg { width:28px; height:28px; }
         .home-title { font-size:28px; font-weight:700; letter-spacing:-0.5px; }
+        .beta-badge { display:inline-block; background:var(--orange); color:#fff; font-size:10px; font-weight:600; padding:2px 8px; border-radius:4px; margin-left:8px; vertical-align:middle; letter-spacing:0.5px; }
+        .beta-disclaimer { font-size:12px; color:var(--text3); text-align:center; margin:8px 0 16px 0; line-height:1.4; }
         .trigger-list { display:flex; flex-direction:column; }
         .trigger-card {
             background: #fff;
@@ -3929,7 +3931,9 @@
                         </svg>
                     </div>
                     <h1 class="home-title">METmate</h1>
+                    <div class="beta-badge">BETA</div>
                 </div>
+                <p class="beta-disclaimer">This app is a work in progress. Content may be incomplete or contain errors. Always use clinical judgement.</p>
                 <div class="trigger-list">
                     <div class="trigger-card" onclick="goToPage('page-shock')">
                         <div class="trigger-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -5240,60 +5244,46 @@
                 </div>
             </div>
             <div class="content">
-                <div class="page-title">Management Principles</div>
+                <div class="page-title">Ward-Based Management</div>
 
-                <div class="mgmt-section">
-                    <div class="section-title">Based on your working diagnosis</div>
-
-                    <div class="mgmt-card">
-                        <div class="mgmt-card-header">
-                            <span class="mgmt-card-icon">💧</span>
-                            <span class="mgmt-card-title">Hypovolaemic / Distributive</span>
-                        </div>
-                        <div class="mgmt-card-body">
-                            <div class="mgmt-card-item">IV fluid resuscitation — bolus and reassess</div>
-                            <div class="mgmt-card-item">Identify and treat source (bleeding, sepsis, third-spacing)</div>
-                            <div class="mgmt-card-item">Consider vasopressors if refractory</div>
-                            <div class="mgmt-card-link" onclick="fluidResusSource='shock'; goToPage('page-fluid-resus')">Fluid resuscitation guide ›</div>
-                        </div>
+                <div class="guidance-box" style="margin-bottom: 16px; background: rgba(255, 59, 48, 0.06); border-left: 4px solid var(--red);">
+                    <div class="guidance-title" style="color: var(--red);">Escalate early</div>
+                    <div style="font-size: 13px; color: var(--text2); line-height: 1.5;">
+                        <strong>Obstructive, cardiogenic, and endocrine shock</strong> require specialist management in a critical care environment. Call for senior help and ICU early.
                     </div>
+                </div>
 
-                    <div class="mgmt-card">
-                        <div class="mgmt-card-header">
-                            <span class="mgmt-card-icon">❤️</span>
-                            <span class="mgmt-card-title">Cardiogenic</span>
-                        </div>
-                        <div class="mgmt-card-body">
-                            <div class="mgmt-card-item">Cautious with fluids — may worsen pulmonary oedema</div>
-                            <div class="mgmt-card-item">Treat underlying cause (ACS, arrhythmia)</div>
-                            <div class="mgmt-card-item">Consider inotropes early, avoid vasoconstrictors</div>
-                            <div class="mgmt-card-link" onclick="showECGInfo()">ECG findings to look for ›</div>
-                        </div>
+                <div class="guidance-box" style="margin-bottom: 16px;">
+                    <div class="guidance-title">What this app can help with</div>
+                    <div style="font-size: 13px; color: var(--text2); line-height: 1.5;">
+                        Initial ward-based resuscitation of <strong>hypovolaemic</strong> and <strong>distributive shock</strong> centres on IV fluid resuscitation while treating the underlying cause.
                     </div>
+                </div>
 
-                    <div class="mgmt-card">
-                        <div class="mgmt-card-header">
-                            <span class="mgmt-card-icon">🚧</span>
-                            <span class="mgmt-card-title">Obstructive</span>
-                        </div>
-                        <div class="mgmt-card-body">
-                            <div class="mgmt-card-item">Relieve obstruction urgently</div>
-                            <div class="mgmt-card-item">Tension pneumothorax → needle decompression</div>
-                            <div class="mgmt-card-item">Tamponade → pericardiocentesis</div>
-                            <div class="mgmt-card-item">PE → anticoagulation, consider thrombolysis</div>
-                        </div>
+                <div class="section-title" style="margin-top: 20px;">Fluid Resuscitation</div>
+
+                <div class="mgmt-card" onclick="fluidResusSource='shock'; goToPage('page-fluid-resus')" style="cursor: pointer;">
+                    <div class="mgmt-card-header">
+                        <span class="mgmt-card-icon">💧</span>
+                        <span class="mgmt-card-title">Crystalloid Resuscitation</span>
                     </div>
+                    <div class="mgmt-card-body">
+                        <div class="mgmt-card-item">For sepsis, dehydration, third-spacing</div>
+                        <div class="mgmt-card-item">Bolus and reassess approach</div>
+                        <div class="mgmt-card-link">Open fluid resuscitation guide ›</div>
+                    </div>
+                </div>
 
-                    <div class="mgmt-card">
-                        <div class="mgmt-card-header">
-                            <span class="mgmt-card-icon">⚗️</span>
-                            <span class="mgmt-card-title">Endocrine</span>
-                        </div>
-                        <div class="mgmt-card-body">
-                            <div class="mgmt-card-item">Adrenal crisis → IV hydrocortisone 100mg stat</div>
-                            <div class="mgmt-card-item">Myxoedema → IV T3/T4, hydrocortisone, supportive care</div>
-                            <div class="mgmt-card-item">Fluid resuscitation for both</div>
-                        </div>
+                <div class="mgmt-card" style="opacity: 0.7;">
+                    <div class="mgmt-card-header">
+                        <span class="mgmt-card-icon">🩸</span>
+                        <span class="mgmt-card-title">Haemorrhagic Shock</span>
+                        <span style="background: var(--orange); color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 4px; margin-left: 8px;">Coming soon</span>
+                    </div>
+                    <div class="mgmt-card-body">
+                        <div class="mgmt-card-item">If bleeding is the cause, blood products are preferred over crystalloid</div>
+                        <div class="mgmt-card-item">Activate massive transfusion protocol early</div>
+                        <div class="mgmt-card-item" style="color: var(--text3);">Massive transfusion chapter in development</div>
                     </div>
                 </div>
 
@@ -5306,7 +5296,7 @@
                 </div>
             </div>
             <div class="bottom-nav">
-                <button class="nav-btn secondary" onclick="goToPage('page-shock-assess')">‹ Back to DDx</button>
+                <button class="nav-btn secondary" onclick="goToPage('page-shock-assess')">‹ Back</button>
                 <button class="nav-btn primary" onclick="goHome()">Done</button>
             </div>
         </div>
@@ -5359,53 +5349,6 @@
         </div>
 
         <!-- HYPOXIA MANAGEMENT FRAMEWORK (DEPRECATED - hidden) -->
-        <div class="page" id="page-hypoxia-mgmt" style="display:none;">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPage('page-hypoxia')">‹ Back</button>
-                </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                            <polyline points="9 22 9 12 15 12 15 22"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <div class="content">
-                <div class="page-title">Management of Hypoxaemia</div>
-
-                <div class="mgmt-list">
-                    <div class="mgmt-item" onclick="goToPage('page-hypoxia-o2')">
-                        <span class="mgmt-num">1</span>
-                        <div class="mgmt-text">
-                            <strong>Set the SpO₂ target</strong>
-                        </div>
-                        <span class="mgmt-arrow">›</span>
-                    </div>
-                    <div class="mgmt-item" onclick="goToPage('page-hypoxia-devices')">
-                        <span class="mgmt-num">2</span>
-                        <div class="mgmt-text">
-                            <strong>Provide supplemental oxygen</strong>
-                        </div>
-                        <span class="mgmt-arrow">›</span>
-                    </div>
-                    <div class="mgmt-item" onclick="goToPage('page-hypoxia-causes')">
-                        <span class="mgmt-num">3</span>
-                        <div class="mgmt-text">
-                            <strong>Identify and treat the cause</strong>
-                        </div>
-                        <span class="mgmt-arrow">›</span>
-                    </div>
-                </div>
-            </div>
-            <div class="bottom-nav">
-                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia')">‹ Back</button>
-                <button class="nav-btn primary" onclick="goToPage('page-hypoxia-o2')">Continue ›</button>
-            </div>
-        </div>
-
         <!-- SUPPLEMENTAL OXYGEN -->
         <div class="page" id="page-hypoxia-o2">
             <div class="hypo-header">
@@ -5754,7 +5697,7 @@
             </div>
             <div class="bottom-nav">
                 <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-history')">‹ Back</button>
-                <button class="nav-btn primary" onclick="goToPage('page-hypoxia-causes')">View differentials ›</button>
+                <button class="nav-btn primary" onclick="goToPage('page-hypoxia-airway')">View differentials ›</button>
             </div>
         </div>
 
@@ -5835,7 +5778,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
-                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-causes')">Causes</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-causes')">DDx</div>
                     <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
@@ -6798,7 +6741,7 @@
         <div class="page" id="page-hypoxia-airway">
             <div class="hypo-header">
                 <div class="hypo-header-back">
-                    <button onclick="goToPage('page-hypoxia-causes')">‹</button>
+                    <button onclick="goToPage('page-hypoxia-exam')">‹</button>
                 </div>
                 <div class="hypo-seg-control">
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
@@ -7259,7 +7202,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
-                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-causes')">Causes</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-causes')">DDx</div>
                     <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
