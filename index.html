@@ -1923,28 +1923,21 @@
             gap: 10px;
         }
 
-        .killer-item {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            padding: 14px 16px;
+        .killer-card {
             background: #fff;
             border: 1px solid var(--border);
             border-radius: 12px;
+            padding: 16px;
         }
 
-        .killer-content {
-            flex: 1;
-        }
-
-        .killer-name {
+        .killer-card-name {
             font-size: 15px;
             font-weight: 600;
             color: var(--text);
             margin-bottom: 4px;
         }
 
-        .killer-clue {
+        .killer-card-clue {
             font-size: 13px;
             color: var(--text2);
             line-height: 1.4;
@@ -2012,37 +2005,132 @@
             gap: 8px;
         }
 
-        .exam-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 12px;
+        /* ABCDE Cards */
+        .abcde-card {
             background: #fff;
             border: 1px solid var(--border);
-            border-radius: 10px;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 10px;
         }
 
-        .exam-letter {
+        .abcde-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .abcde-badge {
+            width: 28px;
+            height: 28px;
+            background: var(--blue);
+            color: #fff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 14px;
-            font-weight: 700;
-            color: var(--blue);
-            min-width: 20px;
+            font-weight: 600;
+            flex-shrink: 0;
         }
 
-        .exam-content {
+        .abcde-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .abcde-body {
+            font-size: 14px;
+            color: var(--text2);
+            line-height: 1.5;
+        }
+
+        .abcde-body div {
+            margin-bottom: 4px;
+        }
+
+        .abcde-body div:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Breathing card with RR counter */
+        .breathing-card {
+            display: flex;
+            gap: 16px;
+        }
+
+        .abcde-card-left {
             flex: 1;
         }
 
-        .exam-label {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text);
-            margin-bottom: 2px;
+        .rr-counter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px;
+            min-width: 100px;
         }
 
-        .exam-items {
-            font-size: 13px;
+        .rr-counter-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .rr-counter-subtitle {
+            font-size: 11px;
+            color: var(--text3);
+            margin-bottom: 8px;
+        }
+
+        .rr-counter-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(0,122,255,0.1);
+            border: none;
+            color: var(--blue);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s;
+        }
+
+        .rr-counter-btn:active {
+            transform: scale(0.95);
+            background: rgba(0,122,255,0.2);
+        }
+
+        .rr-counter-btn.counting {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        .rr-counter-display {
+            margin-top: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .rr-unit {
+            font-size: 14px;
+            font-weight: 400;
             color: var(--text2);
+        }
+
+        .rr-reset-btn {
+            margin-top: 4px;
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 12px;
+            color: var(--text2);
+            cursor: pointer;
         }
 
         /* Differential panel */
@@ -2089,6 +2177,29 @@
             color: var(--text3);
             margin-top: 10px;
             font-style: italic;
+        }
+
+        .differential-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .diff-list-item {
+            padding: 10px 14px;
+            font-size: 14px;
+            color: var(--text2);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .diff-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .diff-list-item.top {
+            font-weight: 600;
+            color: var(--text);
+            background: rgba(0,122,255,0.06);
         }
 
         .toggle-row {
@@ -3032,8 +3143,8 @@
                 <div class="action-tiles">
                     <div class="action-tile" style="border-color: var(--border);">
                         <div class="action-tile-icon" style="background: rgba(0,0,0,0.04);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.5" style="width:28px;height:28px;">
-                                <path d="M3 12h4l2-8 4 16 2-8h6"/>
+                            <svg viewBox="0 0 128 128" fill="currentColor" style="width:32px;height:32px;">
+                                <path d="M115,21H13c-5,0-9-3.74-9-8.33A8.68,8.68,0,0,1,12.67,4H62L58.4,8.8a2,2,0,0,0,.32,2.74l6,5a2,2,0,1,0,2.56-3.08L62.74,9.68,67.6,3.2A2,2,0,0,0,66,0H12.67A12.68,12.68,0,0,0,0,12.67V73c0,6.73,5.71,12,13,12H115c4.47,0,9,2.75,9,8s-4.53,8-9,8H38a13,13,0,0,0-9,3.81V91a2,2,0,0,0-4,0v23c0,7.33,6.2,14,13,14H88.83a2,2,0,0,0,1.43-3.4l-5.54-5.67,5.78-6.61a2,2,0,0,0-3-2.64l-7,8a2,2,0,0,0,.07,2.72l3.52,3.6H38c-4.63,0-9-4.86-9-10a9.24,9.24,0,0,1,9-9h77c7.41,0,13-5.16,13-12V34A13.35,13.35,0,0,0,115,21ZM4,21.56A13.34,13.34,0,0,0,13,25H115a9.24,9.24,0,0,1,9,9V56.84A12.9,12.9,0,0,0,115,53h-5.24A8.07,8.07,0,0,0,105,51a8.07,8.07,0,0,0-4.76,2H98a2,2,0,0,0-1.92,1.45L94.49,60,90,33.66A2,2,0,0,0,88,32h0a2,2,0,0,0-2,1.58L81.79,53.16A2.14,2.14,0,0,0,81,53H78.76A8.07,8.07,0,0,0,74,51a8.07,8.07,0,0,0-4.76,2H53.76A8.07,8.07,0,0,0,49,51a8.07,8.07,0,0,0-4.76,2H42a2,2,0,0,0-1.92,1.45L38.49,60,34,33.66A2,2,0,0,0,32,32a2,2,0,0,0-2,1.58l-4.2,19.61A1.88,1.88,0,0,0,25,53H22.8A7.67,7.67,0,0,0,18,51a7.67,7.67,0,0,0-4.8,2H13c-5,0-9-3.73-9-8.31ZM124,84.18A13.64,13.64,0,0,0,115,81H13c-4.42,0-9-3-9-8V53.55H4A13.34,13.34,0,0,0,13,57h1a2,2,0,0,0,1.48-.66A4.34,4.34,0,0,1,18,55a4.31,4.31,0,0,1,2.52,1.34A2,2,0,0,0,22,57h2.09l1.41,1.61a2,2,0,0,0,3.46-.9l2.82-13.15L36,69.34a2,2,0,0,0,3.89.21L43.51,57H45a2,2,0,0,0,1.41-.58A5,5,0,0,1,49,55a5,5,0,0,1,2.59,1.41A2,2,0,0,0,53,57H70a2,2,0,0,0,1.41-.58A5,5,0,0,1,74,55a5,5,0,0,1,2.59,1.41A2,2,0,0,0,78,57h2.17l1.42,1.41a2,2,0,0,0,3.36-1l2.82-12.94L92,69.34A2,2,0,0,0,93.89,71H94a2,2,0,0,0,1.92-1.45L99.51,57H101a2,2,0,0,0,1.41-.58A5,5,0,0,1,105,55a5,5,0,0,1,2.59,1.41A2,2,0,0,0,109,57h6a9.4,9.4,0,0,1,9,9.09Z"/>
                             </svg>
                         </div>
                         <div class="action-tile-content">
@@ -3043,22 +3154,31 @@
                     </div>
                     <div class="action-tile" style="border-color: var(--border);">
                         <div class="action-tile-icon" style="background: rgba(0,0,0,0.04);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.5" style="width:28px;height:28px;">
-                                <path d="M12 2C9 6 7 9 7 12a5 5 0 0 0 10 0c0-3-2-6-5-10z"/>
-                                <path d="M12 17v4M10 19h4"/>
+                            <svg viewBox="0 0 43.3492 43.3492" fill="currentColor" style="width:32px;height:32px;">
+                                <path d="m29.5247 11.9269c.2672-.4628.1087-1.0546-.3541-1.3218s-1.0546-.1087-1.3218.3541l-7.51 13.0077c-.2672.4628-.1086 1.0546.3542 1.3218s1.0546.1086 1.3218-.3542zm-18.4508 6.0169c-.2672.4629-.1086 1.0547.3542 1.3219s1.0546.1086 1.3218-.3542l7.2181-12.5022c.2672-.4628.1086-1.0546-.3542-1.3218s-1.0546-.1086-1.3218.3542z"/>
+                                <rect height="16.16" rx="1.327" transform="matrix(.292 .169 -.169 .292 18.926 -.487)" width="52.775"/>
+                                <path d="m13.5899 15.8629 3.1339 1.8093-.7647 1.3306-3.1339-1.8094z"/>
+                                <path d="m15.0952 13.2608 1.9745 1.14-.7706 1.3305-1.9746-1.14z"/>
+                                <path d="m16.5945 10.6587 3.1339 1.8093-.7646 1.3306-3.1339-1.8093z"/>
+                                <path d="m13.2522 40.1117 8.7626-15.1772c-1.2481-.7206-2.2044-1.9466-3.4525-2.6672-1.248-.7205-2.7879-.9357-4.036-1.6563s-2.2044-1.9466-3.4524-2.6672l-9.0544 15.6827c-1.7834 3.089-.7153 7.0754 2.3738 8.8589 3.089 1.7834 7.0755.7152 8.8589-2.3737z"/>
+                                <path d="m38.6882 10.6119c-2.1815 2.6248-3.1873 4.778-3.4397 6.4596-.4585 3.0539 1.5674 4.5527 3.5475 4.4964 1.8968-.054 3.7517-1.5355 3.3395-4.4442-.2393-1.6892-1.2431-3.8598-3.4473-6.5118z"/>
                             </svg>
                         </div>
                         <div class="action-tile-content">
                             <div class="action-tile-title">Bloods</div>
-                            <div class="action-tile-sub">FBC, UEC, LFT, coags, lactate, G&H</div>
+                            <div class="action-tile-sub">Blood gas, coags, group & hold</div>
                         </div>
                     </div>
                     <div class="action-tile" style="border-color: var(--border);">
                         <div class="action-tile-icon" style="background: rgba(0,0,0,0.04);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.5" style="width:28px;height:28px;">
-                                <rect x="4" y="4" width="16" height="16" rx="2"/>
-                                <circle cx="12" cy="11" r="4"/>
-                                <path d="M12 15v3"/>
+                            <svg viewBox="0 0 7111 7111" fill="currentColor" style="width:32px;height:32px;">
+                                <path d="m3659 2253h-206c-182 0-329-148-329-329v-246c0-46 37-83 83-83s83 37 83 83v246c0 89 73 162 163 162h206c90 0 163-73 163-162v-246c0-46 37-83 83-83s84 37 84 83v246c0 181-148 329-330 329z"/>
+                                <path d="m3659 3040h-206c-182 0-329-147-329-329v-246c0-46 37-83 83-83s83 37 83 83v246c0 90 73 163 163 163h206c90 0 163-73 163-163v-246c0-46 37-83 83-83s84 37 84 83v246c0 182-148 329-330 329z"/>
+                                <path d="m3659 3795h-206c-182 0-329-147-329-329v-245c0-46 37-84 83-84s83 38 83 84v245c0 90 73 163 163 163h206c90 0 163-73 163-163v-245c0-46 37-84 83-84s84 38 84 84v245c0 182-148 329-330 329z"/>
+                                <path d="m3659 4565h-206c-182 0-329-148-329-329v-246c0-46 37-83 83-83s83 37 83 83v246c0 89 73 162 163 162h206c90 0 163-73 163-162v-246c0-46 37-83 83-83s84 37 84 83v246c0 181-148 329-330 329z"/>
+                                <path d="m3659 5334h-206c-182 0-329-147-329-329v-246c0-46 37-83 83-83s83 37 83 83v246c0 90 73 163 163 163h206c90 0 163-73 163-163v-246c0-46 37-83 83-83s84 37 84 83v246c0 182-148 329-330 329z"/>
+                                <path d="m1640 5986c-6 0-13 0-19-2-45-10-73-55-62-100 5-25 149-625 496-749 144-52 297-17 455 103 948 726 1144 726 2093 0 157-120 310-155 455-103 347 124 490 724 496 749 10 45-18 90-62 100-45 11-90-17-101-62-34-149-172-553-390-630-89-32-186-6-297 79-503 384-818 580-1148 580-329 0-645-196-1148-580-111-85-208-111-297-79-218 78-355 481-390 630-9 38-43 64-81 64z"/>
+                                <path d="m6458 7111h-5804c-361 0-654-293-654-653v-5804c0-361 293-654 654-654h5804c360 0 653 293 653 654v5804c0 360-293 653-653 653zm-5804-6944c-269 0-487 218-487 487v5804c0 268 218 486 487 486h5804c268 0 486-218 486-486v-5804c0-269-218-487-486-487z"/>
                             </svg>
                         </div>
                         <div class="action-tile-content">
@@ -3099,33 +3219,21 @@
                 <div class="page-title">Consider time-critical diagnoses</div>
 
                 <div class="killer-list">
-                    <div class="killer-item">
-                        <div class="killer-content">
-                            <div class="killer-name">Cardiac tamponade</div>
-                            <div class="killer-clue">↑JVP, muffled heart sounds, pulsus paradoxus</div>
-                        </div>
-                        <button class="info-btn" onclick="showTamponadeInfo()">i</button>
+                    <div class="killer-card">
+                        <div class="killer-card-name">Cardiac tamponade</div>
+                        <div class="killer-card-clue">Beck's triad: ↓BP, ↑JVP, muffled hearts</div>
                     </div>
-                    <div class="killer-item">
-                        <div class="killer-content">
-                            <div class="killer-name">Tension pneumothorax</div>
-                            <div class="killer-clue">Absent breath sounds, tracheal deviation, hypoxia</div>
-                        </div>
-                        <button class="info-btn" onclick="showTensionPneumoInfo()">i</button>
+                    <div class="killer-card">
+                        <div class="killer-card-name">Tension pneumothorax</div>
+                        <div class="killer-card-clue">Absent breath sounds, tracheal deviation, hypoxia</div>
                     </div>
-                    <div class="killer-item">
-                        <div class="killer-content">
-                            <div class="killer-name">Anaphylaxis</div>
-                            <div class="killer-clue">Urticaria, angioedema, wheeze, recent exposure</div>
-                        </div>
-                        <button class="info-btn" onclick="showAnaphylaxisShockInfo()">i</button>
+                    <div class="killer-card">
+                        <div class="killer-card-name">Anaphylaxis</div>
+                        <div class="killer-card-clue">Urticaria, angioedema, wheeze, recent exposure</div>
                     </div>
-                    <div class="killer-item">
-                        <div class="killer-content">
-                            <div class="killer-name">Unstable arrhythmia</div>
-                            <div class="killer-clue">Irregular or very fast/slow pulse, chest pain</div>
-                        </div>
-                        <button class="info-btn" onclick="showUnstableArrhythmiaInfo()">i</button>
+                    <div class="killer-card">
+                        <div class="killer-card-name">Unstable arrhythmia</div>
+                        <div class="killer-card-clue">Irregular or very fast/slow pulse, chest pain</div>
                     </div>
                 </div>
             </div>
@@ -3159,7 +3267,7 @@
             <div class="content">
                 <div class="page-title">History</div>
 
-                <div class="section-title">Onset of hypotension</div>
+                <div class="section-title">Onset</div>
                 <div class="toggle-row">
                     <button class="toggle-pill" id="btn-onset-sudden" onclick="setHypoOnset('sudden')">Sudden</button>
                     <button class="toggle-pill" id="btn-onset-progressive" onclick="setHypoOnset('progressive')">Progressive</button>
@@ -3167,24 +3275,23 @@
 
                 <div class="section-title" style="margin-top: 24px;">Ask about</div>
                 <div class="history-prompts">
-                    <div class="history-prompt">Fever, rigors, cough, dysuria, wounds <span class="history-hint">→ Sepsis</span></div>
-                    <div class="history-prompt">Thirst, poor oral intake, vomiting, diarrhoea, polyuria, prolonged NBM <span class="history-hint">→ Hypovolaemia</span></div>
-                    <div class="history-prompt">Haematemesis, melaena, PR bleeding, recent surgery/procedure/trauma <span class="history-hint">→ Haemorrhage</span></div>
-                    <div class="history-prompt">Chest pain, dyspnoea, orthopnoea, known CCF/IHD <span class="history-hint">→ Cardiogenic</span></div>
-                    <div class="history-prompt">Pleuritic chest pain, leg swelling, immobility, malignancy <span class="history-hint">→ PE</span></div>
-                    <div class="history-prompt">Chronic steroid use, fatigue, weight loss, known adrenal disease <span class="history-hint">→ Adrenal crisis</span></div>
+                    <div class="history-prompt">Fever, rigors, focal infective symptoms</div>
+                    <div class="history-prompt">Haematemesis, melaena, diarrhoea, poor intake</div>
+                    <div class="history-prompt">Chest pain, dyspnoea, cardiac history</div>
+                    <div class="history-prompt">Immobility, recent surgery, malignancy</div>
+                    <div class="history-prompt">Recent drug or allergen exposure</div>
+                    <div class="history-prompt">Steroid use, adrenal disease</div>
                 </div>
 
                 <div class="differential-panel" id="differential-panel-history">
                     <div class="differential-title">Working differential</div>
-                    <div class="differential-tags" id="diff-tags-history">
-                        <span class="diff-tag">Distributive</span>
-                        <span class="diff-tag">Hypovolaemic</span>
-                        <span class="diff-tag">Cardiogenic</span>
-                        <span class="diff-tag">Obstructive</span>
-                        <span class="diff-tag">Endocrine</span>
+                    <div class="differential-list" id="diff-list-history">
+                        <div class="diff-list-item" data-cause="distributive">Distributive</div>
+                        <div class="diff-list-item" data-cause="hypovolaemic">Hypovolaemic</div>
+                        <div class="diff-list-item" data-cause="cardiogenic">Cardiogenic</div>
+                        <div class="diff-list-item" data-cause="obstructive">Obstructive</div>
+                        <div class="diff-list-item" data-cause="endocrine">Endocrine</div>
                     </div>
-                    <div class="differential-hint">Select findings above to prioritise</div>
                 </div>
             </div>
             <div class="bottom-nav">
@@ -3217,87 +3324,89 @@
             <div class="content">
                 <div class="page-title">Examination</div>
 
-                <div class="section-title">Peripheries</div>
-                <div class="toggle-group">
-                    <button class="toggle-btn" id="btn-periph-warm" onclick="setHypoPeripheries('warm')">Warm</button>
-                    <button class="toggle-btn" id="btn-periph-cool" onclick="setHypoPeripheries('cool')">Cool / mottled</button>
+                <div class="section-title">Key findings</div>
+                <div class="toggle-row" style="margin-bottom: 8px;">
+                    <button class="toggle-pill" id="btn-periph-warm" onclick="setHypoPeripheries('warm')">Warm</button>
+                    <button class="toggle-pill" id="btn-periph-cool" onclick="setHypoPeripheries('cool')">Cool / mottled</button>
+                </div>
+                <div class="toggle-row">
+                    <button class="toggle-pill" id="btn-resp-distress" onclick="setHypoRespiratory('distress')">Resp distress</button>
+                    <button class="toggle-pill" id="btn-resp-none" onclick="setHypoRespiratory('none')">No resp distress</button>
                 </div>
 
-                <div class="section-title" style="margin-top: 20px;">Respiratory status</div>
-                <div class="toggle-group">
-                    <button class="toggle-btn" id="btn-resp-distress" onclick="setHypoRespiratory('distress')">Hypoxia or distress</button>
-                    <button class="toggle-btn" id="btn-resp-none" onclick="setHypoRespiratory('none')">No respiratory distress</button>
+                <div class="section-title" style="margin-top: 20px;">Structured assessment</div>
+
+                <div class="abcde-card">
+                    <div class="abcde-header">
+                        <span class="abcde-badge">A</span>
+                        <span class="abcde-title">Airway</span>
+                    </div>
+                    <div class="abcde-body">Patent? Stridor? Angioedema?</div>
                 </div>
 
-                <div class="section-title" style="margin-top: 24px;">Systematic examination</div>
-                <div class="exam-checklist">
-                    <div class="exam-row">
-                        <span class="exam-letter">A</span>
-                        <div class="exam-content">
-                            <div class="exam-label">Airway</div>
-                            <div class="exam-items">Patent? Stridor?</div>
+                <div class="abcde-card breathing-card">
+                    <div class="abcde-card-left">
+                        <div class="abcde-header">
+                            <span class="abcde-badge">B</span>
+                            <span class="abcde-title">Breathing</span>
+                        </div>
+                        <div class="abcde-body">
+                            <div>SpO₂, RR</div>
+                            <div>Work of breathing — accessory muscle use, tripoding, abdominal recession</div>
+                            <div>Auscultation — ↓ air entry, wheeze, creps</div>
                         </div>
                     </div>
-                    <div class="exam-row">
-                        <span class="exam-letter">B</span>
-                        <div class="exam-content">
-                            <div class="exam-label">Breathing</div>
-                            <div class="exam-items">RR, SpO₂, breath sounds, work of breathing</div>
+                    <div class="rr-counter">
+                        <div class="rr-counter-title">Resp Rate</div>
+                        <div class="rr-counter-subtitle">Tap on each inspiration</div>
+                        <button class="rr-counter-btn" id="rr-tap-btn" onclick="tapRR()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:32px;height:32px;">
+                                <path d="M6.081 20C7.693 20 9 18.724 9 17.143V13c0-1.058.903-1.958 1.962-1.958h1.076C13.097 11.042 14 10.12 14 9.042V7M6.081 20c-1.612 0-3.081-1.833-3.081-3.143V9c0-1.538.903-2.571 1.962-2.571h1.076C7.097 6.429 8 5.476 8 4.429V4m-1.919 16H18c1.105 0 2-.857 2-1.857v-4.429c0-1.107-.895-1.857-2-1.857h-1.062c-1.059 0-1.938-.903-1.938-1.958V7m0 0c0-1.667-1.333-3-3-3S9 5.333 9 7"/>
+                            </svg>
+                        </button>
+                        <div class="rr-counter-display">
+                            <span id="rr-value">—</span><span class="rr-unit">/min</span>
                         </div>
-                    </div>
-                    <div class="exam-row">
-                        <span class="exam-letter">C</span>
-                        <div class="exam-content">
-                            <div class="exam-label">Circulation</div>
-                            <div class="exam-items">HR, BP, cap refill, JVP, heart sounds</div>
-                        </div>
-                    </div>
-                    <div class="exam-row">
-                        <span class="exam-letter">D</span>
-                        <div class="exam-content">
-                            <div class="exam-label">Disability</div>
-                            <div class="exam-items">GCS, pupils, BSL</div>
-                        </div>
-                    </div>
-                    <div class="exam-row">
-                        <span class="exam-letter">E</span>
-                        <div class="exam-content">
-                            <div class="exam-label">Exposure</div>
-                            <div class="exam-items">Temp, rash, wounds, drains, abdomen</div>
-                        </div>
+                        <button class="rr-reset-btn" onclick="resetRR()">Reset</button>
                     </div>
                 </div>
 
-                <div class="section-title" style="margin-top: 24px;">Look for</div>
-                <div class="exam-findings">
-                    <div class="exam-finding">
-                        <span class="exam-finding-text">High NG aspirates, wound losses, dry mucous membranes</span>
-                        <span class="exam-finding-hint">→ Hypovolaemia</span>
+                <div class="abcde-card">
+                    <div class="abcde-header">
+                        <span class="abcde-badge">C</span>
+                        <span class="abcde-title">Circulation</span>
                     </div>
-                    <div class="exam-finding">
-                        <span class="exam-finding-text">Drain losses, melaena on PR, pallor</span>
-                        <span class="exam-finding-hint">→ Haemorrhage</span>
+                    <div class="abcde-body">
+                        <div>HR / BP / rhythm. Peripheries: warm or cool?</div>
+                        <div>Muffled heart sounds, new murmur, oedema</div>
                     </div>
-                    <div class="exam-finding">
-                        <span class="exam-finding-text">Raised JVP, peripheral oedema, crepitations</span>
-                        <span class="exam-finding-hint">→ Cardiogenic</span>
+                </div>
+
+                <div class="abcde-card">
+                    <div class="abcde-header">
+                        <span class="abcde-badge">D</span>
+                        <span class="abcde-title">Disability</span>
                     </div>
-                    <div class="exam-finding">
-                        <span class="exam-finding-text">Unilateral leg swelling, calf tenderness</span>
-                        <span class="exam-finding-hint">→ PE</span>
+                    <div class="abcde-body">Conscious state, blood glucose</div>
+                </div>
+
+                <div class="abcde-card">
+                    <div class="abcde-header">
+                        <span class="abcde-badge">E</span>
+                        <span class="abcde-title">Exposure</span>
                     </div>
+                    <div class="abcde-body">Temp, rash, abdomen, calves</div>
                 </div>
 
                 <div class="differential-panel" id="differential-panel-exam">
                     <div class="differential-title">Working differential</div>
-                    <div class="differential-tags" id="diff-tags-exam">
-                        <span class="diff-tag">Distributive</span>
-                        <span class="diff-tag">Hypovolaemic</span>
-                        <span class="diff-tag">Cardiogenic</span>
-                        <span class="diff-tag">Obstructive</span>
-                        <span class="diff-tag">Endocrine</span>
+                    <div class="differential-list" id="diff-list-exam">
+                        <div class="diff-list-item" data-cause="distributive">Distributive</div>
+                        <div class="diff-list-item" data-cause="hypovolaemic">Hypovolaemic</div>
+                        <div class="diff-list-item" data-cause="cardiogenic">Cardiogenic</div>
+                        <div class="diff-list-item" data-cause="obstructive">Obstructive</div>
+                        <div class="diff-list-item" data-cause="endocrine">Endocrine</div>
                     </div>
-                    <div class="differential-hint">Select findings above to prioritise</div>
                 </div>
             </div>
             <div class="bottom-nav">
@@ -6380,6 +6489,41 @@
         let hypoPeripheries = null;
         let hypoRespiratory = null;
 
+        // RR counter state for hypo exam
+        let rrTaps = [];
+
+        function tapRR() {
+            const now = Date.now();
+            rrTaps.push(now);
+
+            // Update button state
+            document.getElementById('rr-tap-btn')?.classList.add('counting');
+
+            // Calculate rate if we have at least 2 taps
+            if (rrTaps.length >= 2) {
+                const intervals = [];
+                for (let i = 1; i < rrTaps.length; i++) {
+                    intervals.push(rrTaps[i] - rrTaps[i-1]);
+                }
+                const avgInterval = intervals.reduce((a,b) => a+b, 0) / intervals.length;
+                const rate = Math.round(60000 / avgInterval);
+                document.getElementById('rr-value').textContent = rate;
+            }
+
+            // Reset after 10 seconds of no taps
+            clearTimeout(rrTimeout);
+            rrTimeout = setTimeout(() => {
+                document.getElementById('rr-tap-btn')?.classList.remove('counting');
+            }, 10000);
+        }
+
+        function resetRR() {
+            rrTaps = [];
+            document.getElementById('rr-value').textContent = '—';
+            document.getElementById('rr-tap-btn')?.classList.remove('counting');
+            clearTimeout(rrTimeout);
+        }
+
         function setHypoOnset(value) {
             hypoOnset = value;
             document.getElementById('btn-onset-sudden')?.classList.toggle('active', value === 'sudden');
@@ -6402,35 +6546,50 @@
         }
 
         function updateHypoDifferential() {
+            // Default order (no selections)
             let order = ['Distributive', 'Hypovolaemic', 'Cardiogenic', 'Obstructive', 'Endocrine'];
 
+            // Sudden onset makes haemorrhage/hypovolaemia and obstructive MORE likely
+            // Progressive onset makes distributive (sepsis) and cardiogenic MORE likely
+
             if (hypoPeripheries === 'warm') {
-                order = ['Distributive', 'Hypovolaemic', 'Cardiogenic', 'Obstructive', 'Endocrine'];
+                // Warm = vasodilated = distributive (sepsis, anaphylaxis, neurogenic)
+                order = ['Distributive', 'Endocrine', 'Hypovolaemic', 'Cardiogenic', 'Obstructive'];
             } else if (hypoPeripheries === 'cool') {
-                if (hypoRespiratory === 'distress' && hypoOnset === 'sudden') {
-                    order = ['Obstructive', 'Cardiogenic', 'Hypovolaemic', 'Distributive', 'Endocrine'];
-                } else if (hypoRespiratory === 'distress') {
-                    order = ['Cardiogenic', 'Distributive', 'Obstructive', 'Hypovolaemic', 'Endocrine'];
-                } else if (hypoOnset === 'sudden') {
-                    order = ['Hypovolaemic', 'Obstructive', 'Cardiogenic', 'Distributive', 'Endocrine'];
+                if (hypoRespiratory === 'distress') {
+                    if (hypoOnset === 'sudden') {
+                        // Cool + resp distress + sudden = PE, tension pneumo, massive MI
+                        order = ['Obstructive', 'Cardiogenic', 'Hypovolaemic', 'Distributive', 'Endocrine'];
+                    } else {
+                        // Cool + resp distress + progressive = cardiogenic (CCF), late sepsis
+                        order = ['Cardiogenic', 'Distributive', 'Obstructive', 'Hypovolaemic', 'Endocrine'];
+                    }
                 } else {
-                    order = ['Hypovolaemic', 'Endocrine', 'Cardiogenic', 'Distributive', 'Obstructive'];
+                    if (hypoOnset === 'sudden') {
+                        // Cool + no resp distress + sudden = haemorrhage, hypovolaemia
+                        order = ['Hypovolaemic', 'Obstructive', 'Cardiogenic', 'Distributive', 'Endocrine'];
+                    } else {
+                        // Cool + no resp distress + progressive = hypovolaemia, adrenal
+                        order = ['Hypovolaemic', 'Endocrine', 'Distributive', 'Cardiogenic', 'Obstructive'];
+                    }
+                }
+            } else {
+                // Only onset selected
+                if (hypoOnset === 'sudden') {
+                    order = ['Hypovolaemic', 'Obstructive', 'Cardiogenic', 'Distributive', 'Endocrine'];
+                } else if (hypoOnset === 'progressive') {
+                    order = ['Distributive', 'Cardiogenic', 'Hypovolaemic', 'Endocrine', 'Obstructive'];
                 }
             }
 
-            // Update both panels
-            ['diff-tags-history', 'diff-tags-exam'].forEach(id => {
+            // Update both history and exam panels
+            ['diff-list-history', 'diff-list-exam'].forEach(id => {
                 const container = document.getElementById(id);
                 if (container) {
                     container.innerHTML = order.map((name, i) =>
-                        `<span class="diff-tag${i < 2 ? ' top' : ''}">${name}</span>`
+                        `<div class="diff-list-item${i < 2 ? ' top' : ''}" data-cause="${name.toLowerCase()}">${name}</div>`
                     ).join('');
                 }
-            });
-
-            // Hide hint if any selection made
-            document.querySelectorAll('.differential-hint').forEach(hint => {
-                hint.style.display = (hypoOnset || hypoPeripheries || hypoRespiratory) ? 'none' : 'block';
             });
         }
 
