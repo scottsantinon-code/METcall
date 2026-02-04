@@ -808,6 +808,69 @@
             background: var(--card);
             border-radius: 6px;
         }
+
+        .info-box {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .info-box-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .info-box-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .info-box-list li {
+            font-size: 14px;
+            color: var(--text2);
+            padding: 4px 0;
+        }
+
+        .choice-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        .choice-btn:active {
+            transform: scale(0.98);
+        }
+
+        .choice-btn.shocked {
+            background: var(--red);
+            color: #fff;
+        }
+
+        .choice-btn.not-shocked {
+            background: var(--green);
+            color: #fff;
+        }
+
+        .choice-btn-label {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .choice-btn-sub {
+            font-size: 12px;
+            opacity: 0.85;
+            margin-top: 2px;
+        }
+
         .guidance-gut {
             margin-top: 12px;
             font-size: 14px;
@@ -1701,6 +1764,413 @@
         .nav-btn.secondary { background:#fff; border:1px solid var(--border); color:var(--text2); }
         .nav-btn.primary { background:var(--blue); color:#fff; }
 
+        /* Hypotension Progress Bar */
+        .hypo-progress-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 20px;
+            background: #f5f5f7;
+        }
+
+        .hypo-progress-track {
+            display: flex;
+            align-items: center;
+        }
+
+        .hypo-progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hypo-progress-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            background: #fff;
+            transition: all 0.2s;
+        }
+
+        .hypo-progress-step.completed .hypo-progress-dot {
+            background: var(--green);
+            border-color: var(--green);
+        }
+
+        .hypo-progress-step.current .hypo-progress-dot {
+            background: var(--blue);
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(0,122,255,0.15);
+        }
+
+        .hypo-progress-line {
+            width: 32px;
+            height: 2px;
+            background: var(--border);
+            margin: 0 2px;
+            margin-bottom: 18px;
+        }
+
+        .hypo-progress-step.completed + .hypo-progress-line,
+        .hypo-progress-line.done {
+            background: var(--green);
+        }
+
+        .hypo-progress-label {
+            font-size: 9px;
+            font-weight: 600;
+            color: var(--text3);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .hypo-progress-step.current .hypo-progress-label {
+            color: var(--blue);
+        }
+
+        .hypo-progress-step.completed .hypo-progress-label {
+            color: var(--green);
+        }
+
+        /* Hypotension Unified Header */
+        .hypo-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: #f5f5f7;
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+
+        .hypo-header-back {
+            width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .hypo-header-back button {
+            background: none;
+            border: none;
+            color: var(--blue);
+            font-size: 24px;
+            padding: 0;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .hypo-header-home {
+            width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .hypo-header-home button {
+            background: none;
+            border: none;
+            color: var(--text3);
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .hypo-header-home svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .hypo-seg-control {
+            display: flex;
+            background: rgba(0,0,0,0.06);
+            border-radius: 10px;
+            padding: 3px;
+            gap: 2px;
+        }
+
+        .hypo-seg-item {
+            padding: 7px 12px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text3);
+            border-radius: 8px;
+            cursor: default;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .hypo-seg-item.current {
+            background: #fff;
+            color: var(--text);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .hypo-seg-item.completed {
+            color: var(--text2);
+            cursor: pointer;
+        }
+
+        .hypo-seg-item.completed:active {
+            opacity: 0.7;
+        }
+
+        /* Killer list */
+        .killer-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .killer-item {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 14px 16px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .killer-content {
+            flex: 1;
+        }
+
+        .killer-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .killer-clue {
+            font-size: 13px;
+            color: var(--text2);
+            line-height: 1.4;
+        }
+
+        /* Toggle buttons */
+        .toggle-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .toggle-btn {
+            flex: 1;
+            padding: 12px 16px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text2);
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .toggle-btn:active {
+            transform: scale(0.98);
+        }
+
+        .toggle-btn.active {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: #fff;
+        }
+
+        /* History list */
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .history-item {
+            padding: 12px 14px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .history-item-q {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .history-item-why {
+            font-size: 12px;
+            color: var(--text3);
+            margin-top: 2px;
+        }
+
+        /* Exam checklist */
+        .exam-checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .exam-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .exam-letter {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--blue);
+            min-width: 20px;
+        }
+
+        .exam-content {
+            flex: 1;
+        }
+
+        .exam-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .exam-items {
+            font-size: 13px;
+            color: var(--text2);
+        }
+
+        /* Differential panel */
+        .differential-panel {
+            margin-top: 24px;
+            padding: 16px;
+            background: rgba(0,0,0,0.03);
+            border-radius: 12px;
+        }
+
+        .differential-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .differential-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .diff-tag {
+            padding: 6px 12px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 13px;
+            color: var(--text2);
+            transition: all 0.2s;
+        }
+
+        .diff-tag.top {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: #fff;
+        }
+
+        .differential-hint {
+            font-size: 12px;
+            color: var(--text3);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .toggle-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .toggle-pill {
+            flex: 1;
+            padding: 14px 16px;
+            background: #fff;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text2);
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .toggle-pill:active {
+            transform: scale(0.98);
+        }
+
+        .toggle-pill.active {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: #fff;
+        }
+
+        .history-prompts {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            background: var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .history-prompt {
+            padding: 14px 16px;
+            background: #fff;
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .history-hint {
+            color: var(--text3);
+            font-size: 13px;
+        }
+
+        /* Exam findings */
+        .exam-findings {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            background: var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .exam-finding {
+            padding: 14px 16px;
+            background: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .exam-finding-text {
+            font-size: 14px;
+            color: var(--text);
+            flex: 1;
+        }
+
+        .exam-finding-hint {
+            font-size: 13px;
+            color: var(--text3);
+            white-space: nowrap;
+        }
+
         /* Modal */
         .modal-overlay {
             display: none;
@@ -2325,13 +2795,18 @@
 
         <!-- SHOCKED? -->
         <div class="page" id="page-shock">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goHome()">‹ Back</button>
-                    <span class="header-title">Hypotension</span>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goHome()">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item current">Shock</div>
+                    <div class="hypo-seg-item">Actions</div>
+                    <div class="hypo-seg-item">Assess</div>
+                    <div class="hypo-seg-item">Causes</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -2341,40 +2816,48 @@
             </div>
             <div class="content">
                 <div class="page-title">Is the patient shocked?</div>
-                
-                <div class="guidance-box">
-                    <div class="guidance-title">Signs of inadequate perfusion</div>
-                    <ul class="guidance-list">
+
+                <div class="info-box" style="margin-bottom: 24px;">
+                    <div class="info-box-title">Signs of inadequate perfusion</div>
+                    <ul class="info-box-list">
                         <li>Patient symptomatic</li>
                         <li>Altered mental state</li>
                         <li>Cool peripheries / mottled skin</li>
-                        <li>Cap refill >3s</li>
+                        <li>Cap refill >3 seconds</li>
                         <li>Oliguria</li>
                         <li>Lactate >2</li>
                     </ul>
                 </div>
-
-                <div class="choice-container">
-                    <div class="choice-btn red" onclick="setShocked(true)">
-                        <div class="choice-title">Shocked</div>
-                        <div class="choice-sub">Signs present</div>
-                    </div>
-                    <div class="choice-btn green" onclick="setShocked(false)">
-                        <div class="choice-title">Not Shocked</div>
-                        <div class="choice-sub">Perfusing OK</div>
-                    </div>
+            </div>
+            <div class="bottom-nav" style="flex-direction: column; gap: 8px;">
+                <div style="font-size: 13px; color: var(--text2); text-align: center; margin-bottom: 4px;">Is the patient shocked?</div>
+                <div style="display: flex; gap: 12px; width: 100%;">
+                    <button class="choice-btn shocked" onclick="setShocked(true)" style="flex: 1;">
+                        <span class="choice-btn-label">Shocked</span>
+                        <span class="choice-btn-sub">Signs present</span>
+                    </button>
+                    <button class="choice-btn not-shocked" onclick="setShocked(false)" style="flex: 1;">
+                        <span class="choice-btn-label">Not Shocked</span>
+                        <span class="choice-btn-sub">Perfusing OK</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- NOT SHOCKED -->
         <div class="page" id="page-not-shocked">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPage('page-shock')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-shock')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
+                    <div class="hypo-seg-item current">Actions</div>
+                    <div class="hypo-seg-item">Assess</div>
+                    <div class="hypo-seg-item">Causes</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -2385,10 +2868,19 @@
             <div class="content">
                 <div class="page-title">Pause and Assess</div>
 
+                <div class="pearl-box">
+                    <div class="pearl-icon">💡</div>
+                    <div class="pearl-content">
+                        <div class="pearl-title">Avoid reflexive fluid boluses</div>
+                        <div class="pearl-text">Not all hypotension needs fluid. Consider the clinical context — a well-perfused patient with low BP may need observation, not intervention.</div>
+                    </div>
+                </div>
+
+                <div class="section-title" style="margin-top: 20px;">Establish baseline</div>
                 <div class="pause-list">
                     <div class="pause-item">
-                        <div class="pause-item-title">Establish baseline</div>
-                        <div class="pause-item-sub">What is this patient's usual BP?</div>
+                        <div class="pause-item-title">What is their usual BP?</div>
+                        <div class="pause-item-sub">Check previous observations & admission notes</div>
                     </div>
                     <div class="pause-item">
                         <div class="pause-item-title">Review the trend</div>
@@ -2404,29 +2896,27 @@
                         <div class="pause-item-sub">New or recent antihypertensives, sedatives, opioids?</div>
                     </div>
                 </div>
-
-                <div class="pearl-box">
-                    <div class="pearl-icon">💡</div>
-                    <div class="pearl-content">
-                        <div class="pearl-title">Avoid reflexive fluid boluses</div>
-                        <div class="pearl-text">Not all hypotension needs fluid. Consider the clinical context — a well-perfused patient with low BP may need observation, not intervention.</div>
-                    </div>
-                </div>
             </div>
             <div class="bottom-nav">
                 <button class="nav-btn secondary" onclick="goToPage('page-shock')">‹ Back</button>
-                <button class="nav-btn primary" onclick="goToPage('page-ix')">Continue to assessment ›</button>
+                <button class="nav-btn primary" onclick="goToPage('page-hypo-ix')">Continue to assessment ›</button>
             </div>
         </div>
 
         <!-- IMMEDIATE ACTIONS -->
         <div class="page" id="page-actions">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPage('page-shock')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-shock')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
+                    <div class="hypo-seg-item current">Actions</div>
+                    <div class="hypo-seg-item">Assess</div>
+                    <div class="hypo-seg-item">Causes</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -2510,18 +3000,326 @@
             </div>
             <div class="bottom-nav">
                 <button class="nav-btn secondary" onclick="goToPage('page-shock')">‹ Back</button>
-                <button class="nav-btn primary" onclick="goToPage('page-ix')">Next ›</button>
+                <button class="nav-btn primary" onclick="goToPage('page-hypo-ix')">Next ›</button>
             </div>
         </div>
 
-        <!-- INVESTIGATIONS -->
-        <div class="page" id="page-ix">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goBack()">‹ Back</button>
+        <!-- NEW HYPO FLOW: INVESTIGATIONS -->
+        <div class="page" id="page-hypo-ix">
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goBack()">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
+                    <div class="hypo-seg-item completed" onclick="goBack()">Actions</div>
+                    <div class="hypo-seg-item current">Assess</div>
+                    <div class="hypo-seg-item">Causes</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="page-title">Investigations</div>
+                <div class="page-subtitle" style="color: var(--text2); font-size: 14px; margin-top: -8px; margin-bottom: 16px;">Order while continuing assessment</div>
+
+                <div class="action-tiles">
+                    <div class="action-tile" style="border-color: var(--border);">
+                        <div class="action-tile-icon" style="background: rgba(0,0,0,0.04);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.5" style="width:28px;height:28px;">
+                                <path d="M3 12h4l2-8 4 16 2-8h6"/>
+                            </svg>
+                        </div>
+                        <div class="action-tile-content">
+                            <div class="action-tile-title">ECG</div>
+                            <div class="action-tile-sub">Rhythm, ischaemia, RV strain</div>
+                        </div>
+                    </div>
+                    <div class="action-tile" style="border-color: var(--border);">
+                        <div class="action-tile-icon" style="background: rgba(0,0,0,0.04);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.5" style="width:28px;height:28px;">
+                                <path d="M12 2C9 6 7 9 7 12a5 5 0 0 0 10 0c0-3-2-6-5-10z"/>
+                                <path d="M12 17v4M10 19h4"/>
+                            </svg>
+                        </div>
+                        <div class="action-tile-content">
+                            <div class="action-tile-title">Bloods</div>
+                            <div class="action-tile-sub">FBC, UEC, LFT, coags, lactate, G&H</div>
+                        </div>
+                    </div>
+                    <div class="action-tile" style="border-color: var(--border);">
+                        <div class="action-tile-icon" style="background: rgba(0,0,0,0.04);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.5" style="width:28px;height:28px;">
+                                <rect x="4" y="4" width="16" height="16" rx="2"/>
+                                <circle cx="12" cy="11" r="4"/>
+                                <path d="M12 15v3"/>
+                            </svg>
+                        </div>
+                        <div class="action-tile-content">
+                            <div class="action-tile-title">Mobile CXR</div>
+                            <div class="action-tile-sub">Pneumothorax, oedema, widened mediastinum</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goBack()">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-hypo-killers')">Next ›</button>
+            </div>
+        </div>
+
+        <!-- NEW HYPO FLOW: RULE OUT KILLERS -->
+        <div class="page" id="page-hypo-killers">
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-hypo-ix')">‹</button>
+                </div>
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
+                    <div class="hypo-seg-item completed" onclick="goBack()">Actions</div>
+                    <div class="hypo-seg-item current">Assess</div>
+                    <div class="hypo-seg-item">Causes</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="page-title">Consider time-critical diagnoses</div>
+
+                <div class="killer-list">
+                    <div class="killer-item">
+                        <div class="killer-content">
+                            <div class="killer-name">Cardiac tamponade</div>
+                            <div class="killer-clue">↑JVP, muffled heart sounds, pulsus paradoxus</div>
+                        </div>
+                        <button class="info-btn" onclick="showTamponadeInfo()">i</button>
+                    </div>
+                    <div class="killer-item">
+                        <div class="killer-content">
+                            <div class="killer-name">Tension pneumothorax</div>
+                            <div class="killer-clue">Absent breath sounds, tracheal deviation, hypoxia</div>
+                        </div>
+                        <button class="info-btn" onclick="showTensionPneumoInfo()">i</button>
+                    </div>
+                    <div class="killer-item">
+                        <div class="killer-content">
+                            <div class="killer-name">Anaphylaxis</div>
+                            <div class="killer-clue">Urticaria, angioedema, wheeze, recent exposure</div>
+                        </div>
+                        <button class="info-btn" onclick="showAnaphylaxisShockInfo()">i</button>
+                    </div>
+                    <div class="killer-item">
+                        <div class="killer-content">
+                            <div class="killer-name">Unstable arrhythmia</div>
+                            <div class="killer-clue">Irregular or very fast/slow pulse, chest pain</div>
+                        </div>
+                        <button class="info-btn" onclick="showUnstableArrhythmiaInfo()">i</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-hypo-ix')">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-hypo-history')">Next ›</button>
+            </div>
+        </div>
+
+        <!-- NEW HYPO FLOW: HISTORY -->
+        <div class="page" id="page-hypo-history">
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-hypo-killers')">‹</button>
+                </div>
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
+                    <div class="hypo-seg-item completed" onclick="goBack()">Actions</div>
+                    <div class="hypo-seg-item current">Assess</div>
+                    <div class="hypo-seg-item">Causes</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="page-title">History</div>
+
+                <div class="section-title">Onset of hypotension</div>
+                <div class="toggle-row">
+                    <button class="toggle-pill" id="btn-onset-sudden" onclick="setHypoOnset('sudden')">Sudden</button>
+                    <button class="toggle-pill" id="btn-onset-progressive" onclick="setHypoOnset('progressive')">Progressive</button>
+                </div>
+
+                <div class="section-title" style="margin-top: 24px;">Ask about</div>
+                <div class="history-prompts">
+                    <div class="history-prompt">Fever, rigors, cough, dysuria, wounds <span class="history-hint">→ Sepsis</span></div>
+                    <div class="history-prompt">Thirst, poor oral intake, vomiting, diarrhoea, polyuria, prolonged NBM <span class="history-hint">→ Hypovolaemia</span></div>
+                    <div class="history-prompt">Haematemesis, melaena, PR bleeding, recent surgery/procedure/trauma <span class="history-hint">→ Haemorrhage</span></div>
+                    <div class="history-prompt">Chest pain, dyspnoea, orthopnoea, known CCF/IHD <span class="history-hint">→ Cardiogenic</span></div>
+                    <div class="history-prompt">Pleuritic chest pain, leg swelling, immobility, malignancy <span class="history-hint">→ PE</span></div>
+                    <div class="history-prompt">Chronic steroid use, fatigue, weight loss, known adrenal disease <span class="history-hint">→ Adrenal crisis</span></div>
+                </div>
+
+                <div class="differential-panel" id="differential-panel-history">
+                    <div class="differential-title">Working differential</div>
+                    <div class="differential-tags" id="diff-tags-history">
+                        <span class="diff-tag">Distributive</span>
+                        <span class="diff-tag">Hypovolaemic</span>
+                        <span class="diff-tag">Cardiogenic</span>
+                        <span class="diff-tag">Obstructive</span>
+                        <span class="diff-tag">Endocrine</span>
+                    </div>
+                    <div class="differential-hint">Select findings above to prioritise</div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-hypo-killers')">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-hypo-exam')">Next ›</button>
+            </div>
+        </div>
+
+        <!-- NEW HYPO FLOW: EXAM -->
+        <div class="page" id="page-hypo-exam">
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-hypo-history')">‹</button>
+                </div>
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
+                    <div class="hypo-seg-item completed" onclick="goBack()">Actions</div>
+                    <div class="hypo-seg-item current">Assess</div>
+                    <div class="hypo-seg-item">Causes</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="page-title">Examination</div>
+
+                <div class="section-title">Peripheries</div>
+                <div class="toggle-group">
+                    <button class="toggle-btn" id="btn-periph-warm" onclick="setHypoPeripheries('warm')">Warm</button>
+                    <button class="toggle-btn" id="btn-periph-cool" onclick="setHypoPeripheries('cool')">Cool / mottled</button>
+                </div>
+
+                <div class="section-title" style="margin-top: 20px;">Respiratory status</div>
+                <div class="toggle-group">
+                    <button class="toggle-btn" id="btn-resp-distress" onclick="setHypoRespiratory('distress')">Hypoxia or distress</button>
+                    <button class="toggle-btn" id="btn-resp-none" onclick="setHypoRespiratory('none')">No respiratory distress</button>
+                </div>
+
+                <div class="section-title" style="margin-top: 24px;">Systematic examination</div>
+                <div class="exam-checklist">
+                    <div class="exam-row">
+                        <span class="exam-letter">A</span>
+                        <div class="exam-content">
+                            <div class="exam-label">Airway</div>
+                            <div class="exam-items">Patent? Stridor?</div>
+                        </div>
+                    </div>
+                    <div class="exam-row">
+                        <span class="exam-letter">B</span>
+                        <div class="exam-content">
+                            <div class="exam-label">Breathing</div>
+                            <div class="exam-items">RR, SpO₂, breath sounds, work of breathing</div>
+                        </div>
+                    </div>
+                    <div class="exam-row">
+                        <span class="exam-letter">C</span>
+                        <div class="exam-content">
+                            <div class="exam-label">Circulation</div>
+                            <div class="exam-items">HR, BP, cap refill, JVP, heart sounds</div>
+                        </div>
+                    </div>
+                    <div class="exam-row">
+                        <span class="exam-letter">D</span>
+                        <div class="exam-content">
+                            <div class="exam-label">Disability</div>
+                            <div class="exam-items">GCS, pupils, BSL</div>
+                        </div>
+                    </div>
+                    <div class="exam-row">
+                        <span class="exam-letter">E</span>
+                        <div class="exam-content">
+                            <div class="exam-label">Exposure</div>
+                            <div class="exam-items">Temp, rash, wounds, drains, abdomen</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-title" style="margin-top: 24px;">Look for</div>
+                <div class="exam-findings">
+                    <div class="exam-finding">
+                        <span class="exam-finding-text">High NG aspirates, wound losses, dry mucous membranes</span>
+                        <span class="exam-finding-hint">→ Hypovolaemia</span>
+                    </div>
+                    <div class="exam-finding">
+                        <span class="exam-finding-text">Drain losses, melaena on PR, pallor</span>
+                        <span class="exam-finding-hint">→ Haemorrhage</span>
+                    </div>
+                    <div class="exam-finding">
+                        <span class="exam-finding-text">Raised JVP, peripheral oedema, crepitations</span>
+                        <span class="exam-finding-hint">→ Cardiogenic</span>
+                    </div>
+                    <div class="exam-finding">
+                        <span class="exam-finding-text">Unilateral leg swelling, calf tenderness</span>
+                        <span class="exam-finding-hint">→ PE</span>
+                    </div>
+                </div>
+
+                <div class="differential-panel" id="differential-panel-exam">
+                    <div class="differential-title">Working differential</div>
+                    <div class="differential-tags" id="diff-tags-exam">
+                        <span class="diff-tag">Distributive</span>
+                        <span class="diff-tag">Hypovolaemic</span>
+                        <span class="diff-tag">Cardiogenic</span>
+                        <span class="diff-tag">Obstructive</span>
+                        <span class="diff-tag">Endocrine</span>
+                    </div>
+                    <div class="differential-hint">Select findings above to prioritise</div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-hypo-history')">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-hypo')">View causes ›</button>
+            </div>
+        </div>
+
+        <!-- INVESTIGATIONS (OLD - keeping for backwards compat) -->
+        <div class="page" id="page-ix">
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goBack()">‹</button>
+                </div>
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
+                    <div class="hypo-seg-item current">Actions</div>
+                    <div class="hypo-seg-item">Assess</div>
+                    <div class="hypo-seg-item">Causes</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -2579,13 +3377,18 @@
 
         <!-- SHOCK ASSESSMENT (Causes/History/Exam) -->
         <div class="page" id="page-shock-assess">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPage('page-ix')">‹ Back</button>
-                    <span class="header-title">Identify &amp; treat cause</span>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-ix')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
+                    <div class="hypo-seg-item current">Assess</div>
+                    <div class="hypo-seg-item">Causes</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -2790,12 +3593,18 @@
 
         <!-- HYPOVOLAEMIC -->
         <div class="page" id="page-hypo">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPrevShock('page-hypo')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-hypo-exam')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypo-exam')">Assess</div>
+                    <div class="hypo-seg-item current">Causes</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -2886,12 +3695,18 @@
 
         <!-- OBSTRUCTIVE -->
         <div class="page" id="page-obst">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPrevShock('page-obst')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-shock-assess')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
+                    <div class="hypo-seg-item current">Causes</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -2990,12 +3805,18 @@
 
         <!-- DISTRIBUTIVE -->
         <div class="page" id="page-dist">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPrevShock('page-dist')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-shock-assess')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
+                    <div class="hypo-seg-item current">Causes</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -3061,12 +3882,18 @@
 
         <!-- CARDIOGENIC -->
         <div class="page" id="page-card">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPrevShock('page-card')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-shock-assess')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
+                    <div class="hypo-seg-item current">Causes</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -3130,12 +3957,18 @@
 
         <!-- ENDOCRINE -->
         <div class="page" id="page-endo">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPrevShock('page-endo')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-shock-assess')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
+                    <div class="hypo-seg-item current">Causes</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -5542,6 +6375,138 @@
             goToPage(shocked ? 'page-actions' : 'page-not-shocked');
         }
 
+        // Hypotension assessment state
+        let hypoOnset = null;
+        let hypoPeripheries = null;
+        let hypoRespiratory = null;
+
+        function setHypoOnset(value) {
+            hypoOnset = value;
+            document.getElementById('btn-onset-sudden')?.classList.toggle('active', value === 'sudden');
+            document.getElementById('btn-onset-progressive')?.classList.toggle('active', value === 'progressive');
+            updateHypoDifferential();
+        }
+
+        function setHypoPeripheries(value) {
+            hypoPeripheries = value;
+            document.getElementById('btn-periph-warm')?.classList.toggle('active', value === 'warm');
+            document.getElementById('btn-periph-cool')?.classList.toggle('active', value === 'cool');
+            updateHypoDifferential();
+        }
+
+        function setHypoRespiratory(value) {
+            hypoRespiratory = value;
+            document.getElementById('btn-resp-distress')?.classList.toggle('active', value === 'distress');
+            document.getElementById('btn-resp-none')?.classList.toggle('active', value === 'none');
+            updateHypoDifferential();
+        }
+
+        function updateHypoDifferential() {
+            let order = ['Distributive', 'Hypovolaemic', 'Cardiogenic', 'Obstructive', 'Endocrine'];
+
+            if (hypoPeripheries === 'warm') {
+                order = ['Distributive', 'Hypovolaemic', 'Cardiogenic', 'Obstructive', 'Endocrine'];
+            } else if (hypoPeripheries === 'cool') {
+                if (hypoRespiratory === 'distress' && hypoOnset === 'sudden') {
+                    order = ['Obstructive', 'Cardiogenic', 'Hypovolaemic', 'Distributive', 'Endocrine'];
+                } else if (hypoRespiratory === 'distress') {
+                    order = ['Cardiogenic', 'Distributive', 'Obstructive', 'Hypovolaemic', 'Endocrine'];
+                } else if (hypoOnset === 'sudden') {
+                    order = ['Hypovolaemic', 'Obstructive', 'Cardiogenic', 'Distributive', 'Endocrine'];
+                } else {
+                    order = ['Hypovolaemic', 'Endocrine', 'Cardiogenic', 'Distributive', 'Obstructive'];
+                }
+            }
+
+            // Update both panels
+            ['diff-tags-history', 'diff-tags-exam'].forEach(id => {
+                const container = document.getElementById(id);
+                if (container) {
+                    container.innerHTML = order.map((name, i) =>
+                        `<span class="diff-tag${i < 2 ? ' top' : ''}">${name}</span>`
+                    ).join('');
+                }
+            });
+
+            // Hide hint if any selection made
+            document.querySelectorAll('.differential-hint').forEach(hint => {
+                hint.style.display = (hypoOnset || hypoPeripheries || hypoRespiratory) ? 'none' : 'block';
+            });
+        }
+
+        // Info modal functions for killers
+        function showTamponadeInfo() {
+            showModal('Cardiac Tamponade', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Look for:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Distended neck veins (JVP elevated)</li>
+                        <li>Muffled heart sounds</li>
+                        <li>Pulsus paradoxus (>10mmHg drop in SBP on inspiration)</li>
+                        <li>Recent cardiac surgery, trauma, or pericarditis</li>
+                    </ul>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Confirm with:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Bedside echo — pericardial effusion with RV diastolic collapse</li>
+                    </ul>
+                    <p><strong style="color:var(--text);">Management:</strong> Urgent pericardiocentesis or surgical drainage. Fluid resuscitation as bridge.</p>
+                </div>
+            `);
+        }
+
+        function showTensionPneumoInfo() {
+            showModal('Tension Pneumothorax', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Look for:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Unilateral absent breath sounds</li>
+                        <li>Tracheal deviation (late sign)</li>
+                        <li>Hyper-resonance to percussion</li>
+                        <li>Distended neck veins</li>
+                        <li>Recent central line, ventilation, or trauma</li>
+                    </ul>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">This is a clinical diagnosis</strong> — do not delay for CXR if unstable.</p>
+                    <p><strong style="color:var(--text);">Management:</strong> Immediate needle decompression (2nd ICS MCL or 4th/5th ICS MAL), followed by chest drain.</p>
+                </div>
+            `);
+        }
+
+        function showAnaphylaxisShockInfo() {
+            showModal('Anaphylaxis', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Look for:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Urticaria, angioedema, flushing</li>
+                        <li>Wheeze, stridor, respiratory distress</li>
+                        <li>Known allergen exposure (drugs, food, contrast, blood products)</li>
+                        <li>Rapid onset after exposure</li>
+                    </ul>
+                    <p><strong style="color:var(--text);">Management:</strong> IM adrenaline 0.5mg (1:1000), repeat every 5 mins if needed. IV access, fluids, remove trigger.</p>
+                </div>
+            `);
+        }
+
+        function showUnstableArrhythmiaInfo() {
+            showModal('Unstable Arrhythmia', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Check the ECG for:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>VT with pulse — wide complex, regular</li>
+                        <li>SVT with hypotension — narrow complex, very fast</li>
+                        <li>Complete heart block — bradycardia with AV dissociation</li>
+                    </ul>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Signs of instability:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Hypotension (SBP <90)</li>
+                        <li>Altered conscious state</li>
+                        <li>Chest pain</li>
+                        <li>Signs of heart failure</li>
+                    </ul>
+                    <p><strong style="color:var(--text);">Management:</strong> Synchronised DC cardioversion for unstable tachyarrhythmias. Atropine/pacing for unstable bradycardia.</p>
+                </div>
+            `);
+        }
+
         // Shock categorization based on clinical findings
         let peripheriesState = null; // 'warm' or 'cool'
         let isHypoxic = null;
@@ -5855,12 +6820,12 @@
 
         function showFluids() {
             showModal('Which fluid?', `
-                <div style="font-size:13px;color:var(--text);margin-bottom:14px;line-height:1.5;padding:12px;background:var(--card);border-radius:8px;">
-                    <strong>Balanced crystalloid is a reasonable default.</strong> Large trials show similar mortality; pooled Bayesian analyses suggest a high probability of a small benefit. Avoid in traumatic brain injury and severe hyperkalaemia.
+                <div style="font-size:13px;color:var(--text);margin-bottom:20px;line-height:1.5;padding:12px;background:var(--card);border-radius:8px;">
+                    <strong>Balanced crystalloid is a reasonable default.</strong><br><br>Large trials show similar mortality; pooled Bayesian analyses suggest a high probability of a small benefit. Avoid in traumatic brain injury and severe hyperkalaemia.
                 </div>
                 <table class="fluid-table">
                     <tr><th>Fluid</th><th>Na⁺</th><th>K⁺</th><th>Cl⁻</th><th>Ca²⁺</th></tr>
-                    <tr style="background:rgba(0,122,255,0.08);font-size:11px;"><td class="name" style="font-weight:500;color:var(--blue);">Serum</td><td>135-145</td><td>3.5-5</td><td>95-105</td><td>2.1-2.6</td></tr>
+                    <tr style="background:rgba(52,199,89,0.1);font-size:11px;font-style:italic;"><td class="name" style="font-weight:500;color:var(--green);">Serum (ref)</td><td>135-145</td><td>3.5-5</td><td>95-105</td><td>2.1-2.6</td></tr>
                     <tr><td class="name">0.9% NaCl</td><td>154</td><td>0</td><td class="warn">154</td><td>0</td></tr>
                     <tr><td class="name">CSL</td><td>131</td><td class="warn">5</td><td>111</td><td>2</td></tr>
                     <tr><td class="name">Albumin 5%</td><td>140</td><td>0</td><td>128</td><td>0</td></tr>
