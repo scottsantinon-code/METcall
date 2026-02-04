@@ -1490,16 +1490,18 @@
         .action-text strong { font-weight:600; }
         .action-sub { color:var(--text3); font-size:12px; display:block; margin-top:2px; }
         .info-btn {
-            width:24px; height:24px;
+            width: 18px; height: 18px;
             background: rgba(0,0,0,0.05);
             border: none;
             border-radius: 50%;
             color: var(--text3);
-            font-size: 12px;
+            font-size: 11px;
             font-family: Georgia, serif;
             font-style: italic;
             cursor: pointer;
-            display:flex; align-items:center; justify-content:center;
+            display: inline-flex; align-items: center; justify-content: center;
+            vertical-align: middle;
+            margin-left: 4px;
             flex-shrink:0;
         }
         .action-btns {
@@ -1626,17 +1628,19 @@
         }
         .ddx-tile {
             background: #fff;
-            border-radius: 10px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
             padding: 14px 16px;
             margin-bottom: 8px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             cursor: pointer;
-            transition: background 0.15s;
+            min-height: 52px;
         }
         .ddx-tile:active {
-            background: rgba(0,0,0,0.04);
+            background: #f5f5f5;
+            transform: scale(0.99);
         }
         .ddx-tile-content {
             flex: 1;
@@ -1648,15 +1652,26 @@
             display: block;
         }
         .ddx-tile-subtitle {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text3);
             margin-top: 2px;
             display: block;
         }
         .ddx-tile-chevron {
-            font-size: 20px;
+            font-size: 18px;
             color: var(--text3);
             margin-left: 12px;
+        }
+        .ddx-section-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 16px 0 8px 0;
+        }
+        .ddx-section-title:first-child {
+            margin-top: 0;
         }
         .ddx-tile-info-btn {
             font-size: 12px;
@@ -2203,6 +2218,51 @@
         .gi-mx-box.escalate {
             background: #fff;
             border-color: var(--border);
+        }
+
+        /* Fluid resuscitation card styles */
+        .fluid-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+        }
+        .fluid-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .fluid-card-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+        .fluid-card-header .fluid-card-title {
+            margin-bottom: 0;
+        }
+        .fluid-card-body {
+            font-size: 14px;
+            color: var(--text);
+            line-height: 1.5;
+        }
+        .fluid-hint {
+            font-size: 13px;
+            color: var(--text3);
+        }
+        .fluid-list-item {
+            font-size: 12px;
+            color: var(--text2);
+            margin-top: 2px;
+        }
+        .text-link-btn {
+            background: none;
+            border: none;
+            color: var(--blue);
+            font-size: 13px;
+            cursor: pointer;
+            padding: 0;
         }
         .gi-mx-item {
             font-size: 13px;
@@ -3225,6 +3285,31 @@
             gap: 16px;
             margin-bottom: 20px;
         }
+
+        /* Shared layout for History and Exam top sections */
+        .assess-top-row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .assess-top-left {
+            flex: 1;
+            min-width: 0;
+        }
+        .assess-top-row .ddx-box {
+            width: 120px;
+            flex-shrink: 0;
+        }
+        .assess-top-row .abcde-card {
+            flex: 1;
+        }
+        .abcde-card.compact {
+            margin-bottom: 0;
+        }
+        .history-prompts {
+            width: 100%;
+        }
         .onset-section {
             flex: 1;
         }
@@ -3233,6 +3318,14 @@
             border-radius: 8px;
             padding: 10px 12px;
             min-width: 110px;
+        }
+        .ddx-box-title {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
         }
         .ddx-item {
             font-size: 12px;
@@ -3275,12 +3368,10 @@
         /* ABCDE cards for Exam page */
         .abcde-card {
             background: #fff;
+            border: 1px solid var(--border);
             border-radius: 12px;
             padding: 14px 16px;
-            margin-bottom: 12px;
-        }
-        .abcde-card.compact {
-            flex: 1;
+            margin-bottom: 10px;
         }
         .abcde-header {
             display: flex;
@@ -3296,34 +3387,53 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 14px;
             flex-shrink: 0;
         }
         .abcde-title {
             font-weight: 600;
-            font-size: 15px;
+            font-size: 16px;
+            color: var(--text);
         }
-        .abcde-hints-inline {
+        .abcde-hint {
             margin-left: auto;
-            font-size: 12px;
+            font-size: 13px;
             color: var(--text3);
         }
-        .abcde-hints {
+        .abcde-checklist {
+            margin-top: 8px;
+        }
+        .abcde-check-item {
             font-size: 13px;
             color: var(--text2);
-            line-height: 1.4;
-            margin-top: 6px;
+            padding: 4px 0;
         }
-        .abcde-controls {
+        .abcde-content {
             margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid var(--border);
         }
-        .control-row {
+        .exam-row {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 12px;
+            margin-bottom: 10px;
+        }
+        .exam-label {
+            font-size: 14px;
+            color: var(--text);
+        }
+        .exam-item {
+            font-size: 13px;
+            color: var(--text2);
+            padding: 4px 0;
+        }
+        .exam-link {
+            margin-top: 8px;
+        }
+        .exam-link a {
+            font-size: 13px;
+            color: var(--blue);
+            cursor: pointer;
         }
         .control-label {
             font-size: 13px;
@@ -3351,16 +3461,14 @@
             background: var(--orange);
             border-color: var(--orange);
         }
-        .rr-btn {
-            margin-left: auto;
-            padding: 8px 14px;
-            background: rgba(0,122,255,0.08);
-            border: 1px solid rgba(0,122,255,0.2);
-            border-radius: 8px;
+        .count-rr-link {
+            background: none;
+            border: none;
             color: var(--blue);
             font-size: 13px;
-            font-weight: 500;
             cursor: pointer;
+            padding: 0;
+            margin-left: auto;
         }
         /* RR Modal button */
         .rr-modal-btn {
@@ -4651,7 +4759,7 @@
         <div class="page" id="page-hypo-ix">
             <div class="hypo-header">
                 <div class="hypo-header-back">
-                    <button onclick="goBack()">‹</button>
+                    <button onclick="goToPage('page-actions')">‹</button>
                 </div>
                 <div class="hypo-seg-control">
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
@@ -4723,7 +4831,7 @@
                 </div>
             </div>
             <div class="bottom-nav">
-                <button class="nav-btn secondary" onclick="goBack()">‹ Back</button>
+                <button class="nav-btn secondary" onclick="goToPage('page-actions')">‹ Back</button>
                 <button class="nav-btn primary" onclick="goToPage('page-hypo-killers')">Next ›</button>
             </div>
         </div>
@@ -4801,20 +4909,18 @@
                 </div>
             </div>
             <div class="content">
-                <div class="page-title">History</div>
-
-                <!-- Top row: Onset + DDx side by side -->
-                <div class="top-row">
-                    <div class="onset-section">
+                <div class="assess-top-row">
+                    <div class="assess-top-left">
+                        <div class="page-title">History</div>
                         <div class="section-label">ONSET</div>
                         <div class="onset-toggle">
                             <button class="onset-btn compact" id="btn-onset-sudden" onclick="setHypoOnset('sudden')">Sudden</button>
                             <button class="onset-btn compact" id="btn-onset-progressive" onclick="setHypoOnset('progressive')">Progressive</button>
                         </div>
                     </div>
-
                     <div class="ddx-box" id="shock-ddx-box">
-                        <div class="ddx-item top">Distributive</div>
+                        <div class="ddx-box-title">DDx</div>
+                        <div class="ddx-item">Distributive</div>
                         <div class="ddx-item">Hypovolaemic</div>
                         <div class="ddx-item">Cardiogenic</div>
                         <div class="ddx-item">Obstructive</div>
@@ -4822,13 +4928,9 @@
                     </div>
                 </div>
 
-                <!-- Full width below -->
                 <div class="section-label">ASK ABOUT</div>
                 <div class="history-prompts">
-                    <div class="history-prompt">
-                        <span>Fever, rigors, focal infective symptoms</span>
-                        <span class="info-btn" onclick="event.stopPropagation();showFocalInfectiveInfo()">ⓘ</span>
-                    </div>
+                    <div class="history-prompt">Fever, rigors, focal infective symptoms</div>
                     <div class="history-prompt">Haematemesis, melaena, diarrhoea, poor intake</div>
                     <div class="history-prompt">Chest pain, dyspnoea, cardiac history</div>
                     <div class="history-prompt">Immobility, recent surgery, malignancy</div>
@@ -4867,18 +4969,17 @@
             <div class="content">
                 <div class="page-title">Examination</div>
 
-                <!-- Top row: Airway + DDx side by side -->
-                <div class="top-row">
-                    <div class="abcde-card compact" id="card-airway">
+                <div class="assess-top-row">
+                    <div class="abcde-card compact">
                         <div class="abcde-header">
                             <span class="abcde-badge">A</span>
                             <span class="abcde-title">Airway</span>
+                            <span class="abcde-hint">Patent? Stridor? Angioedema?</span>
                         </div>
-                        <div class="abcde-hints">Patent? Stridor? Angioedema?</div>
                     </div>
-
                     <div class="ddx-box" id="shock-ddx-box-exam">
-                        <div class="ddx-item top">Distributive</div>
+                        <div class="ddx-box-title">DDx</div>
+                        <div class="ddx-item">Distributive</div>
                         <div class="ddx-item">Hypovolaemic</div>
                         <div class="ddx-item">Cardiogenic</div>
                         <div class="ddx-item">Obstructive</div>
@@ -4886,146 +4987,62 @@
                     </div>
                 </div>
 
-                <!-- Full width cards below -->
-                <div class="abcde-card" id="card-breathing">
+                <div class="abcde-card">
                     <div class="abcde-header">
                         <span class="abcde-badge">B</span>
                         <span class="abcde-title">Breathing</span>
-                        <span class="abcde-hints-inline">SpO₂, RR, WOB</span>
                     </div>
-                    <div class="abcde-controls">
-                        <div class="control-row">
-                            <span class="control-label">Respiratory distress?</span>
+                    <div class="abcde-content">
+                        <div class="exam-row">
+                            <span class="exam-label">Respiratory distress or hypoxia?</span>
                             <div class="toggle-btns">
                                 <button class="toggle-btn" id="resp-distress-no" onclick="setRespDistress(false)">No</button>
                                 <button class="toggle-btn" id="resp-distress-yes" onclick="setRespDistress(true)">Yes</button>
                             </div>
-                            <button class="rr-btn" onclick="openRRModal()">Count RR</button>
                         </div>
+                        <div class="exam-item">SpO₂, RR</div>
+                        <div class="exam-item">Work of breathing (tripoding, recession, accessory muscles)</div>
+                        <div class="exam-item">Auscultation (crackles, wheeze, reduced breath sounds)</div>
+                        <div class="exam-link"><a onclick="openRRModal()">Count RR ›</a></div>
                     </div>
                 </div>
 
-                <div class="abcde-card" id="card-circulation">
+                <div class="abcde-card">
                     <div class="abcde-header">
                         <span class="abcde-badge">C</span>
                         <span class="abcde-title">Circulation</span>
-                        <span class="abcde-hints-inline">HR / BP / rhythm</span>
                     </div>
-                    <div class="abcde-controls">
-                        <div class="control-row">
-                            <span class="control-label">Peripheries</span>
+                    <div class="abcde-content">
+                        <div class="exam-row">
+                            <span class="exam-label">Peripheries</span>
                             <div class="toggle-btns">
                                 <button class="toggle-btn" id="btn-periph-warm" onclick="setHypoPeripheries('warm')">Warm</button>
                                 <button class="toggle-btn" id="btn-periph-cool" onclick="setHypoPeripheries('cool')">Cool</button>
                             </div>
                         </div>
+                        <div class="exam-item">HR, BP, rhythm, cap refill</div>
                     </div>
                 </div>
 
-                <div class="abcde-card" id="card-disability">
+                <div class="abcde-card">
                     <div class="abcde-header">
                         <span class="abcde-badge">D</span>
                         <span class="abcde-title">Disability</span>
-                        <span class="abcde-hints-inline">Conscious state, Pupils, BSL</span>
+                        <span class="abcde-hint">Conscious state, pupils, BSL</span>
                     </div>
                 </div>
 
-                <div class="abcde-card" id="card-exposure">
+                <div class="abcde-card">
                     <div class="abcde-header">
                         <span class="abcde-badge">E</span>
                         <span class="abcde-title">Exposure</span>
-                        <span class="abcde-hints-inline">Temp, rash, abdomen, calves</span>
+                        <span class="abcde-hint">Temp, rash, abdomen, calves</span>
                     </div>
                 </div>
             </div>
             <div class="bottom-nav">
                 <button class="nav-btn secondary" onclick="goToPage('page-hypo-history')">‹ Back</button>
-                <button class="nav-btn primary" onclick="goToPage('page-hypo')">Proceed to differentials ›</button>
-            </div>
-        </div>
-
-        <!-- INVESTIGATIONS (OLD - keeping for backwards compat) -->
-        <div class="page" id="page-ix">
-            <div class="hypo-header">
-                <div class="hypo-header-back">
-                    <button onclick="goBack()">‹</button>
-                </div>
-                <div class="hypo-seg-control">
-                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
-                    <div class="hypo-seg-item current" onclick="goToPage('page-actions')">Actions</div>
-                    <div class="hypo-seg-item" onclick="goToPage('page-hypo-history')">Assess</div>
-                    <div class="hypo-seg-item" onclick="goToPage('page-dist')">DDx</div>
-                    <div class="hypo-seg-item" onclick="goToPage('page-hypo-mgmt')">Mgmt</div>
-                </div>
-                <div class="hypo-header-home">
-                    <button onclick="goHome()">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                            <polyline points="9 22 9 12 15 12 15 22"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <div class="content">
-                <div class="page-title">Consider investigations</div>
-                <div class="ix-card">
-                    <div class="ix-icon">
-                        <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="currentColor" d="M115,21H13c-5,0-9-3.74-9-8.33A8.68,8.68,0,0,1,12.67,4H62L58.4,8.8a2,2,0,0,0,.32,2.74l6,5a2,2,0,1,0,2.56-3.08L62.74,9.68,67.6,3.2A2,2,0,0,0,66,0H12.67A12.68,12.68,0,0,0,0,12.67V73c0,6.73,5.71,12,13,12H115c4.47,0,9,2.75,9,8s-4.53,8-9,8H38a13,13,0,0,0-9,3.81V91a2,2,0,0,0-4,0v23c0,7.33,6.2,14,13,14H88.83a2,2,0,0,0,1.43-3.4l-5.54-5.67,5.78-6.61a2,2,0,0,0-3-2.64l-7,8a2,2,0,0,0,.07,2.72l3.52,3.6H38c-4.63,0-9-4.86-9-10a9.24,9.24,0,0,1,9-9h77c7.41,0,13-5.16,13-12V34A13.35,13.35,0,0,0,115,21ZM4,21.56A13.34,13.34,0,0,0,13,25H115a9.24,9.24,0,0,1,9,9V56.84A12.9,12.9,0,0,0,115,53h-5.24A8.07,8.07,0,0,0,105,51a8.07,8.07,0,0,0-4.76,2H98a2,2,0,0,0-1.92,1.45L94.49,60,90,33.66A2,2,0,0,0,88,32h0a2,2,0,0,0-2,1.58L81.79,53.16A2.14,2.14,0,0,0,81,53H78.76A8.07,8.07,0,0,0,74,51a8.07,8.07,0,0,0-4.76,2H53.76A8.07,8.07,0,0,0,49,51a8.07,8.07,0,0,0-4.76,2H42a2,2,0,0,0-1.92,1.45L38.49,60,34,33.66A2,2,0,0,0,32,32a2,2,0,0,0-2,1.58l-4.2,19.61A1.88,1.88,0,0,0,25,53H22.8A7.67,7.67,0,0,0,18,51a7.67,7.67,0,0,0-4.8,2H13c-5,0-9-3.73-9-8.31ZM124,84.18A13.64,13.64,0,0,0,115,81H13c-4.42,0-9-3-9-8V53.55H4A13.34,13.34,0,0,0,13,57h1a2,2,0,0,0,1.48-.66A4.34,4.34,0,0,1,18,55a4.31,4.31,0,0,1,2.52,1.34A2,2,0,0,0,22,57h2.09l1.41,1.61a2,2,0,0,0,3.46-.9l2.82-13.15L36,69.34a2,2,0,0,0,3.89.21L43.51,57H45a2,2,0,0,0,1.41-.58A5,5,0,0,1,49,55a5,5,0,0,1,2.59,1.41A2,2,0,0,0,53,57H70a2,2,0,0,0,1.41-.58A5,5,0,0,1,74,55a5,5,0,0,1,2.59,1.41A2,2,0,0,0,78,57h2.17l1.42,1.41a2,2,0,0,0,3.36-1l2.82-12.94L92,69.34A2,2,0,0,0,93.89,71H94a2,2,0,0,0,1.92-1.45L99.51,57H101a2,2,0,0,0,1.41-.58A5,5,0,0,1,105,55a5,5,0,0,1,2.59,1.41A2,2,0,0,0,109,57h6a9.4,9.4,0,0,1,9,9.09Z"/>
-                        </svg>
-                    </div>
-                    <div class="ix-content">
-                        <div class="ix-header">
-                            <span class="ix-title">ECG</span>
-                            <button class="ix-info-btn" onclick="showECGChoices()">What to look for ›</button>
-                        </div>
-                        <div class="ix-hint">Rhythm, ischaemia, RV strain</div>
-                    </div>
-                </div>
-
-                <div class="ix-card">
-                    <div class="ix-icon">
-                        <svg viewBox="0 0 43.3492 43.3492" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="currentColor" d="m29.5247 11.9269c.2672-.4628.1087-1.0546-.3541-1.3218s-1.0546-.1087-1.3218.3541l-7.51 13.0077c-.2672.4628-.1086 1.0546.3542 1.3218s1.0546.1086 1.3218-.3542zm-18.4508 6.0169c-.2672.4629-.1086 1.0547.3542 1.3219s1.0546.1086 1.3218-.3542l7.2181-12.5022c.2672-.4628.1086-1.0546-.3542-1.3218s-1.0546-.1086-1.3218.3542z"/>
-                            <rect height="16.16" rx="1.327" transform="matrix(.292 .169 -.169 .292 18.926 -.487)" width="52.775" fill="currentColor"/>
-                            <path fill="currentColor" d="m13.5899 15.8629 3.1339 1.8093-.7647 1.3306-3.1339-1.8094z"/>
-                            <path fill="currentColor" d="m15.0952 13.2608 1.9745 1.14-.7706 1.3305-1.9746-1.14z"/>
-                            <path fill="currentColor" d="m16.5945 10.6587 3.1339 1.8093-.7646 1.3306-3.1339-1.8093z"/>
-                            <path fill="currentColor" d="m13.2522 40.1117 8.7626-15.1772c-1.2481-.7206-2.2044-1.9466-3.4525-2.6672-1.248-.7205-2.7879-.9357-4.036-1.6563s-2.2044-1.9466-3.4524-2.6672l-9.0544 15.6827c-1.7834 3.089-.7153 7.0754 2.3738 8.8589 3.089 1.7834 7.0755.7152 8.8589-2.3737z"/>
-                            <path fill="currentColor" d="m38.6882 10.6119c-2.1815 2.6248-3.1873 4.778-3.4397 6.4596-.4585 3.0539 1.5674 4.5527 3.5475 4.4964 1.8968-.054 3.7517-1.5355 3.3395-4.4442-.2393-1.6892-1.2431-3.8598-3.4473-6.5118z"/>
-                        </svg>
-                    </div>
-                    <div class="ix-content">
-                        <div class="ix-header">
-                            <span class="ix-title">Bloods</span>
-                        </div>
-                        <div class="ix-hint">Including blood gas, coags, group & hold</div>
-                    </div>
-                </div>
-
-                <div class="ix-card">
-                    <div class="ix-icon">
-                        <svg viewBox="0 0 48 48" fill="none">
-                            <rect x="6" y="4" width="36" height="40" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
-                            <path d="M12 18 Q16 14 24 14 Q32 14 36 18" stroke="currentColor" stroke-width="2" fill="none"/>
-                            <path d="M16 22 H32" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
-                            <path d="M14 26 H34" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
-                            <path d="M14 30 H34" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
-                            <path d="M16 34 H32" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
-                            <ellipse cx="22" cy="26" rx="6" ry="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                        </svg>
-                    </div>
-                    <div class="ix-content">
-                        <div class="ix-header">
-                            <span class="ix-title">Mobile CXR</span>
-                        </div>
-                        <div class="ix-hint">Pneumothorax, oedema, widened mediastinum</div>
-                    </div>
-                </div>
-            </div>
-            <div class="bottom-nav">
-                <button class="nav-btn secondary" onclick="goBack()">‹ Back</button>
-                <button class="nav-btn primary" onclick="goToPage('page-hypo-history')">Next ›</button>
+                <button class="nav-btn primary" onclick="goToFirstDDx()">Proceed to differentials ›</button>
             </div>
         </div>
 
@@ -5064,7 +5081,9 @@
                 <div class="ddx-section-title">Blood loss</div>
                 <div class="ddx-tile-grid">
                     <div class="ddx-tile" onclick="showExternalBleedInfo()">
-                        <span class="ddx-tile-title">External</span>
+                        <div class="ddx-tile-content">
+                            <span class="ddx-tile-title">External</span>
+                        </div>
                         <span class="ddx-tile-chevron">›</span>
                     </div>
                     <div class="ddx-tile" onclick="showOccultBleedInfo()">
@@ -5084,7 +5103,9 @@
                 <div class="ddx-section-title">Fluid losses</div>
                 <div class="ddx-tile-grid">
                     <div class="ddx-tile" onclick="showGILossInfo()">
-                        <span class="ddx-tile-title">GI losses</span>
+                        <div class="ddx-tile-content">
+                            <span class="ddx-tile-title">GI losses</span>
+                        </div>
                         <span class="ddx-tile-chevron">›</span>
                     </div>
                     <div class="ddx-tile" onclick="showRenalLossInfo()">
@@ -5106,7 +5127,9 @@
                         <span class="ddx-tile-chevron">›</span>
                     </div>
                     <div class="ddx-tile" onclick="showPoorIntakeInfo()">
-                        <span class="ddx-tile-title">Poor intake</span>
+                        <div class="ddx-tile-content">
+                            <span class="ddx-tile-title">Poor intake</span>
+                        </div>
                         <span class="ddx-tile-chevron">›</span>
                     </div>
                 </div>
@@ -5152,17 +5175,23 @@
                 <div class="ddx-section-title">Consider</div>
 
                 <div class="ddx-tile" onclick="showTensionPneumoInfo()">
-                    <span class="ddx-tile-title">Tension pneumothorax</span>
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Tension pneumothorax</span>
+                    </div>
                     <span class="ddx-tile-chevron">›</span>
                 </div>
 
                 <div class="ddx-tile" onclick="showPEInfo()">
-                    <span class="ddx-tile-title">Pulmonary embolism</span>
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Pulmonary embolism</span>
+                    </div>
                     <span class="ddx-tile-chevron">›</span>
                 </div>
 
                 <div class="ddx-tile" onclick="showTamponadeInfo()">
-                    <span class="ddx-tile-title">Cardiac tamponade</span>
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Cardiac tamponade</span>
+                    </div>
                     <span class="ddx-tile-chevron">›</span>
                 </div>
 
@@ -5223,12 +5252,16 @@
                 <div class="ddx-section-title">Consider</div>
 
                 <div class="ddx-tile" onclick="showSepsisInfo()">
-                    <span class="ddx-tile-title">Sepsis</span>
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Sepsis</span>
+                    </div>
                     <span class="ddx-tile-chevron">›</span>
                 </div>
 
                 <div class="ddx-tile" onclick="showAnaphylaxisShockInfo()">
-                    <span class="ddx-tile-title">Anaphylaxis</span>
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Anaphylaxis</span>
+                    </div>
                     <span class="ddx-tile-chevron">›</span>
                 </div>
 
@@ -5297,12 +5330,16 @@
                 <div class="ddx-section-title">Consider</div>
 
                 <div class="ddx-tile" onclick="showIschemiaInfo()">
-                    <span class="ddx-tile-title">Acute coronary syndrome</span>
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Acute coronary syndrome</span>
+                    </div>
                     <button class="ddx-tile-info-btn" onclick="event.stopPropagation();showIschemiaInfo()">ECG signs ›</button>
                 </div>
 
                 <div class="ddx-tile" onclick="showUnstableArrhythmiaInfo()">
-                    <span class="ddx-tile-title">Arrhythmia</span>
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Arrhythmia</span>
+                    </div>
                     <button class="ddx-tile-info-btn" onclick="event.stopPropagation();showAFInfo()">Can you blame the AF? ›</button>
                 </div>
 
@@ -5315,7 +5352,9 @@
                 </div>
 
                 <div class="ddx-tile" onclick="showCardiomyopathyInfo()">
-                    <span class="ddx-tile-title">Decompensated cardiomyopathy</span>
+                    <div class="ddx-tile-content">
+                        <span class="ddx-tile-title">Decompensated cardiomyopathy</span>
+                    </div>
                     <span class="ddx-tile-chevron">›</span>
                 </div>
 
@@ -5393,7 +5432,7 @@
         <div class="page" id="page-hypo-mgmt">
             <div class="hypo-header">
                 <div class="hypo-header-back">
-                    <button onclick="goToPage('page-hypo-history')">‹</button>
+                    <button onclick="goToPage('page-endo')">‹</button>
                 </div>
                 <div class="hypo-seg-control">
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
@@ -5433,7 +5472,7 @@
                 </div>
             </div>
             <div class="bottom-nav">
-                <button class="nav-btn secondary" onclick="goToPage('page-hypo-history')">‹ Back</button>
+                <button class="nav-btn secondary" onclick="goToPage('page-endo')">‹ Back</button>
                 <button class="nav-btn primary" onclick="goHome()">Done</button>
             </div>
         </div>
@@ -7746,65 +7785,80 @@
                 </div>
             </div>
             <div class="content">
-                <div class="guidance-box" style="margin-bottom: 12px;">
-                    <div class="guidance-title">Goal</div>
-                    <div style="font-size: 13px; color: var(--text2);">Restore perfusion without iatrogenic fluid overload.<br>Treat the cause in parallel (eg: antibiotics, bleeding control).</div>
+                <div class="fluid-card" style="margin-bottom: 12px;">
+                    <div class="fluid-card-title">Goal</div>
+                    <div class="fluid-card-body">
+                        Restore perfusion without iatrogenic fluid overload.<br>
+                        Treat the cause in parallel (eg: antibiotics, bleeding control).
+                    </div>
                 </div>
 
                 <!-- Which fluid -->
-                <div class="gi-mx-box" style="margin-bottom: 12px;">
-                    <div class="gi-mx-section-title" style="margin-bottom: 8px;">Which fluid?</div>
-                    <div class="gi-mx-item">Balanced crystalloid is a reasonable default <span class="gi-hb-info" onclick="event.stopPropagation();showFluidTypeInfo()" style="cursor:pointer;">ⓘ</span></div>
-                    <div class="gi-mx-item" style="color: var(--text2); font-size: 12px; margin-top: 6px;">Use <strong>0.9% saline</strong> instead for:</div>
-                    <div class="gi-mx-item" style="padding-left: 12px;">TBI or raised ICP <span class="gi-hb-info" onclick="event.stopPropagation();showTBIFluidInfo()" style="cursor:pointer;">ⓘ</span></div>
-                    <div class="gi-mx-item" style="padding-left: 12px;">Anuric + hyperkalaemic</div>
-                    <button class="cause-info-btn" style="margin-top: 10px;" onclick="showFluids()">Compare fluids ›</button>
+                <div class="fluid-card" style="margin-bottom: 12px;">
+                    <div class="fluid-card-header">
+                        <span class="fluid-card-title">Which fluid?</span>
+                        <button class="text-link-btn" onclick="showFluids()">Compare fluids ›</button>
+                    </div>
+                    <div class="fluid-card-body">
+                        <div>Balanced crystalloid is a reasonable default <span class="info-btn" onclick="event.stopPropagation();showFluidTypeInfo()">ⓘ</span></div>
+                        <div style="margin-top: 12px;">Use 0.9% saline instead for:</div>
+                        <div style="margin-left: 16px; margin-top: 6px;">TBI or raised ICP <span class="info-btn" onclick="event.stopPropagation();showTBIFluidInfo()">ⓘ</span></div>
+                        <div style="margin-left: 16px; margin-top: 4px;">Anuric + hyperkalaemic</div>
+                    </div>
                 </div>
 
                 <!-- How much -->
-                <div class="gi-mx-box" style="margin-bottom: 12px;">
-                    <div class="gi-mx-section-title" style="margin-bottom: 8px;">How much?</div>
-                    <div class="gi-mx-item"><strong>500 mL</strong> aliquots <span class="gi-hb-info" onclick="event.stopPropagation();showFluidVolumeInfo()" style="cursor:pointer;">ⓘ</span></div>
-                    <div class="gi-mx-item" style="color: var(--text2); font-size: 12px; margin-top: 6px;">Consider <strong>250 mL</strong> aliquots for severe HF / CKD <span class="gi-hb-info" onclick="event.stopPropagation();showHighRiskFluidInfo()" style="cursor:pointer;">ⓘ</span></div>
+                <div class="fluid-card" style="margin-bottom: 12px;">
+                    <div class="fluid-card-title">How much?</div>
+                    <div class="fluid-card-body">
+                        <div>500 mL aliquots <span class="info-btn" onclick="event.stopPropagation();showFluidVolumeInfo()">ⓘ</span></div>
+                        <div style="margin-top: 6px;">Consider 250 mL aliquots for severe HF / CKD <span class="info-btn" onclick="event.stopPropagation();showHighRiskFluidInfo()">ⓘ</span></div>
+                    </div>
                 </div>
 
                 <!-- How fast -->
-                <div class="gi-mx-box" style="margin-bottom: 12px;">
-                    <div class="gi-mx-section-title" style="margin-bottom: 8px;">How fast?</div>
-                    <div class="gi-mx-item"><strong>As fast as possible</strong> — deliver fast enough to test physiology <span class="gi-hb-info" onclick="event.stopPropagation();showFluidRateInfo()" style="cursor:pointer;">ⓘ</span></div>
-                    <div style="margin-top: 8px; padding: 8px; background: var(--bg2); border-radius: 6px; font-size: 12px; color: var(--text3);">
-                        <div>Ward pumps max 999 mL/hr → 500 mL takes 30 min</div>
-                        <div style="margin-top: 4px;">For faster: hand pump giving set <span style="color: var(--orange);">(ensure primed — air embolism risk if not)</span></div>
+                <div class="fluid-card" style="margin-bottom: 12px;">
+                    <div class="fluid-card-title">How fast?</div>
+                    <div class="fluid-card-body">
+                        <div>As fast as possible — deliver fast enough to test physiology <span class="info-btn" onclick="event.stopPropagation();showFluidRateInfo()">ⓘ</span></div>
+                        <div class="fluid-hint" style="margin-top: 10px;">
+                            Standard ward infusion pumps max out at 999 mL/hr → 500 mL takes ~30 min
+                        </div>
+                        <div class="fluid-hint" style="margin-top: 4px;">
+                            For faster delivery: hand-pump a primed giving set (ensure primed to avoid air embolism)
+                        </div>
                     </div>
                 </div>
 
                 <!-- Reassess -->
-                <div class="gi-mx-box" style="margin-bottom: 12px;">
-                    <div class="gi-mx-section-title" style="margin-bottom: 8px;">Reassess after each aliquot <span class="gi-hb-info" onclick="event.stopPropagation();showReassessInfo()" style="cursor:pointer;">ⓘ</span></div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                <div class="fluid-card" style="margin-bottom: 12px;">
+                    <div class="fluid-card-title">Reassess after each aliquot <span class="info-btn" onclick="event.stopPropagation();showReassessInfo()">ⓘ</span></div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px;">
                         <div>
-                            <div style="font-size: 11px; font-weight: 600; color: var(--green); margin-bottom: 4px;">✓ Response</div>
-                            <div style="font-size: 12px; color: var(--text2);">↑ BP / pulse pressure</div>
-                            <div style="font-size: 12px; color: var(--text2);">↓ HR</div>
-                            <div style="font-size: 12px; color: var(--text2);">Improved cap refill</div>
-                            <div style="font-size: 12px; color: var(--text2);">Warmer peripheries</div>
-                            <div style="font-size: 12px; color: var(--text2);">↓ Lactate</div>
+                            <div style="font-size: 11px; font-weight: 600; color: var(--green); margin-bottom: 4px;">Response</div>
+                            <div class="fluid-list-item">↑ BP / pulse pressure</div>
+                            <div class="fluid-list-item">↓ HR</div>
+                            <div class="fluid-list-item">Improved cap refill</div>
+                            <div class="fluid-list-item">Warmer peripheries</div>
+                            <div class="fluid-list-item">↓ Lactate</div>
                         </div>
                         <div>
-                            <div style="font-size: 11px; font-weight: 600; color: var(--red); margin-bottom: 4px;">✗ Harm</div>
-                            <div style="font-size: 12px; color: var(--text2);">↑ O₂ requirement</div>
-                            <div style="font-size: 12px; color: var(--text2);">New crackles</div>
-                                                        <div style="font-size: 12px; color: var(--text2);">Worsening WOB</div>
+                            <div style="font-size: 11px; font-weight: 600; color: var(--red); margin-bottom: 4px;">Harm</div>
+                            <div class="fluid-list-item">↑ O₂ requirement</div>
+                            <div class="fluid-list-item">New crackles</div>
+                            <div class="fluid-list-item">Worsening WOB</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Escalation -->
-                <div class="gi-mx-box" style="background: rgba(255, 59, 48, 0.04); border-color: rgba(255, 59, 48, 0.2);">
-                    <div class="gi-mx-section-title" style="color: var(--red); margin-bottom: 8px;">Call ICU / consider vasopressors if</div>
-                    <div style="font-size: 13px; color: var(--text2);">No clear fluid responsiveness</div>
-                    <div style="font-size: 13px; color: var(--text2);">Profound hypotension</div>
-                    <div style="font-size: 13px; color: var(--text2);">Fluid overload / pulmonary oedema</div>
+                <div class="fluid-card" style="background: rgba(255, 59, 48, 0.04); border-color: rgba(255, 59, 48, 0.2);">
+                    <div class="fluid-card-title" style="color: var(--red);">Call ICU / consider vasopressors if</div>
+                    <div class="fluid-card-body" style="color: var(--text2);">
+                        <div>No clear fluid responsiveness</div>
+                        <div style="margin-top: 4px;">Profound hypotension</div>
+                        <div style="margin-top: 4px;">Fluid overload / pulmonary oedema</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -8654,41 +8708,68 @@
         }
 
         function updateHypoDifferential() {
-            // Default order
+            // Default order and number of top priorities (0 = no highlighting)
             let order = ['Distributive', 'Hypovolaemic', 'Cardiogenic', 'Obstructive', 'Endocrine'];
+            let topCount = 0;
 
-            // Peripheries is the strongest discriminator
-            if (hypoPeripheries === 'warm') {
+            // Check if any input has been provided
+            const hasInput = hypoOnset || hypoPeripheries || hypoRespiratory === 'distress';
+
+            if (!hasInput) {
+                // No input yet - don't highlight anything
+                topCount = 0;
+            } else if (hypoPeripheries === 'warm') {
                 // Warm = vasodilated = distributive (sepsis, anaphylaxis, neurogenic)
                 order = ['Distributive', 'Hypovolaemic', 'Cardiogenic', 'Obstructive', 'Endocrine'];
+                topCount = 1;
             } else if (hypoPeripheries === 'cool') {
                 // Cool peripheries - need more info
                 if (hypoRespiratory === 'distress') {
                     if (hypoOnset === 'sudden') {
                         // Cool + distress + sudden = PE, tension pneumo, massive MI
                         order = ['Obstructive', 'Cardiogenic', 'Hypovolaemic', 'Distributive', 'Endocrine'];
+                        topCount = 2;
                     } else {
                         // Cool + distress + progressive = cardiogenic (CCF), late sepsis
                         order = ['Cardiogenic', 'Distributive', 'Obstructive', 'Hypovolaemic', 'Endocrine'];
+                        topCount = 2;
                     }
                 } else {
                     // Cool + no respiratory distress
                     if (hypoOnset === 'sudden') {
                         // Cool + no distress + sudden = haemorrhage, but also consider obstructive
                         order = ['Hypovolaemic', 'Obstructive', 'Cardiogenic', 'Distributive', 'Endocrine'];
+                        topCount = 2;
                     } else {
                         // Cool + no distress + progressive = hypovolaemia (dehydration), adrenal
                         order = ['Hypovolaemic', 'Endocrine', 'Cardiogenic', 'Distributive', 'Obstructive'];
+                        topCount = 1;
                     }
                 }
             } else {
-                // Only onset selected (no peripheries info yet)
-                if (hypoOnset === 'sudden') {
+                // No peripheries selected yet - use onset and respiratory distress
+                if (hypoRespiratory === 'distress') {
+                    if (hypoOnset === 'sudden') {
+                        // Distress + sudden = obstructive (PE, tension pneumo) or cardiogenic
+                        order = ['Obstructive', 'Cardiogenic', 'Distributive', 'Hypovolaemic', 'Endocrine'];
+                        topCount = 2;
+                    } else if (hypoOnset === 'progressive') {
+                        // Distress + progressive = cardiogenic (CCF) or distributive (sepsis)
+                        order = ['Cardiogenic', 'Distributive', 'Obstructive', 'Hypovolaemic', 'Endocrine'];
+                        topCount = 2;
+                    } else {
+                        // Distress only = think cardiogenic and obstructive
+                        order = ['Cardiogenic', 'Obstructive', 'Distributive', 'Hypovolaemic', 'Endocrine'];
+                        topCount = 2;
+                    }
+                } else if (hypoOnset === 'sudden') {
                     // Sudden WITHOUT other info: think obstructive and cardiogenic first
                     order = ['Obstructive', 'Cardiogenic', 'Hypovolaemic', 'Distributive', 'Endocrine'];
+                    topCount = 2;
                 } else if (hypoOnset === 'progressive') {
                     // Progressive WITHOUT other info: think distributive and hypovolaemic
                     order = ['Distributive', 'Hypovolaemic', 'Cardiogenic', 'Endocrine', 'Obstructive'];
+                    topCount = 2;
                 }
             }
 
@@ -8696,11 +8777,21 @@
             ['shock-ddx-box', 'shock-ddx-box-exam'].forEach(id => {
                 const container = document.getElementById(id);
                 if (container) {
-                    container.innerHTML = order.map((name, i) =>
-                        `<div class="ddx-item${i === 0 ? ' top' : ''}">${name}</div>`
+                    container.innerHTML = '<div class="ddx-box-title">DDx</div>' + order.map((name, i) =>
+                        `<div class="ddx-item${i < topCount ? ' top' : ''}">${name}</div>`
                     ).join('');
                 }
             });
+
+            // Also update the navigation order for DDx pages
+            const nameToKey = {
+                'Distributive': 'dist',
+                'Hypovolaemic': 'hypo',
+                'Cardiogenic': 'card',
+                'Obstructive': 'obst',
+                'Endocrine': 'endo'
+            };
+            shockOrder = order.map(name => nameToKey[name]);
         }
 
         // RR Modal functions
@@ -9133,6 +9224,12 @@
             goToPage(firstCategory.page);
         }
 
+        function goToFirstDDx() {
+            // Navigate to first category based on current shockOrder
+            const firstKey = shockOrder[0];
+            goToPage(shockCategories[firstKey].page);
+        }
+
         function getShockKeyFromPage(pageId) {
             for (const [key, cat] of Object.entries(shockCategories)) {
                 if (cat.page === pageId) return key;
@@ -9182,8 +9279,8 @@
                 const prevKey = shockOrder[currentIndex - 1];
                 goToPage(shockCategories[prevKey].page);
             } else {
-                // First one - go back to shock assess
-                goToPage('page-hypo-history');
+                // First one - go back to exam page
+                goToPage('page-hypo-exam');
             }
         }
 
