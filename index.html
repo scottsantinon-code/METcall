@@ -8858,8 +8858,44 @@
                         <div class="ecg-note">• ≥1 lead with ≥5 mm discordant STE</div>
                     </div>
                 </div>
+
+                <div class="ecg-dropdown" onclick="toggleDropdown(this)">
+                    <div class="ecg-dropdown-header">
+                        <span>RV strain (PE / RV overload)</span>
+                        <span class="ecg-dropdown-arrow">▼</span>
+                    </div>
+                    <div class="ecg-dropdown-content">
+                        <div class="ecg-equiv">
+                            <div class="ecg-equiv-item">
+                                <strong>S1Q3T3</strong>
+                                <span>S wave in I, Q wave and TWI in III</span>
+                                <span class="ecg-meaning">→ Classic but not sensitive (~20%)</span>
+                            </div>
+                            <div class="ecg-equiv-item">
+                                <strong>Right axis deviation</strong>
+                                <span class="ecg-meaning">→ Acute RV pressure overload</span>
+                            </div>
+                            <div class="ecg-equiv-item">
+                                <strong>RBBB (new)</strong>
+                                <span class="ecg-meaning">→ RV strain, compare to prior ECG</span>
+                            </div>
+                            <div class="ecg-equiv-item">
+                                <strong>TWI V1-V4</strong>
+                                <span>Anterior T wave inversions</span>
+                                <span class="ecg-meaning">→ RV strain pattern</span>
+                            </div>
+                            <div class="ecg-equiv-item">
+                                <strong>Sinus tachycardia</strong>
+                                <span class="ecg-meaning">→ Most common finding in PE</span>
+                            </div>
+                        </div>
+                        <div class="ecg-notes" style="margin-top:12px;">
+                            <div class="ecg-note highlight">• Normal ECG does NOT exclude PE</div>
+                        </div>
+                    </div>
+                </div>
             `;
-            showModal('ECG in ACS', html);
+            showModal('ECG findings', html);
         }
 
         function toggleDropdown(el) {
