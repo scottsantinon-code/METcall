@@ -2704,9 +2704,13 @@
             font-weight: 500;
             color: var(--text3);
             border-radius: 8px;
-            cursor: default;
+            cursor: pointer;
             transition: all 0.2s;
             white-space: nowrap;
+        }
+
+        .hypo-seg-item:active {
+            opacity: 0.7;
         }
 
         .hypo-seg-item.current {
@@ -3997,11 +4001,11 @@
                     <button onclick="goHome()">‹</button>
                 </div>
                 <div class="hypo-seg-control">
-                    <div class="hypo-seg-item current">Shock</div>
-                    <div class="hypo-seg-item">Actions</div>
-                    <div class="hypo-seg-item">Assess</div>
-                    <div class="hypo-seg-item">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-shock')">Shock</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-actions')">Actions</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-shock-assess')">Assess</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-dist')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypo-mgmt')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -4050,10 +4054,10 @@
                 </div>
                 <div class="hypo-seg-control">
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
-                    <div class="hypo-seg-item current">Actions</div>
-                    <div class="hypo-seg-item">Assess</div>
-                    <div class="hypo-seg-item">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-actions')">Actions</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-shock-assess')">Assess</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-dist')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypo-mgmt')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -4112,10 +4116,10 @@
                 </div>
                 <div class="hypo-seg-control">
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
-                    <div class="hypo-seg-item current">Actions</div>
-                    <div class="hypo-seg-item">Assess</div>
-                    <div class="hypo-seg-item">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-actions')">Actions</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-shock-assess')">Assess</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-dist')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypo-mgmt')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -4214,10 +4218,10 @@
                 </div>
                 <div class="hypo-seg-control">
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
-                    <div class="hypo-seg-item completed" onclick="goBack()">Actions</div>
-                    <div class="hypo-seg-item current">Assess</div>
-                    <div class="hypo-seg-item">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-shock-assess')">Assess</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-dist')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypo-mgmt')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -4240,11 +4244,11 @@
                             </svg>
                         </div>
                         <div class="action-tile-content">
-                            <div class="action-tile-title">ECG</div>
-                            <div class="action-tile-sub">Rhythm, ischaemia, RV strain</div>
-                            <div class="action-tile-links">
-                                <button class="action-tile-link" onclick="event.stopPropagation();showECGInfo()">What to look for ›</button>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                <div class="action-tile-title">ECG</div>
+                                <button class="action-tile-link" onclick="event.stopPropagation();showECGInfo()" style="margin: 0;">What to look for ›</button>
                             </div>
+                            <div class="action-tile-sub">Rhythm, ischaemia, RV strain</div>
                         </div>
                     </div>
                     <div class="action-tile" style="border-color: var(--border);">
@@ -4297,10 +4301,10 @@
                 </div>
                 <div class="hypo-seg-control">
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
-                    <div class="hypo-seg-item completed" onclick="goBack()">Actions</div>
-                    <div class="hypo-seg-item current">Assess</div>
-                    <div class="hypo-seg-item">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-shock-assess')">Assess</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-dist')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypo-mgmt')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -4347,10 +4351,10 @@
                 </div>
                 <div class="hypo-seg-control">
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
-                    <div class="hypo-seg-item completed" onclick="goBack()">Actions</div>
-                    <div class="hypo-seg-item current">Assess</div>
-                    <div class="hypo-seg-item">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-shock-assess')">Assess</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-dist')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypo-mgmt')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -4405,10 +4409,10 @@
                 </div>
                 <div class="hypo-seg-control">
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
-                    <div class="hypo-seg-item completed" onclick="goBack()">Actions</div>
-                    <div class="hypo-seg-item current">Assess</div>
-                    <div class="hypo-seg-item">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-shock-assess')">Assess</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-dist')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypo-mgmt')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -4523,10 +4527,10 @@
                 </div>
                 <div class="hypo-seg-control">
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
-                    <div class="hypo-seg-item current">Actions</div>
-                    <div class="hypo-seg-item">Assess</div>
-                    <div class="hypo-seg-item">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-actions')">Actions</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-shock-assess')">Assess</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-dist')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypo-mgmt')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -4594,9 +4598,9 @@
                 <div class="hypo-seg-control">
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
-                    <div class="hypo-seg-item current">Assess</div>
-                    <div class="hypo-seg-item">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-shock-assess')">Assess</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-dist')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypo-mgmt')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -4811,9 +4815,9 @@
                 <div class="hypo-seg-control">
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
-                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypo-exam')">Assess</div>
-                    <div class="hypo-seg-item current">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-dist')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypo-mgmt')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -4891,8 +4895,8 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
-                    <div class="hypo-seg-item current">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-dist')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypo-mgmt')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -5002,8 +5006,8 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
-                    <div class="hypo-seg-item current">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-dist')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypo-mgmt')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -5080,8 +5084,8 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
-                    <div class="hypo-seg-item current">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-dist')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypo-mgmt')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -5156,8 +5160,8 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
-                    <div class="hypo-seg-item current">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-dist')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypo-mgmt')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -5223,8 +5227,8 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
-                    <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">DDx</div>
-                    <div class="hypo-seg-item current">Mgmt</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-dist')">DDx</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypo-mgmt')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -5314,11 +5318,11 @@
                     <button onclick="goHome()">‹</button>
                 </div>
                 <div class="hypo-seg-control">
-                    <div class="hypo-seg-item current">Urgent</div>
-                    <div class="hypo-seg-item">O₂</div>
-                    <div class="hypo-seg-item">Assess</div>
-                    <div class="hypo-seg-item">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-causes')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -5410,10 +5414,10 @@
                 </div>
                 <div class="hypo-seg-control">
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
-                    <div class="hypo-seg-item current">O₂</div>
-                    <div class="hypo-seg-item">Assess</div>
-                    <div class="hypo-seg-item">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-causes')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -5459,10 +5463,10 @@
                 </div>
                 <div class="hypo-seg-control">
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
-                    <div class="hypo-seg-item current">O₂</div>
-                    <div class="hypo-seg-item">Assess</div>
-                    <div class="hypo-seg-item">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-causes')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -5511,9 +5515,9 @@
                 <div class="hypo-seg-control">
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
-                    <div class="hypo-seg-item current">Assess</div>
-                    <div class="hypo-seg-item">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-causes')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -5637,9 +5641,9 @@
                 <div class="hypo-seg-control">
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
-                    <div class="hypo-seg-item current">Assess</div>
-                    <div class="hypo-seg-item">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-causes')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -5764,8 +5768,8 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
-                    <div class="hypo-seg-item current">DDx</div>
-                    <div class="hypo-seg-item">Mgmt</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-causes')">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -5832,7 +5836,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-causes')">Causes</div>
-                    <div class="hypo-seg-item current">Mgmt</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -6404,7 +6408,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
-                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-causes')">DDx</div>
                     <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
@@ -6479,7 +6483,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
-                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-causes')">DDx</div>
                     <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
@@ -6544,7 +6548,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
-                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-causes')">DDx</div>
                     <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
@@ -6615,7 +6619,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
-                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-causes')">DDx</div>
                     <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
@@ -6658,7 +6662,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
-                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-causes')">DDx</div>
                     <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
@@ -6729,7 +6733,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
-                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-causes')">DDx</div>
                     <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
@@ -6800,7 +6804,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
-                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-causes')">DDx</div>
                     <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
@@ -6865,7 +6869,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
-                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-causes')">DDx</div>
                     <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
@@ -7001,7 +7005,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
-                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-causes')">DDx</div>
                     <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
@@ -7070,7 +7074,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
-                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-causes')">DDx</div>
                     <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
@@ -7159,7 +7163,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
-                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-causes')">DDx</div>
                     <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
@@ -7256,7 +7260,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-causes')">Causes</div>
-                    <div class="hypo-seg-item current">Mgmt</div>
+                    <div class="hypo-seg-item current" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
