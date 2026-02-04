@@ -3159,58 +3159,87 @@
             margin-bottom: 0;
             flex-shrink: 0;
         }
-        .page-header-row {
+        /* Two-column layout for History/Exam pages */
+        .two-col-layout {
             display: flex;
-            justify-content: space-between;
+            gap: 16px;
             align-items: flex-start;
-            gap: 12px;
+        }
+        .main-col {
+            flex: 1;
+            min-width: 0;
+        }
+        .ddx-col {
+            flex-shrink: 0;
+            width: 100px;
+        }
+        .ddx-box {
+            background: rgba(0,0,0,0.03);
+            border-radius: 8px;
+            padding: 10px 12px;
+            position: sticky;
+            top: 16px;
+        }
+        .ddx-item {
+            font-size: 12px;
+            color: var(--text3);
+            padding: 2px 0;
+            text-align: right;
+            transition: all 0.2s;
+        }
+        .ddx-item.top {
+            font-weight: 600;
+            color: var(--text);
+        }
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .onset-toggle {
+            display: flex;
+            gap: 10px;
             margin-bottom: 20px;
         }
-        .page-header-row .page-title {
-            margin-bottom: 0;
-            flex-shrink: 0;
-        }
-        .onset-toggle-compact {
-            display: flex;
-            gap: 6px;
-            flex-shrink: 0;
-        }
-        .onset-toggle-compact .onset-btn {
-            padding: 6px 14px;
-            border-radius: 8px;
+        .onset-toggle .onset-btn {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 10px;
             border: 1px solid var(--border);
             background: #fff;
-            font-size: 12px;
+            font-size: 15px;
             font-weight: 500;
             cursor: pointer;
-            min-width: 70px;
+            transition: all 0.15s;
         }
-        .onset-toggle-compact .onset-btn.active {
+        .onset-toggle .onset-btn.active {
             background: var(--blue);
             color: #fff;
             border-color: var(--blue);
         }
-        .mini-diff-panel {
-            background: rgba(0,0,0,0.03);
-            border-radius: 8px;
-            padding: 6px 10px;
-            flex-shrink: 0;
-        }
-        .mini-diff-tags {
+        /* RR Modal button */
+        .rr-modal-btn {
             display: flex;
             flex-direction: column;
-            gap: 2px;
+            align-items: center;
+            padding: 12px 16px;
+            background: rgba(0,122,255,0.08);
+            border: 1px solid rgba(0,122,255,0.2);
+            border-radius: 10px;
+            cursor: pointer;
+            min-width: 80px;
         }
-        .mini-diff-tag {
+        .rr-modal-btn span:first-child {
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--blue);
+        }
+        .rr-modal-hint {
             font-size: 11px;
             color: var(--text3);
-            padding: 1px 0;
-            text-align: right;
-            transition: all 0.2s;
-        }
-        .mini-diff-tag.top {
-            font-weight: 600;
-            color: var(--text);
         }
 
         .toggle-row {
@@ -4519,34 +4548,39 @@
                 </div>
             </div>
             <div class="content">
-                <div class="page-header-row">
-                    <div class="page-title">History</div>
-                    <div class="onset-toggle-compact">
-                        <button class="onset-btn" id="btn-onset-sudden" onclick="setHypoOnset('sudden')">Sudden</button>
-                        <button class="onset-btn" id="btn-onset-progressive" onclick="setHypoOnset('progressive')">Progressive</button>
-                    </div>
-                    <div class="mini-diff-panel" id="mini-diff-panel-history">
-                        <div class="mini-diff-tags" id="mini-diff-tags-history">
-                            <span class="mini-diff-tag top">Distributive</span>
-                            <span class="mini-diff-tag">Hypovolaemic</span>
-                            <span class="mini-diff-tag">Cardiogenic</span>
-                            <span class="mini-diff-tag">Obstructive</span>
-                            <span class="mini-diff-tag">Endocrine</span>
+                <div class="page-title">History</div>
+
+                <div class="two-col-layout">
+                    <div class="main-col">
+                        <div class="section-label">ONSET</div>
+                        <div class="onset-toggle">
+                            <button class="onset-btn" id="btn-onset-sudden" onclick="setHypoOnset('sudden')">Sudden</button>
+                            <button class="onset-btn" id="btn-onset-progressive" onclick="setHypoOnset('progressive')">Progressive</button>
+                        </div>
+
+                        <div class="section-label">ASK ABOUT</div>
+                        <div class="history-prompts">
+                            <div class="history-prompt">
+                                <span>Fever, rigors, focal infective symptoms</span>
+                                <span class="info-btn" onclick="event.stopPropagation();showFocalInfectiveInfo()">ⓘ</span>
+                            </div>
+                            <div class="history-prompt">Haematemesis, melaena, diarrhoea, poor intake</div>
+                            <div class="history-prompt">Chest pain, dyspnoea, cardiac history</div>
+                            <div class="history-prompt">Immobility, recent surgery, malignancy</div>
+                            <div class="history-prompt">Recent drug or allergen exposure</div>
+                            <div class="history-prompt">Steroid use, adrenal disease</div>
                         </div>
                     </div>
-                </div>
 
-                <div class="section-title">Ask about</div>
-                <div class="history-prompts">
-                    <div class="history-prompt">
-                        <span>Fever, rigors, focal infective symptoms</span>
-                        <span class="info-btn" onclick="event.stopPropagation();showFocalInfectiveInfo()">ⓘ</span>
+                    <div class="ddx-col">
+                        <div class="ddx-box" id="shock-ddx-box">
+                            <div class="ddx-item top">Distributive</div>
+                            <div class="ddx-item">Hypovolaemic</div>
+                            <div class="ddx-item">Cardiogenic</div>
+                            <div class="ddx-item">Obstructive</div>
+                            <div class="ddx-item">Endocrine</div>
+                        </div>
                     </div>
-                    <div class="history-prompt">Haematemesis, melaena, diarrhoea, poor intake</div>
-                    <div class="history-prompt">Chest pain, dyspnoea, cardiac history</div>
-                    <div class="history-prompt">Immobility, recent surgery, malignancy</div>
-                    <div class="history-prompt">Recent drug or allergen exposure</div>
-                    <div class="history-prompt">Steroid use, adrenal disease</div>
                 </div>
             </div>
             <div class="bottom-nav">
@@ -4578,118 +4612,106 @@
                 </div>
             </div>
             <div class="content">
-                <div class="page-title-row">
-                    <div class="page-title">Examination</div>
-                    <div class="mini-diff-panel" id="mini-diff-panel-exam">
-                        <div class="mini-diff-title">Working DDx</div>
-                        <div class="mini-diff-tags" id="mini-diff-tags-exam">
-                            <span class="mini-diff-tag top">Distributive</span>
-                            <span class="mini-diff-tag">Hypovolaemic</span>
-                            <span class="mini-diff-tag">Cardiogenic</span>
-                            <span class="mini-diff-tag">Obstructive</span>
-                            <span class="mini-diff-tag">Endocrine</span>
-                        </div>
-                    </div>
-                </div>
+                <div class="page-title">Examination</div>
 
-                <div class="abcde-card">
-                    <div class="abcde-row">
-                        <div class="abcde-left">
-                            <span class="abcde-badge">A</span>
-                            <span class="abcde-title">Airway</span>
-                        </div>
-                        <div class="abcde-hints">
-                            <div>Patent?</div>
-                            <div>Stridor?</div>
-                            <div>Angioedema?</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="abcde-card breathing-card">
-                    <div class="abcde-card-left">
-                        <div class="abcde-row">
-                            <div class="abcde-left">
-                                <span class="abcde-badge">B</span>
-                                <span class="abcde-title">Breathing</span>
-                            </div>
-                            <div class="abcde-hints">
-                                <div><strong>Vitals:</strong> SpO₂, RR</div>
-                                <div><strong>WOB:</strong> accessory muscles, tripod</div>
-                                <div><strong>Ausc:</strong> wheeze, crackles, ↓ AE</div>
+                <div class="two-col-layout">
+                    <div class="main-col">
+                        <div class="abcde-card">
+                            <div class="abcde-row">
+                                <div class="abcde-left">
+                                    <span class="abcde-badge">A</span>
+                                    <span class="abcde-title">Airway</span>
+                                </div>
+                                <div class="abcde-hints">
+                                    <div>Patent?</div>
+                                    <div>Stridor?</div>
+                                    <div>Angioedema?</div>
+                                </div>
                             </div>
                         </div>
-                        <div class="clinical-toggle-row">
-                            <div class="clinical-toggle-label">
-                                <span class="clinical-toggle-q">Respiratory distress?</span>
-                                <span class="clinical-toggle-hint">Tachypnoea, accessory muscles, unable to speak sentences</span>
+
+                        <div class="abcde-card">
+                            <div class="abcde-row">
+                                <div class="abcde-left">
+                                    <span class="abcde-badge">B</span>
+                                    <span class="abcde-title">Breathing</span>
+                                </div>
+                                <div class="abcde-hints">
+                                    <div>SpO₂, RR, WOB</div>
+                                    <div>Wheeze, crackles, ↓ AE</div>
+                                </div>
                             </div>
-                            <div class="toggle-btns">
-                                <button class="toggle-btn" id="resp-distress-no" onclick="setRespDistress(false)">No</button>
-                                <button class="toggle-btn" id="resp-distress-yes" onclick="setRespDistress(true)">Yes</button>
+                            <div class="clinical-toggle-row">
+                                <div class="clinical-toggle-label">
+                                    <span class="clinical-toggle-q">Respiratory distress?</span>
+                                </div>
+                                <div class="toggle-btns">
+                                    <button class="toggle-btn" id="resp-distress-no" onclick="setRespDistress(false)">No</button>
+                                    <button class="toggle-btn" id="resp-distress-yes" onclick="setRespDistress(true)">Yes</button>
+                                    <button class="rr-modal-btn" onclick="openRRModal()">
+                                        <span>Count RR</span>
+                                        <span class="rr-modal-hint">Tap counter</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="abcde-card">
+                            <div class="abcde-row">
+                                <div class="abcde-left">
+                                    <span class="abcde-badge">C</span>
+                                    <span class="abcde-title">Circulation</span>
+                                </div>
+                                <div class="abcde-hints">
+                                    <div>HR / BP / rhythm</div>
+                                    <div>JVP, heart sounds, oedema</div>
+                                </div>
+                            </div>
+                            <div class="clinical-toggle-row">
+                                <div class="clinical-toggle-label">
+                                    <span class="clinical-toggle-q">Peripheries</span>
+                                </div>
+                                <div class="toggle-btns">
+                                    <button class="toggle-btn" id="btn-periph-warm" onclick="setHypoPeripheries('warm')">Warm</button>
+                                    <button class="toggle-btn" id="btn-periph-cool" onclick="setHypoPeripheries('cool')">Cool</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="abcde-card">
+                            <div class="abcde-row">
+                                <div class="abcde-left">
+                                    <span class="abcde-badge">D</span>
+                                    <span class="abcde-title">Disability</span>
+                                </div>
+                                <div class="abcde-hints">
+                                    <div>Conscious state</div>
+                                    <div>Pupils, BSL</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="abcde-card">
+                            <div class="abcde-row">
+                                <div class="abcde-left">
+                                    <span class="abcde-badge">E</span>
+                                    <span class="abcde-title">Exposure</span>
+                                </div>
+                                <div class="abcde-hints">
+                                    <div>Temp, rash</div>
+                                    <div>Abdomen, calves, drains</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="rr-counter">
-                        <div class="rr-counter-title">Resp Rate</div>
-                        <div class="rr-counter-subtitle">Tap on each inspiration</div>
-                        <button class="rr-counter-btn" id="rr-tap-btn" onclick="tapRR()">
-                            <svg viewBox="0 0 64 64" fill="currentColor" style="width:28px;height:28px;">
-                                <path d="m15.71136 22.98486c6.31949-5.7646 9.73989-.83438 10.36266 6.4882l-1.53619 1.6195-2.68454 1.88031-1.66742-2.61287.20778-3.4121a1.00006 1.00006 0 0 0 -1.99617-.1211l-.17481 2.86631-2.73056.207a1.00006 1.00006 0 0 0 .15143 1.99414l3.00352-.22809 1.56665 2.455-3.537 2.47738-4.4855 1.0723a1.00007 1.00007 0 0 0 .46486 1.94538l3.17955-.75991-.75711 4.15651-4.64664 2.59579a1.00011 1.00011 0 0 0 .97562 1.74616l5.05828-2.8253a1.00067 1.00067 0 0 0 .49611-.69436l1.04245-5.72407s7.86947-5.52045 7.91537-5.56831c0 0 1.97224-2.09089 2.00935-2.15241l2.32381-3.82728a1.00135 1.00135 0 0 0 .145-.51858v-6.04115h3.19494v6.04122a1.00135 1.00135 0 0 0 .145.51858l2.32381 3.82728c.03711.06152 2.00935 2.15241 2.00935 2.15241.0459.04786 7.91537 5.56831 7.91537 5.56831l1.04246 5.72407a1.00064 1.00064 0 0 0 .49611.69436l5.05828 2.8253a1.00048 1.00048 0 0 0 .97549-1.74628l-4.64647-2.59567-.75711-4.15651 3.17956.75991a1.0001 1.0001 0 0 0 .4648-1.94544l-4.48545-1.07224-3.53692-2.47732 1.567-2.4551 3.00315.22815c.02588.002.05127.00293.07666.00293a1.00068 1.00068 0 0 0 .07465-1.99713l-2.7305-.207-.17481-2.86631a.99991.99991 0 1 0 -1.99616.1211l.20826 3.4121-1.66785 2.61294-2.6846-1.88037-1.534-1.61724c.63577-7.29768 3.99636-12.29352 10.34539-6.51573a1.00031 1.00031 0 0 0 1.332-1.49242c-6.33707-5.81978-11.99468-2.857-13.32657 5.41193l-.67678-1.11485v-20.75075a1.00015 1.00015 0 0 0 -2.00007 0v3.00987h-3.19496v-3.00987a1.00015 1.00015 0 0 0 -2.00006 0v20.75071l-.67318 1.10887c-1.32024-8.27855-7.10224-11.17568-13.35617-5.37067a1.00029 1.00029 0 0 0 1.34288 1.48241zm14.68653-12.96138h3.19494v2.98936h-3.19494zm0 4.98943h3.19494v2.99033h-3.19494z"/>
-                            </svg>
-                        </button>
-                        <div class="rr-counter-display">
-                            <span id="rr-value">—</span><span class="rr-unit">/min</span>
-                        </div>
-                        <button class="rr-reset-btn" onclick="resetRR()">Reset</button>
-                    </div>
-                </div>
 
-                <div class="abcde-card">
-                    <div class="abcde-row">
-                        <div class="abcde-left">
-                            <span class="abcde-badge">C</span>
-                            <span class="abcde-title">Circulation</span>
-                        </div>
-                        <div class="abcde-hints">
-                            <div>HR / BP / rhythm</div>
-                            <div>JVP, heart sounds, oedema</div>
-                        </div>
-                    </div>
-                    <div class="clinical-toggle-row">
-                        <div class="clinical-toggle-label">
-                            <span class="clinical-toggle-q">Peripheries</span>
-                            <span class="clinical-toggle-hint">Check hands, feet, capillary refill</span>
-                        </div>
-                        <div class="toggle-btns">
-                            <button class="toggle-btn" id="btn-periph-warm" onclick="setHypoPeripheries('warm')">Warm</button>
-                            <button class="toggle-btn" id="btn-periph-cool" onclick="setHypoPeripheries('cool')">Cool</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="abcde-card">
-                    <div class="abcde-row">
-                        <div class="abcde-left">
-                            <span class="abcde-badge">D</span>
-                            <span class="abcde-title">Disability</span>
-                        </div>
-                        <div class="abcde-hints">
-                            <div>Conscious state</div>
-                            <div>Pupils, BSL</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="abcde-card">
-                    <div class="abcde-row">
-                        <div class="abcde-left">
-                            <span class="abcde-badge">E</span>
-                            <span class="abcde-title">Exposure</span>
-                        </div>
-                        <div class="abcde-hints">
-                            <div>Temp, rash</div>
-                            <div>Abdomen, calves, drains</div>
+                    <div class="ddx-col">
+                        <div class="ddx-box" id="shock-ddx-box-exam">
+                            <div class="ddx-item top">Distributive</div>
+                            <div class="ddx-item">Hypovolaemic</div>
+                            <div class="ddx-item">Cardiogenic</div>
+                            <div class="ddx-item">Obstructive</div>
+                            <div class="ddx-item">Endocrine</div>
                         </div>
                     </div>
                 </div>
@@ -8791,15 +8813,84 @@
                 }
             }
 
-            // Update mini-diff panels at top of history and exam pages (show top 3)
-            ['mini-diff-tags-history', 'mini-diff-tags-exam'].forEach(id => {
+            // Update DDx boxes on history and exam pages
+            ['shock-ddx-box', 'shock-ddx-box-exam'].forEach(id => {
                 const container = document.getElementById(id);
                 if (container) {
                     container.innerHTML = order.map((name, i) =>
-                        `<span class="mini-diff-tag${i === 0 ? ' top' : ''}">${name}</span>`
+                        `<div class="ddx-item${i === 0 ? ' top' : ''}">${name}</div>`
                     ).join('');
                 }
             });
+        }
+
+        // RR Modal functions
+        let rrModalTaps = [];
+
+        function openRRModal() {
+            const html = `
+                <div style="display: flex; flex-direction: column; align-items: center; padding: 20px 0;">
+                    <div style="font-size: 64px; font-weight: 700; color: var(--text);" id="rr-modal-value">—</div>
+                    <div style="font-size: 16px; color: var(--text2); margin-bottom: 30px;">/min</div>
+
+                    <button onclick="tapRRModal()" style="
+                        width: 120px;
+                        height: 120px;
+                        border-radius: 60px;
+                        background: var(--blue);
+                        border: none;
+                        color: #fff;
+                        font-size: 18px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        margin-bottom: 20px;
+                    ">TAP</button>
+
+                    <div style="font-size: 13px; color: var(--text3); margin-bottom: 20px;">Tap on each inspiration</div>
+
+                    <div style="display: flex; gap: 12px;">
+                        <button onclick="resetRRModal()" style="
+                            padding: 10px 20px;
+                            border-radius: 8px;
+                            border: 1px solid var(--border);
+                            background: #fff;
+                            font-size: 14px;
+                            cursor: pointer;
+                        ">Reset</button>
+                        <button onclick="closeModal()" style="
+                            padding: 10px 20px;
+                            border-radius: 8px;
+                            border: none;
+                            background: var(--blue);
+                            color: #fff;
+                            font-size: 14px;
+                            cursor: pointer;
+                        ">Done</button>
+                    </div>
+                </div>
+            `;
+            rrModalTaps = [];
+            showModal('Respiratory Rate', html);
+        }
+
+        function tapRRModal() {
+            const now = Date.now();
+            rrModalTaps.push(now);
+
+            if (rrModalTaps.length >= 2) {
+                const intervals = [];
+                for (let i = 1; i < rrModalTaps.length; i++) {
+                    intervals.push(rrModalTaps[i] - rrModalTaps[i-1]);
+                }
+                const avgInterval = intervals.reduce((a,b) => a+b, 0) / intervals.length;
+                const rr = Math.round(60000 / avgInterval);
+                document.getElementById('rr-modal-value').textContent = rr;
+            }
+        }
+
+        function resetRRModal() {
+            rrModalTaps = [];
+            document.getElementById('rr-modal-value').textContent = '—';
         }
 
         // Info modal functions for killers
