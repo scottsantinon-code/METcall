@@ -1057,6 +1057,246 @@
         }
         .cause-info-btn:active { opacity: 0.7; }
 
+        /* Cause grid tiles */
+        .cause-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .cause-tile {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .cause-tile:active {
+            transform: scale(0.98);
+            background: #f9f9f9;
+        }
+        .cause-tile-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .cause-tile-hint {
+            font-size: 12px;
+            color: var(--text2);
+            line-height: 1.4;
+        }
+        .warning-box {
+            background: rgba(255, 149, 0, 0.1);
+            border: 1px solid rgba(255, 149, 0, 0.3);
+            border-radius: 10px;
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--text);
+        }
+        .warning-icon {
+            font-size: 16px;
+        }
+
+        /* Trache steps */
+        .trache-step {
+            display: flex;
+            gap: 12px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .trache-step:last-of-type {
+            border-bottom: none;
+        }
+        .trache-step-num {
+            width: 28px;
+            height: 28px;
+            background: var(--blue);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .trache-step-content {
+            flex: 1;
+        }
+        .trache-step-action {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .trache-step-check {
+            font-size: 13px;
+            color: var(--text2);
+            margin-top: 4px;
+        }
+        .trache-step-hint {
+            font-size: 13px;
+            color: var(--text3);
+            margin-top: 4px;
+        }
+
+        /* Branch buttons */
+        .branch-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .branch-btn {
+            flex: 1;
+            padding: 14px 16px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text2);
+            cursor: pointer;
+        }
+        .branch-btn.primary {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: #fff;
+        }
+
+        /* O2 tiles */
+        .o2-tiles {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .o2-tile {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .o2-tile:active {
+            transform: scale(0.98);
+            background: #f9f9f9;
+        }
+        .o2-tile-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .o2-tile-hint {
+            font-size: 12px;
+            color: var(--text2);
+        }
+        .o2-device-section {
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .o2-device-section:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .o2-device-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+        }
+        .o2-device-fio2 {
+            font-size: 13px;
+            color: var(--blue);
+            font-weight: 500;
+        }
+
+        /* History cards */
+        .history-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 8px;
+        }
+        .history-q {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+        }
+        .history-hint {
+            font-size: 12px;
+            color: var(--text3);
+            margin-top: 2px;
+        }
+
+        /* Auscultation options */
+        .auscultation-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .auscultation-btn {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .auscultation-btn:active {
+            transform: scale(0.98);
+        }
+        .auscultation-btn.active {
+            background: var(--blue);
+            border-color: var(--blue);
+        }
+        .auscultation-btn.active .auscultation-title,
+        .auscultation-btn.active .auscultation-hint {
+            color: #fff;
+        }
+        .auscultation-title {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+        }
+        .auscultation-hint {
+            display: block;
+            font-size: 12px;
+            color: var(--text3);
+            margin-top: 2px;
+        }
+        .auscultation-tile {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .auscultation-tile:active {
+            transform: scale(0.98);
+            background: #f9f9f9;
+        }
+        .auscultation-tile.active {
+            background: var(--blue);
+            border-color: var(--blue);
+        }
+        .auscultation-tile.active .auscultation-tile-title {
+            color: #fff;
+        }
+        .auscultation-tile-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+        }
+
         /* Overview cards */
         .overview-card-static {
             padding: 14px;
@@ -1188,6 +1428,22 @@
             font-size: 13px;
             color: var(--text2);
             line-height: 1.5;
+        }
+
+        /* Info link */
+        .info-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 14px;
+            background: rgba(0,122,255,0.06);
+            border-radius: 10px;
+            font-size: 14px;
+            color: var(--blue);
+            cursor: pointer;
+        }
+        .info-link .info-btn {
+            font-size: 16px;
         }
 
         /* Inline link button */
@@ -2123,14 +2379,13 @@
         }
 
         .rr-reset-btn {
-            margin-top: 4px;
+            font-size: 11px;
+            color: var(--text3);
             background: none;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 4px 10px;
-            font-size: 12px;
-            color: var(--text2);
+            border: none;
+            padding: 4px 8px;
             cursor: pointer;
+            text-decoration: underline;
         }
 
         /* Differential panel */
@@ -2225,6 +2480,44 @@
         }
 
         .toggle-pill.active {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: #fff;
+        }
+
+        /* Inline toggle pills (compact style for ABCDE cards) */
+        .inline-toggle-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(0,0,0,0.06);
+        }
+        .inline-toggle-label {
+            font-size: 13px;
+            color: var(--text2);
+            white-space: nowrap;
+        }
+        .inline-toggle-pills {
+            display: flex;
+            gap: 6px;
+        }
+        .inline-pill {
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 500;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            color: var(--text3);
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .inline-pill:active {
+            transform: scale(0.97);
+        }
+        .inline-pill.active {
             background: var(--blue);
             border-color: var(--blue);
             color: #fff;
@@ -2914,7 +3207,7 @@
                     <div class="hypo-seg-item current">Shock</div>
                     <div class="hypo-seg-item">Actions</div>
                     <div class="hypo-seg-item">Assess</div>
-                    <div class="hypo-seg-item">Causes</div>
+                    <div class="hypo-seg-item">DDx</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -2965,7 +3258,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item current">Actions</div>
                     <div class="hypo-seg-item">Assess</div>
-                    <div class="hypo-seg-item">Causes</div>
+                    <div class="hypo-seg-item">DDx</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -2982,8 +3275,7 @@
                 <div class="pearl-box">
                     <div class="pearl-icon">💡</div>
                     <div class="pearl-content">
-                        <div class="pearl-title">Avoid reflexive fluid boluses</div>
-                        <div class="pearl-text">Not all hypotension needs fluid. Consider the clinical context — a well-perfused patient with low BP may need observation, not intervention.</div>
+                        <div class="pearl-text">Avoid reflexive fluids — not all hypotension needs fluid.</div>
                     </div>
                 </div>
 
@@ -3000,7 +3292,10 @@
                     <div class="pause-item">
                         <div class="pause-item-title">Check the measurement</div>
                         <div class="pause-item-sub">Cuff size, arm position, artefact.</div>
-                        <div class="pause-item-link" onclick="showBPInfo()">How automated BP machines work ›</div>
+                        <div class="info-link" onclick="showBPInfo()" style="margin-top: 16px;">
+                            <span>How automated BP machines work</span>
+                            <span class="info-btn">ⓘ</span>
+                        </div>
                     </div>
                     <div class="pause-item">
                         <div class="pause-item-title">Review medications</div>
@@ -3024,7 +3319,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item current">Actions</div>
                     <div class="hypo-seg-item">Assess</div>
-                    <div class="hypo-seg-item">Causes</div>
+                    <div class="hypo-seg-item">DDx</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -3125,7 +3420,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item completed" onclick="goBack()">Actions</div>
                     <div class="hypo-seg-item current">Assess</div>
-                    <div class="hypo-seg-item">Causes</div>
+                    <div class="hypo-seg-item">DDx</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -3204,7 +3499,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item completed" onclick="goBack()">Actions</div>
                     <div class="hypo-seg-item current">Assess</div>
-                    <div class="hypo-seg-item">Causes</div>
+                    <div class="hypo-seg-item">DDx</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -3221,7 +3516,7 @@
                 <div class="killer-list">
                     <div class="killer-card">
                         <div class="killer-card-name">Cardiac tamponade</div>
-                        <div class="killer-card-clue">Beck's triad: ↓BP, ↑JVP, muffled hearts</div>
+                        <div class="killer-card-clue">↓BP, ↑JVP, muffled heart sounds</div>
                     </div>
                     <div class="killer-card">
                         <div class="killer-card-name">Tension pneumothorax</div>
@@ -3233,7 +3528,7 @@
                     </div>
                     <div class="killer-card">
                         <div class="killer-card-name">Unstable arrhythmia</div>
-                        <div class="killer-card-clue">Irregular or very fast/slow pulse, chest pain</div>
+                        <div class="killer-card-clue">Check rhythm — VT, fast AF, complete heart block</div>
                     </div>
                 </div>
             </div>
@@ -3253,7 +3548,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item completed" onclick="goBack()">Actions</div>
                     <div class="hypo-seg-item current">Assess</div>
-                    <div class="hypo-seg-item">Causes</div>
+                    <div class="hypo-seg-item">DDx</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -3310,7 +3605,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item completed" onclick="goBack()">Actions</div>
                     <div class="hypo-seg-item current">Assess</div>
-                    <div class="hypo-seg-item">Causes</div>
+                    <div class="hypo-seg-item">DDx</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -3323,18 +3618,6 @@
             </div>
             <div class="content">
                 <div class="page-title">Examination</div>
-
-                <div class="section-title">Key findings</div>
-                <div class="toggle-row" style="margin-bottom: 8px;">
-                    <button class="toggle-pill" id="btn-periph-warm" onclick="setHypoPeripheries('warm')">Warm</button>
-                    <button class="toggle-pill" id="btn-periph-cool" onclick="setHypoPeripheries('cool')">Cool / mottled</button>
-                </div>
-                <div class="toggle-row">
-                    <button class="toggle-pill" id="btn-resp-distress" onclick="setHypoRespiratory('distress')">Resp distress</button>
-                    <button class="toggle-pill" id="btn-resp-none" onclick="setHypoRespiratory('none')">No resp distress</button>
-                </div>
-
-                <div class="section-title" style="margin-top: 20px;">Structured assessment</div>
 
                 <div class="abcde-card">
                     <div class="abcde-header">
@@ -3351,17 +3634,24 @@
                             <span class="abcde-title">Breathing</span>
                         </div>
                         <div class="abcde-body">
-                            <div>SpO₂, RR</div>
-                            <div>Work of breathing — accessory muscle use, tripoding, abdominal recession</div>
+                            <div>SpO₂, RR, work of breathing</div>
+                            <div>Accessory muscle use, tripoding</div>
                             <div>Auscultation — ↓ air entry, wheeze, creps</div>
+                        </div>
+                        <div class="inline-toggle-row">
+                            <span class="inline-toggle-label">Resp status:</span>
+                            <div class="inline-toggle-pills">
+                                <button class="inline-pill" id="btn-resp-distress" onclick="setHypoRespiratory('distress')">Distress</button>
+                                <button class="inline-pill" id="btn-resp-none" onclick="setHypoRespiratory('none')">None</button>
+                            </div>
                         </div>
                     </div>
                     <div class="rr-counter">
                         <div class="rr-counter-title">Resp Rate</div>
                         <div class="rr-counter-subtitle">Tap on each inspiration</div>
                         <button class="rr-counter-btn" id="rr-tap-btn" onclick="tapRR()">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:32px;height:32px;">
-                                <path d="M6.081 20C7.693 20 9 18.724 9 17.143V13c0-1.058.903-1.958 1.962-1.958h1.076C13.097 11.042 14 10.12 14 9.042V7M6.081 20c-1.612 0-3.081-1.833-3.081-3.143V9c0-1.538.903-2.571 1.962-2.571h1.076C7.097 6.429 8 5.476 8 4.429V4m-1.919 16H18c1.105 0 2-.857 2-1.857v-4.429c0-1.107-.895-1.857-2-1.857h-1.062c-1.059 0-1.938-.903-1.938-1.958V7m0 0c0-1.667-1.333-3-3-3S9 5.333 9 7"/>
+                            <svg viewBox="0 0 64 64" fill="currentColor" style="width:28px;height:28px;">
+                                <path d="m15.71136 22.98486c6.31949-5.7646 9.73989-.83438 10.36266 6.4882l-1.53619 1.6195-2.68454 1.88031-1.66742-2.61287.20778-3.4121a1.00006 1.00006 0 0 0 -1.99617-.1211l-.17481 2.86631-2.73056.207a1.00006 1.00006 0 0 0 .15143 1.99414l3.00352-.22809 1.56665 2.455-3.537 2.47738-4.4855 1.0723a1.00007 1.00007 0 0 0 .46486 1.94538l3.17955-.75991-.75711 4.15651-4.64664 2.59579a1.00011 1.00011 0 0 0 .97562 1.74616l5.05828-2.8253a1.00067 1.00067 0 0 0 .49611-.69436l1.04245-5.72407s7.86947-5.52045 7.91537-5.56831c0 0 1.97224-2.09089 2.00935-2.15241l2.32381-3.82728a1.00135 1.00135 0 0 0 .145-.51858v-6.04115h3.19494v6.04122a1.00135 1.00135 0 0 0 .145.51858l2.32381 3.82728c.03711.06152 2.00935 2.15241 2.00935 2.15241.0459.04786 7.91537 5.56831 7.91537 5.56831l1.04246 5.72407a1.00064 1.00064 0 0 0 .49611.69436l5.05828 2.8253a1.00048 1.00048 0 0 0 .97549-1.74628l-4.64647-2.59567-.75711-4.15651 3.17956.75991a1.0001 1.0001 0 0 0 .4648-1.94544l-4.48545-1.07224-3.53692-2.47732 1.567-2.4551 3.00315.22815c.02588.002.05127.00293.07666.00293a1.00068 1.00068 0 0 0 .07465-1.99713l-2.7305-.207-.17481-2.86631a.99991.99991 0 1 0 -1.99616.1211l.20826 3.4121-1.66785 2.61294-2.6846-1.88037-1.534-1.61724c.63577-7.29768 3.99636-12.29352 10.34539-6.51573a1.00031 1.00031 0 0 0 1.332-1.49242c-6.33707-5.81978-11.99468-2.857-13.32657 5.41193l-.67678-1.11485v-20.75075a1.00015 1.00015 0 0 0 -2.00007 0v3.00987h-3.19496v-3.00987a1.00015 1.00015 0 0 0 -2.00006 0v20.75071l-.67318 1.10887c-1.32024-8.27855-7.10224-11.17568-13.35617-5.37067a1.00029 1.00029 0 0 0 1.34288 1.48241zm14.68653-12.96138h3.19494v2.98936h-3.19494zm0 4.98943h3.19494v2.99033h-3.19494z"/>
                             </svg>
                         </button>
                         <div class="rr-counter-display">
@@ -3377,8 +3667,15 @@
                         <span class="abcde-title">Circulation</span>
                     </div>
                     <div class="abcde-body">
-                        <div>HR / BP / rhythm. Peripheries: warm or cool?</div>
-                        <div>Muffled heart sounds, new murmur, oedema</div>
+                        <div>HR / BP / rhythm</div>
+                        <div>JVP, heart sounds, oedema</div>
+                    </div>
+                    <div class="inline-toggle-row">
+                        <span class="inline-toggle-label">Peripheries:</span>
+                        <div class="inline-toggle-pills">
+                            <button class="inline-pill" id="btn-periph-warm" onclick="setHypoPeripheries('warm')">Warm</button>
+                            <button class="inline-pill" id="btn-periph-cool" onclick="setHypoPeripheries('cool')">Cool</button>
+                        </div>
                     </div>
                 </div>
 
@@ -3387,7 +3684,7 @@
                         <span class="abcde-badge">D</span>
                         <span class="abcde-title">Disability</span>
                     </div>
-                    <div class="abcde-body">Conscious state, blood glucose</div>
+                    <div class="abcde-body">Conscious state, pupils, BSL</div>
                 </div>
 
                 <div class="abcde-card">
@@ -3395,12 +3692,12 @@
                         <span class="abcde-badge">E</span>
                         <span class="abcde-title">Exposure</span>
                     </div>
-                    <div class="abcde-body">Temp, rash, abdomen, calves</div>
+                    <div class="abcde-body">Temp, rash, abdomen, calves, drains</div>
                 </div>
 
-                <div class="differential-panel" id="differential-panel-exam">
+                <div class="differential-panel">
                     <div class="differential-title">Working differential</div>
-                    <div class="differential-list" id="diff-list-exam">
+                    <div class="diff-list" id="diff-list-exam">
                         <div class="diff-list-item" data-cause="distributive">Distributive</div>
                         <div class="diff-list-item" data-cause="hypovolaemic">Hypovolaemic</div>
                         <div class="diff-list-item" data-cause="cardiogenic">Cardiogenic</div>
@@ -3425,7 +3722,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item current">Actions</div>
                     <div class="hypo-seg-item">Assess</div>
-                    <div class="hypo-seg-item">Causes</div>
+                    <div class="hypo-seg-item">DDx</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -3494,7 +3791,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
                     <div class="hypo-seg-item current">Assess</div>
-                    <div class="hypo-seg-item">Causes</div>
+                    <div class="hypo-seg-item">DDx</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -3710,7 +4007,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-hypo-exam')">Assess</div>
-                    <div class="hypo-seg-item current">Causes</div>
+                    <div class="hypo-seg-item current">DDx</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -3731,69 +4028,45 @@
             <div class="content">
                 <div class="page-title">Hypovolaemic</div>
 
-                <div class="section-title">Consider</div>
-
-                <div class="cause-card">
-                    <div class="cause-header">
-                        <div class="cause-title">External blood loss</div>
-                        <div class="cause-sub">Check surgical drains</div>
+                <div class="section-title">Blood loss</div>
+                <div class="cause-grid">
+                    <div class="cause-tile" onclick="showExternalBleedInfo()">
+                        <div class="cause-tile-title">External</div>
+                        <div class="cause-tile-hint">Wounds, drains, visible GI bleeding</div>
+                    </div>
+                    <div class="cause-tile" onclick="showOccultBleedInfo()">
+                        <div class="cause-tile-title">Occult</div>
+                        <div class="cause-tile-hint">Retroperitoneal, intra-abdominal, fractures</div>
                     </div>
                 </div>
 
-                <div class="cause-card" onclick="this.classList.toggle('open')">
-                    <div class="cause-header">
-                        <div class="cause-title">Occult blood loss</div>
-                        <span class="cause-arrow">▼</span>
+                <div class="warning-box" style="margin-top: 12px;">
+                    <span class="warning-icon">⚠️</span>
+                    <span>Normal Hb does NOT exclude significant acute bleeding — equilibration takes hours</span>
+                </div>
+
+                <div class="section-title" style="margin-top: 20px;">Fluid losses</div>
+                <div class="cause-grid">
+                    <div class="cause-tile" onclick="showGILossInfo()">
+                        <div class="cause-tile-title">GI losses</div>
+                        <div class="cause-tile-hint">Vomiting, diarrhoea, high NG output</div>
                     </div>
-                    <div class="cause-body">
-                        <div class="cause-clues">
-                            <div class="cause-clue-item"><strong>GI bleed</strong> — haematemesis, melaena, urea elevated out of proportion to creatinine <button class="inline-link-btn" onclick="event.stopPropagation(); goToPage('page-gi-bleed')">GI Bleeding Guide →</button></div>
-                            <div class="cause-clue-item"><strong>Retroperitoneal</strong> — post-procedure (renal/spinal/vascular), pelvic fracture, AAA, anticoagulation, pancreatitis</div>
-                        </div>
+                    <div class="cause-tile" onclick="showRenalLossInfo()">
+                        <div class="cause-tile-title">Renal losses</div>
+                        <div class="cause-tile-hint">Diuretics, DKA, diabetes insipidus</div>
                     </div>
                 </div>
 
-                <div class="cause-card" onclick="this.classList.toggle('open')">
-                    <div class="cause-header">
-                        <div class="cause-title">GI losses</div>
-                        <span class="cause-arrow">▼</span>
+                <div class="section-title" style="margin-top: 20px;">Other</div>
+                <div class="cause-grid">
+                    <div class="cause-tile" onclick="showThirdSpacingInfo()">
+                        <div class="cause-tile-title">Third spacing</div>
+                        <div class="cause-tile-hint">Pancreatitis, burns, bowel obstruction</div>
                     </div>
-                    <div class="cause-body">
-                        <div class="cause-clues">Vomiting, diarrhoea, high-output stoma</div>
+                    <div class="cause-tile" onclick="showPoorIntakeInfo()">
+                        <div class="cause-tile-title">Poor intake</div>
+                        <div class="cause-tile-hint">Prolonged NBM, reduced oral intake</div>
                     </div>
-                </div>
-
-                <div class="cause-card" onclick="this.classList.toggle('open')">
-                    <div class="cause-header">
-                        <div class="cause-title">Renal losses</div>
-                        <span class="cause-arrow">▼</span>
-                    </div>
-                    <div class="cause-body">
-                        <div class="cause-clues">Polyuria, over-diuresis, osmotic diuresis</div>
-                    </div>
-                </div>
-
-                <div class="cause-card" onclick="this.classList.toggle('open')">
-                    <div class="cause-header">
-                        <div class="cause-title">Third spacing</div>
-                        <span class="cause-arrow">▼</span>
-                    </div>
-                    <div class="cause-body">
-                        <div class="cause-clues">Burns, pancreatitis, post-operative redistribution</div>
-                    </div>
-                </div>
-
-                <div class="cause-card">
-                    <div class="cause-header">
-                        <div class="cause-title">Poor intake</div>
-                    </div>
-                </div>
-
-                <!-- Hb caution - condensed -->
-                <div class="gi-hb-caution" onclick="showHbCaution()">
-                    <span class="gi-hb-icon">⚠️</span>
-                    <span class="gi-hb-text">Normal Hb does not exclude significant bleeding</span>
-                    <span class="gi-hb-info">ⓘ</span>
                 </div>
             </div>
             <div class="bottom-nav">
@@ -3812,7 +4085,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
-                    <div class="hypo-seg-item current">Causes</div>
+                    <div class="hypo-seg-item current">DDx</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -3922,7 +4195,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
-                    <div class="hypo-seg-item current">Causes</div>
+                    <div class="hypo-seg-item current">DDx</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -3999,7 +4272,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
-                    <div class="hypo-seg-item current">Causes</div>
+                    <div class="hypo-seg-item current">DDx</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -4074,7 +4347,7 @@
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock')">Shock</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-actions')">Actions</div>
                     <div class="hypo-seg-item completed" onclick="goToPage('page-shock-assess')">Assess</div>
-                    <div class="hypo-seg-item current">Causes</div>
+                    <div class="hypo-seg-item current">DDx</div>
                 </div>
                 <div class="hypo-header-home">
                     <button onclick="goHome()">
@@ -4132,13 +4405,19 @@
 
         <!-- HYPOXIA LANDING -->
         <div class="page" id="page-hypoxia">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goHome()">‹ Back</button>
-                    <span class="header-title">Hypoxia</span>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goHome()">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item current">Urgent</div>
+                    <div class="hypo-seg-item">O₂</div>
+                    <div class="hypo-seg-item">Assess</div>
+                    <div class="hypo-seg-item">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -4152,25 +4431,25 @@
                     <div class="code-blue-list">
                         <div class="code-blue-item">Airway obstruction</div>
                         <div class="code-blue-item">Suspected tension pneumothorax</div>
-                        <div class="code-blue-item">Tracheostomy in situ</div>
                     </div>
-                    <div class="code-blue-action">While waiting: BVM connected to 15 lpm wall O₂</div>
                 </div>
 
-                <div class="consider-cxr-box">
+                <div class="trache-branch" style="margin-top: 20px;">
+                    <div class="section-title">Does the patient have a tracheostomy?</div>
+                    <div class="branch-buttons">
+                        <button class="branch-btn" onclick="goToPage('page-hypoxia-trache')">Yes → Emergency pathway</button>
+                        <button class="branch-btn primary" onclick="goToPage('page-hypoxia-o2')">No → Continue</button>
+                    </div>
+                </div>
+
+                <div class="consider-cxr-box" style="margin-top: 20px;">
                     Consider calling for mobile CXR whilst you continue assessment
-                </div>
-
-                <div class="choice-container compact">
-                    <div class="choice-btn primary-choice" onclick="goToPage('page-hypoxia-mgmt')">
-                        <div class="choice-title">Continue</div>
-                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- HYPOXIA MANAGEMENT FRAMEWORK -->
-        <div class="page" id="page-hypoxia-mgmt">
+        <!-- HYPOXIA MANAGEMENT FRAMEWORK (DEPRECATED - hidden) -->
+        <div class="page" id="page-hypoxia-mgmt" style="display:none;">
             <div class="header">
                 <div class="header-left">
                     <button class="back-btn" onclick="goToPage('page-hypoxia')">‹ Back</button>
@@ -4202,7 +4481,7 @@
                         </div>
                         <span class="mgmt-arrow">›</span>
                     </div>
-                    <div class="mgmt-item" onclick="goToPage('page-hypoxia-ddx')">
+                    <div class="mgmt-item" onclick="goToPage('page-hypoxia-causes')">
                         <span class="mgmt-num">3</span>
                         <div class="mgmt-text">
                             <strong>Identify and treat the cause</strong>
@@ -4219,12 +4498,19 @@
 
         <!-- SUPPLEMENTAL OXYGEN -->
         <div class="page" id="page-hypoxia-o2">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPage('page-hypoxia-mgmt')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-hypoxia')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item current">O₂</div>
+                    <div class="hypo-seg-item">Assess</div>
+                    <div class="hypo-seg-item">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -4254,19 +4540,26 @@
                 </div>
             </div>
             <div class="bottom-nav">
-                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-mgmt')">‹ Back</button>
+                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia')">‹ Back</button>
                 <button class="nav-btn primary" onclick="goToPage('page-hypoxia-devices')">O₂ Delivery Devices ›</button>
             </div>
         </div>
 
         <!-- OXYGEN DELIVERY DEVICES -->
         <div class="page" id="page-hypoxia-devices">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPage('page-hypoxia-o2')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-hypoxia-o2')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item current">O₂</div>
+                    <div class="hypo-seg-item">Assess</div>
+                    <div class="hypo-seg-item">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -4275,189 +4568,383 @@
                 </div>
             </div>
             <div class="content">
-                <div class="page-title">Oxygen delivery devices</div>
+                <div class="page-title">Oxygen delivery</div>
 
-                <!-- Mild hypoxia -->
-                <div class="o2-category-card" onclick="this.classList.toggle('open')">
-                    <div class="o2-category-header">
-                        <div class="o2-category-title">Mild hypoxia</div>
-                        <span class="cause-arrow">▼</span>
+                <div class="section-title">Degree of hypoxia</div>
+                <div class="o2-tiles">
+                    <div class="o2-tile" onclick="showMildHypoxiaDevices()">
+                        <div class="o2-tile-title">Mild</div>
+                        <div class="o2-tile-hint">SpO₂ 90-94%</div>
                     </div>
-                    <div class="o2-category-body">
-                        <div class="o2-device-nested" onclick="event.stopPropagation();this.classList.toggle('open')">
-                            <div class="o2-device-nested-header">
-                                <div class="o2-device-nested-left">
-                                    <div class="o2-device-nested-title">Nasal prongs</div>
-                                    <div class="o2-device-nested-fio2">FiO₂ ~24-44%</div>
-                                </div>
-                                <span class="device-arrow">▼</span>
-                            </div>
-                            <div class="o2-device-nested-body">
-                                <div class="o2-device-table">
-                                    <div class="o2-device-row"><span>1 lpm</span><span>~24%</span></div>
-                                    <div class="o2-device-row"><span>2 lpm</span><span>~28%</span></div>
-                                    <div class="o2-device-row"><span>3 lpm</span><span>~32%</span></div>
-                                    <div class="o2-device-row"><span>4 lpm</span><span>~36%</span></div>
-                                    <div class="o2-device-row"><span>5-6 lpm</span><span>~40-44%</span></div>
-                                </div>
-                                <div class="o2-device-note">FiO₂ is approximate — depends on respiratory rate, tidal volume, and mouth breathing</div>
-                            </div>
-                        </div>
+                    <div class="o2-tile" onclick="showModSevereHypoxiaDevices()">
+                        <div class="o2-tile-title">Moderate-Severe</div>
+                        <div class="o2-tile-hint">SpO₂ &lt;90%</div>
                     </div>
                 </div>
 
-                <!-- Moderate/severe hypoxia -->
-                <div class="o2-category-card" onclick="this.classList.toggle('open')">
-                    <div class="o2-category-header">
-                        <div class="o2-category-title">Moderate to severe hypoxia</div>
-                        <span class="cause-arrow">▼</span>
+                <div class="section-title" style="margin-top: 20px;">Special scenarios</div>
+                <div class="o2-tiles">
+                    <div class="o2-tile" onclick="showOSAAPODevices()">
+                        <div class="o2-tile-title">OSA / APO</div>
+                        <div class="o2-tile-hint">CPAP</div>
                     </div>
-                    <div class="o2-category-body">
-                        <div class="o2-device-nested" onclick="event.stopPropagation();this.classList.toggle('open')">
-                            <div class="o2-device-nested-header">
-                                <div class="o2-device-nested-left">
-                                    <div class="o2-device-nested-title">Simple face mask</div>
-                                    <div class="o2-device-nested-fio2">FiO₂ ~40-60%</div>
-                                </div>
-                                <span class="device-arrow">▼</span>
-                            </div>
-                            <div class="o2-device-nested-body">
-                                <div class="o2-device-table">
-                                    <div class="o2-device-row"><span>5 lpm</span><span>~40%</span></div>
-                                    <div class="o2-device-row"><span>6-7 lpm</span><span>~50%</span></div>
-                                    <div class="o2-device-row"><span>8-10 lpm</span><span>~60%</span></div>
-                                </div>
-                                <div class="o2-device-note">Minimum 5 lpm to prevent CO₂ rebreathing</div>
-                            </div>
-                        </div>
-
-                        <div class="o2-device-nested" onclick="event.stopPropagation();this.classList.toggle('open')">
-                            <div class="o2-device-nested-header">
-                                <div class="o2-device-nested-left">
-                                    <div class="o2-device-nested-title">Non-rebreather mask</div>
-                                    <div class="o2-device-nested-fio2">FiO₂ ~60-80%</div>
-                                </div>
-                                <span class="device-arrow">▼</span>
-                            </div>
-                            <div class="o2-device-nested-body">
-                                <div class="o2-device-desc">Run at 15 lpm. Ensure reservoir bag remains inflated throughout inspiration. Theoretical FiO₂ is higher but limited by mask seal in practice.</div>
-                            </div>
-                        </div>
-
-                        <div class="o2-device-nested" onclick="event.stopPropagation();this.classList.toggle('open')">
-                            <div class="o2-device-nested-header">
-                                <div class="o2-device-nested-left">
-                                    <div class="o2-device-nested-title">High-flow nasal prongs (HFNP)</div>
-                                    <div class="o2-device-nested-fio2">FiO₂ 21-100%</div>
-                                </div>
-                                <span class="device-arrow">▼</span>
-                            </div>
-                            <div class="o2-device-nested-body">
-                                <div class="o2-device-desc">Heated, humidified oxygen at flows up to 60 lpm.</div>
-                                <div class="o2-device-benefits">
-                                    <div class="o2-benefit-title">Benefits:</div>
-                                    <div class="o2-benefit-item">Washout of pharyngeal dead space <span class="info-btn" onclick="event.stopPropagation();showPharyngealDeadspaceInfo()">ⓘ</span></div>
-                                    <div class="o2-benefit-item">Small amount of PEEP (~7 cmH₂O with mouth closed at 60 lpm)</div>
-                                    <div class="o2-benefit-item">High flow limits room air entrainment → can titrate FiO₂ up to 1.0 <span class="info-btn" onclick="event.stopPropagation();showHighFlowFiO2Info()">ⓘ</span></div>
-                                    <div class="o2-benefit-item">Humidification prevents mucosal damage</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="o2-device-nested" onclick="event.stopPropagation();this.classList.toggle('open')">
-                            <div class="o2-device-nested-header">
-                                <div class="o2-device-nested-left">
-                                    <div class="o2-device-nested-title">Bag valve mask (BVM)</div>
-                                    <div class="o2-device-nested-fio2">FiO₂ ~100%</div>
-                                </div>
-                                <span class="device-arrow">▼</span>
-                            </div>
-                            <div class="o2-device-nested-body">
-                                <div class="o2-device-desc">Self-inflating bag connected to 15 lpm wall O₂. Can deliver near 100% FiO₂ with good mask seal and reservoir bag attached.</div>
-                                <div class="o2-device-note" style="margin-top: 8px;">Can be used for assisted ventilation or as a high-flow passive oxygenation device with the mask held loosely over the face.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- OSA or APO -->
-                <div class="o2-category-card" onclick="this.classList.toggle('open')">
-                    <div class="o2-category-header">
-                        <div class="o2-category-title">OSA or acute pulmonary oedema</div>
-                        <span class="cause-arrow">▼</span>
-                    </div>
-                    <div class="o2-category-body">
-                        <div class="o2-device-nested" onclick="event.stopPropagation();this.classList.toggle('open')">
-                            <div class="o2-device-nested-header">
-                                <div class="o2-device-nested-left">
-                                    <div class="o2-device-nested-title">CPAP</div>
-                                    <div class="o2-device-nested-fio2">FiO₂ 21-100%</div>
-                                </div>
-                                <span class="device-arrow">▼</span>
-                            </div>
-                            <div class="o2-device-nested-body">
-                                <div class="o2-device-desc">Continuous positive airway pressure. Recruits alveoli, reduces work of breathing, splints upper airway.</div>
-                                <div class="o2-device-note" style="margin-top: 8px;">Requires senior input. Contraindicated if unable to protect airway, facial trauma, undrained pneumothorax, vomiting.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hypercapnic respiratory failure -->
-                <div class="o2-category-card" onclick="this.classList.toggle('open')">
-                    <div class="o2-category-header">
-                        <div class="o2-category-title">Hypercapnic respiratory failure</div>
-                        <span class="cause-arrow">▼</span>
-                    </div>
-                    <div class="o2-category-body">
-                        <div class="o2-device-nested" onclick="event.stopPropagation();this.classList.toggle('open')">
-                            <div class="o2-device-nested-header">
-                                <div class="o2-device-nested-left">
-                                    <div class="o2-device-nested-title">Venturi mask</div>
-                                    <div class="o2-device-nested-fio2">Fixed FiO₂ 24-60%</div>
-                                </div>
-                                <span class="device-arrow">▼</span>
-                            </div>
-                            <div class="o2-device-nested-body">
-                                <div class="o2-device-desc">Colour-coded adaptors deliver precise FiO₂. Useful when accurate FiO₂ needed (e.g., COPD with hypercapnia risk).</div>
-                                <div class="o2-device-table" style="margin-top: 8px;">
-                                    <div class="o2-device-row"><span>Blue</span><span>24%</span></div>
-                                    <div class="o2-device-row"><span>White</span><span>28%</span></div>
-                                    <div class="o2-device-row"><span>Yellow</span><span>35%</span></div>
-                                    <div class="o2-device-row"><span>Red</span><span>40%</span></div>
-                                    <div class="o2-device-row"><span>Green</span><span>60%</span></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="o2-device-nested" onclick="event.stopPropagation();this.classList.toggle('open')">
-                            <div class="o2-device-nested-header">
-                                <div class="o2-device-nested-left">
-                                    <div class="o2-device-nested-title">BiPAP</div>
-                                    <div class="o2-device-nested-fio2">FiO₂ 21-100%</div>
-                                </div>
-                                <span class="device-arrow">▼</span>
-                            </div>
-                            <div class="o2-device-nested-body">
-                                <div class="o2-device-desc">Bilevel positive airway pressure. Adds inspiratory pressure support to assist ventilation. Use in COPD exacerbation, neuromuscular weakness.</div>
-                                <div class="o2-device-note" style="margin-top: 8px;">Requires senior input. Contraindicated if unable to protect airway, facial trauma, undrained pneumothorax, vomiting.</div>
-                            </div>
-                        </div>
+                    <div class="o2-tile" onclick="showHypercapnicDevices()">
+                        <div class="o2-tile-title">Hypercapnic failure</div>
+                        <div class="o2-tile-hint">Venturi / BiPAP</div>
                     </div>
                 </div>
             </div>
             <div class="bottom-nav">
                 <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-o2')">‹ Back</button>
-                <button class="nav-btn primary" onclick="goToPage('page-hypoxia-ddx')">Assess causes ›</button>
+                <button class="nav-btn primary" onclick="goToPage('page-hypoxia-history')">Assess ›</button>
             </div>
         </div>
 
-        <!-- HYPOXIA DDX OVERVIEW -->
-        <div class="page" id="page-hypoxia-ddx">
+        <!-- HYPOXIA HISTORY PAGE (Assess step) -->
+        <div class="page" id="page-hypoxia-history">
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-hypoxia-devices')">‹</button>
+                </div>
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item current">Assess</div>
+                    <div class="hypo-seg-item">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="page-title">Focused history</div>
+
+                <div class="section-title">Onset</div>
+                <div class="toggle-row" style="margin-bottom: 16px;">
+                    <button class="toggle-btn" id="hypoxia-onset-sudden" onclick="setHypoxiaOnset('sudden')">Sudden</button>
+                    <button class="toggle-btn" id="hypoxia-onset-gradual" onclick="setHypoxiaOnset('gradual')">Gradual</button>
+                </div>
+
+                <div class="history-card">
+                    <div style="font-weight: 600; margin-bottom: 4px;">Chest pain?</div>
+                    <div style="font-size: 13px; color: var(--text3);">Pleuritic (PE, pneumonia) vs tight (ACS, APO)</div>
+                </div>
+
+                <div class="history-card">
+                    <div style="font-weight: 600; margin-bottom: 4px;">Recent procedures or surgery?</div>
+                    <div style="font-size: 13px; color: var(--text3);">VTE risk, aspiration, pneumothorax</div>
+                </div>
+
+                <div class="history-card">
+                    <div style="font-weight: 600; margin-bottom: 4px;">New medications, foods, or transfusion?</div>
+                    <div style="font-size: 13px; color: var(--text3);">Anaphylaxis, TRALI, drug-induced</div>
+                </div>
+
+                <div class="history-card">
+                    <div style="font-weight: 600; margin-bottom: 4px;">Known respiratory disease?</div>
+                    <div style="font-size: 13px; color: var(--text3);">COPD, asthma, ILD, OSA</div>
+                </div>
+
+                <div class="history-card">
+                    <div style="font-weight: 600; margin-bottom: 4px;">Fever or infective symptoms?</div>
+                    <div style="font-size: 13px; color: var(--text3);">Pneumonia, sepsis</div>
+                </div>
+
+                <div class="history-card">
+                    <div style="font-weight: 600; margin-bottom: 4px;">Orthopnoea or PND?</div>
+                    <div style="font-size: 13px; color: var(--text3);">Pulmonary oedema, cardiac failure</div>
+                </div>
+
+                <div class="history-card">
+                    <div style="font-weight: 600; margin-bottom: 4px;">Witnessed aspiration or choking?</div>
+                    <div style="font-size: 13px; color: var(--text3);">Aspiration pneumonitis, foreign body</div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-devices')">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-hypoxia-exam')">Examination ›</button>
+            </div>
+        </div>
+
+        <!-- HYPOXIA EXAM PAGE (Assess step) -->
+        <div class="page" id="page-hypoxia-exam">
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-hypoxia-history')">‹</button>
+                </div>
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item current">Assess</div>
+                    <div class="hypo-seg-item">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="page-title">ABCDE examination</div>
+
+                <div class="abcde-card">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                        <div class="abcde-badge">A</div>
+                        <div style="font-weight: 600;">Airway</div>
+                    </div>
+                    <div style="font-size: 14px; color: var(--text2);">Patent? Stridor? Secretions?</div>
+                </div>
+
+                <div class="abcde-card breathing-card">
+                    <div style="flex: 1;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                            <div class="abcde-badge">B</div>
+                            <div style="font-weight: 600;">Breathing</div>
+                        </div>
+                        <div style="font-size: 14px; color: var(--text2);">RR, SpO₂, work of breathing</div>
+                        <div style="font-size: 14px; color: var(--text2);">Auscultation, percussion, trachea</div>
+                        <div class="cause-link" onclick="event.stopPropagation();showChestDrainInfo()" style="margin-top: 6px;">Chest drain present? ›</div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                        <button class="rr-counter-btn" id="rr-tap-btn-hypoxia" onclick="tapRRHypoxia()">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="var(--blue)">
+                                <path d="M12 3C10.5 3 9.2 4 8.5 5.5C7 5.8 5.7 6.8 5 8.5C4.3 10.2 4.5 12 5 13.5L6 18C6.3 19.2 7.3 20 8.5 20H9L9.5 21.5C9.7 22 10.2 22.3 10.7 22.3H13.3C13.8 22.3 14.3 22 14.5 21.5L15 20H15.5C16.7 20 17.7 19.2 18 18L19 13.5C19.5 12 19.7 10.2 19 8.5C18.3 6.8 17 5.8 15.5 5.5C14.8 4 13.5 3 12 3Z"/>
+                            </svg>
+                        </button>
+                        <div style="font-size: 20px; font-weight: 600;" id="rr-value-hypoxia">—</div>
+                        <div style="font-size: 11px; color: var(--text3);">RR /min</div>
+                    </div>
+                </div>
+
+                <div class="abcde-card">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                        <div class="abcde-badge">C</div>
+                        <div style="font-weight: 600;">Circulation</div>
+                    </div>
+                    <div style="font-size: 14px; color: var(--text2);">HR / BP. Peripheries: warm or cool? Oedema?</div>
+                </div>
+
+                <div class="abcde-card">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                        <div class="abcde-badge">D</div>
+                        <div style="font-weight: 600;">Disability</div>
+                    </div>
+                    <div style="font-size: 14px; color: var(--text2);">Conscious state, blood glucose</div>
+                </div>
+
+                <div class="abcde-card">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                        <div class="abcde-badge">E</div>
+                        <div style="font-weight: 600;">Exposure</div>
+                    </div>
+                    <div style="font-size: 14px; color: var(--text2);">Temp, rash, calves</div>
+                </div>
+
+                <div class="section-title" style="margin-top: 20px;">What do you hear?</div>
+                <div class="auscultation-options">
+                    <div class="auscultation-tile" onclick="setHypoxiaSound('stridor')">
+                        <div class="auscultation-tile-title">Stridor / stertor</div>
+                    </div>
+                    <div class="auscultation-tile" onclick="setHypoxiaSound('wheeze')">
+                        <div class="auscultation-tile-title">Wheeze</div>
+                    </div>
+                    <div class="auscultation-tile" onclick="setHypoxiaSound('creps')">
+                        <div class="auscultation-tile-title">Crepitations</div>
+                    </div>
+                    <div class="auscultation-tile" onclick="setHypoxiaSound('quiet')">
+                        <div class="auscultation-tile-title">Quiet / normal</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-history')">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-hypoxia-causes')">Causes ›</button>
+            </div>
+        </div>
+
+        <!-- HYPOXIA CAUSES PAGE -->
+        <div class="page" id="page-hypoxia-causes">
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-hypoxia-exam')">‹</button>
+                </div>
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="page-title" style="font-size:18px;">What do you hear?</div>
+
+                <div class="clinical-choice-card" onclick="goToPage('page-hypoxia-stridor')">
+                    <div class="clinical-choice-content">
+                        <div class="clinical-choice-title">Stridor or stertor</div>
+                        <div class="clinical-choice-hint">Upper airway obstruction</div>
+                    </div>
+                    <span class="trigger-arrow">›</span>
+                </div>
+
+                <div class="clinical-choice-card" onclick="goToPage('page-hypoxia-wheeze')">
+                    <div class="clinical-choice-content">
+                        <div class="clinical-choice-title">Wheeze</div>
+                        <div class="clinical-choice-hint">Bronchospasm / lower airway</div>
+                    </div>
+                    <span class="trigger-arrow">›</span>
+                </div>
+
+                <div class="clinical-choice-card" onclick="goToPage('page-hypoxia-creps')">
+                    <div class="clinical-choice-content">
+                        <div class="clinical-choice-title">Crepitations</div>
+                        <div class="clinical-choice-hint">Fluid / consolidation / fibrosis</div>
+                    </div>
+                    <span class="trigger-arrow">›</span>
+                </div>
+
+                <div class="clinical-choice-card" onclick="goToPage('page-hypoxia-quiet')">
+                    <div class="clinical-choice-content">
+                        <div class="clinical-choice-title">Quiet / normal breath sounds</div>
+                        <div class="clinical-choice-hint">Vascular, mechanical, or other</div>
+                    </div>
+                    <span class="trigger-arrow">›</span>
+                </div>
+
+                <div class="all-ddx-link" onclick="goToPage('page-hypoxia-airway')">
+                    View all differentials by system ›
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-exam')">‹ Back</button>
+                <button class="nav-btn primary" onclick="goToPage('page-hypoxia-plan')">Management ›</button>
+            </div>
+        </div>
+
+        <!-- HYPOXIA PLAN/MGMT PAGE -->
+        <div class="page" id="page-hypoxia-plan">
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-hypoxia-causes')">‹</button>
+                </div>
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-causes')">Causes</div>
+                    <div class="hypo-seg-item current">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="page-title" style="font-size:18px;">Management principles</div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Upper airway obstruction</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">Sit upright, suction secretions. Call anaesthetics early. If anaphylaxis → adrenaline IM. Prepare for difficult airway.</div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Bronchospasm</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">Bronchodilators, systemic corticosteroids, supplemental O₂. If anaphylaxis → adrenaline IM. Consider NIV if tiring.</div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Pulmonary oedema</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">Sit upright, supplemental O₂. GTN if hypertensive. Diuretics. Consider NIV (CPAP). Treat underlying cause.</div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Pneumonia</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">Supplemental O₂, IV antibiotics per local guidelines, blood cultures. Assess for sepsis.</div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Pulmonary embolism</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">Supplemental O₂, anticoagulation. If massive/unstable → consider thrombolysis. Call for senior help.</div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Tension pneumothorax</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">Immediate needle decompression or finger thoracostomy. Formal chest drain. Call Code Blue if haemodynamically unstable.</div>
+                    </div>
+                </div>
+
+                <div class="cause-card" onclick="this.classList.toggle('open')">
+                    <div class="cause-header">
+                        <div class="cause-title">Pleural effusion</div>
+                        <span class="cause-arrow">▼</span>
+                    </div>
+                    <div class="cause-body">
+                        <div class="cause-clues">Supplemental O₂, therapeutic drainage if large and symptomatic. Investigate underlying cause.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-causes')">‹ Back</button>
+            </div>
+        </div>
+
+        <!-- TRACHEOSTOMY EMERGENCY -->
+        <div class="page" id="page-hypoxia-trache">
             <div class="header">
                 <div class="header-left">
-                    <button class="back-btn" onclick="goToPage('page-hypoxia-devices')">‹ Back</button>
-                    <span class="header-title">Identify &amp; treat cause</span>
+                    <button class="back-btn" onclick="goToPage('page-hypoxia')">‹ Back</button>
+                    <span class="header-title">Tracheostomy Emergency</span>
                 </div>
                 <div class="header-right">
                     <button class="home-btn" onclick="goHome()">
@@ -4469,267 +4956,86 @@
                 </div>
             </div>
             <div class="content">
-                <div class="tabs-container">
-                    <button class="tab-btn active" onclick="switchTab('causes')">Causes</button>
-                    <button class="tab-btn" onclick="switchTab('history')">History</button>
-                    <button class="tab-btn" onclick="switchTab('exam')">Exam</button>
-                    <button class="tab-btn" onclick="switchTab('plan')">Plan</button>
-                </div>
-
-                <!-- CAUSES TAB -->
-                <div class="tab-content active" id="tab-causes">
-                    <div class="page-title" style="font-size:18px;">What do you hear?</div>
-                    
-                    <div class="clinical-choice-card" onclick="goToPage('page-hypoxia-stridor')">
-                        <div class="clinical-choice-content">
-                            <div class="clinical-choice-title">Stridor or stertor</div>
-                            <div class="clinical-choice-hint">Upper airway obstruction</div>
-                        </div>
-                        <span class="trigger-arrow">›</span>
-                    </div>
-
-                    <div class="clinical-choice-card" onclick="goToPage('page-hypoxia-wheeze')">
-                        <div class="clinical-choice-content">
-                            <div class="clinical-choice-title">Wheeze</div>
-                            <div class="clinical-choice-hint">Bronchospasm / lower airway</div>
-                        </div>
-                        <span class="trigger-arrow">›</span>
-                    </div>
-
-                    <div class="clinical-choice-card" onclick="goToPage('page-hypoxia-creps')">
-                        <div class="clinical-choice-content">
-                            <div class="clinical-choice-title">Crepitations</div>
-                            <div class="clinical-choice-hint">Fluid / consolidation / fibrosis</div>
-                        </div>
-                        <span class="trigger-arrow">›</span>
-                    </div>
-
-                    <div class="clinical-choice-card" onclick="goToPage('page-hypoxia-quiet')">
-                        <div class="clinical-choice-content">
-                            <div class="clinical-choice-title">Quiet / normal breath sounds</div>
-                            <div class="clinical-choice-hint">Vascular, mechanical, or other</div>
-                        </div>
-                        <span class="trigger-arrow">›</span>
-                    </div>
-
-                    <div class="all-ddx-link" onclick="goToPage('page-hypoxia-airway')">
-                        View all differentials by system ›
+                <div class="code-blue-box">
+                    <div class="code-blue-title">Immediate actions</div>
+                    <div class="code-blue-list">
+                        <div class="code-blue-item">Call Code Blue</div>
+                        <div class="code-blue-item">Get bedside emergency trache box</div>
+                        <div class="code-blue-item">Apply high-flow O₂ via trache AND face</div>
                     </div>
                 </div>
 
-                <!-- HISTORY TAB -->
-                <div class="tab-content" id="tab-history">
-                    <div class="history-item">
-                        <div class="history-item-q">When did this start? Sudden or gradual?</div>
-                        <div class="history-item-why">Sudden → PE, pneumothorax, aspiration</div>
-                    </div>
-                    
-                    <div class="history-item">
-                        <div class="history-item-q">Any chest pain?</div>
-                        <div class="history-item-why">Pleuritic → PE, pneumothorax, pleurisy</div>
-                    </div>
-                    
-                    <div class="history-item">
-                        <div class="history-item-q">Recent procedures or surgery?</div>
-                        <div class="history-item-why">Central line → pneumothorax. Immobility → PE.</div>
-                    </div>
-                    
-                    <div class="history-item">
-                        <div class="history-item-q">New medications, foods, or transfusion?</div>
-                        <div class="history-item-why">Anaphylaxis, drug-induced bronchospasm</div>
-                    </div>
-                    
-                    <div class="history-item">
-                        <div class="history-item-q">Known respiratory disease?</div>
-                        <div class="history-item-why">COPD, asthma, ILD, pulmonary hypertension</div>
-                    </div>
-                    
-                    <div class="history-item">
-                        <div class="history-item-q">Fever or infective symptoms?</div>
-                        <div class="history-item-why">Pneumonia, sepsis</div>
-                    </div>
-                    
-                    <div class="history-item">
-                        <div class="history-item-q">Orthopnoea or PND?</div>
-                        <div class="history-item-why">Pulmonary oedema, cardiac failure</div>
-                    </div>
-                    
-                    <div class="history-item">
-                        <div class="history-item-q">Witnessed aspiration or choking?</div>
-                        <div class="history-item-why">Aspiration, foreign body</div>
+                <div class="page-title" style="margin-top: 24px;">Stepwise troubleshooting</div>
+
+                <div class="trache-step">
+                    <div class="trache-step-num">1</div>
+                    <div class="trache-step-content">
+                        <div class="trache-step-action">Remove speaking valve and inner cannula</div>
+                        <div class="trache-step-check">→ Breathing improved? <strong>Stop and reassess</strong></div>
                     </div>
                 </div>
 
-                <!-- EXAM TAB -->
-                <div class="tab-content" id="tab-exam">
-                    <div class="exam-section">
-                        <div class="exam-section-title">
-                            <span class="exam-section-letter">A</span>
-                            Airway
-                        </div>
-                        <div class="exam-items">
-                            <div class="exam-item">Patent? Stridor? Secretions?</div>
-                        </div>
-                    </div>
-
-                    <div class="breathing-row">
-                        <div class="exam-section">
-                            <div class="exam-section-title">
-                                <span class="exam-section-letter">B</span>
-                                Breathing
-                            </div>
-                            <div class="exam-items">
-                                <div class="exam-item">RR, SpO₂, work of breathing</div>
-                                <div class="exam-item">Auscultation, percussion, trachea</div>
-                            </div>
-                        </div>
-
-                        <!-- RR Counter -->
-                        <div class="rr-counter-inline" id="rr-counter">
-                            <div class="rr-counter-label">Resp Rate</div>
-                            <div class="rr-counter-hint">Tap on each inspiration</div>
-                            <button class="rr-lung-btn" id="rr-lung-btn" onclick="countBreath()">
-                                <svg viewBox="0 0 24 24" fill="#fff">
-                                    <path d="M12 2C10.9 2 10 2.9 10 4V8.5C7.8 9.4 6 11.5 6 14V20C6 21.1 6.9 22 8 22H10C10 22 10 20 12 20C14 20 14 22 14 22H16C17.1 22 18 21.1 18 20V14C18 11.5 16.2 9.4 14 8.5V4C14 2.9 13.1 2 12 2Z"/>
-                                </svg>
-                            </button>
-                            <div class="rr-status" id="rr-status">Ready</div>
-                            <div class="rr-result" id="rr-result">—</div>
-                            <div class="rr-result-label">/min</div>
-                            <button class="rr-reset-btn" onclick="resetRRCounter()">Reset</button>
-                        </div>
-                    </div>
-
-                    <div class="exam-section">
-                        <div class="exam-section-title">
-                            <span class="exam-section-letter">C</span>
-                            Circulation
-                        </div>
-                        <div class="exam-items">
-                            <div class="exam-item">HR / BP. Peripheries: warm or cool? Oedema?</div>
-                        </div>
-                    </div>
-
-                    <div class="exam-section">
-                        <div class="exam-section-title">
-                            <span class="exam-section-letter">D</span>
-                            Disability
-                        </div>
-                        <div class="exam-items">
-                            <div class="exam-item">Conscious state, blood glucose</div>
-                        </div>
-                    </div>
-
-                    <div class="exam-section">
-                        <div class="exam-section-title">
-                            <span class="exam-section-letter">E</span>
-                            Exposure
-                        </div>
-                        <div class="exam-items">
-                            <div class="exam-item">Temp, rash, calves</div>
-                        </div>
-                    </div>
-
-                    <!-- Chest Drain Assessment -->
-                    <div class="gi-mx-box" style="margin-top: 16px; cursor: pointer;" onclick="showChestDrainInfo()">
-                        <div style="display: flex; align-items: center; justify-content: space-between;">
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="font-size: 20px;">🫁</span>
-                                <div>
-                                    <div style="font-weight: 600; font-size: 14px;">Chest drain present?</div>
-                                    <div style="font-size: 12px; color: var(--text3);">How to assess</div>
-                                </div>
-                            </div>
-                            <span class="info-btn">ⓘ</span>
-                        </div>
+                <div class="trache-step">
+                    <div class="trache-step-num">2</div>
+                    <div class="trache-step-content">
+                        <div class="trache-step-action">Attempt to pass suction catheter</div>
+                        <div class="trache-step-check">→ Passes? Trache is <strong>patent</strong> — suction and reassess</div>
+                        <div class="trache-step-check">→ Blocked? Continue to step 3</div>
                     </div>
                 </div>
 
-                <!-- PLAN TAB -->
-                <div class="tab-content" id="tab-plan">
-                    <div class="page-title" style="font-size:18px;">Management principles</div>
-                    
-                    <div class="cause-card" onclick="this.classList.toggle('open')">
-                        <div class="cause-header">
-                            <div class="cause-title">Upper airway obstruction</div>
-                            <span class="cause-arrow">▼</span>
-                        </div>
-                        <div class="cause-body">
-                            <div class="cause-clues">Sit upright, suction secretions. Call anaesthetics early. If anaphylaxis → adrenaline IM. Prepare for difficult airway.</div>
-                        </div>
+                <div class="trache-step">
+                    <div class="trache-step-num">3</div>
+                    <div class="trache-step-content">
+                        <div class="trache-step-action">Deflate cuff</div>
+                        <div class="trache-step-hint">May allow patient to breathe around blocked trache via upper airway</div>
+                        <div class="trache-step-check">→ Breathing improved? <strong>Stop and reassess</strong></div>
                     </div>
+                </div>
 
-                    <div class="cause-card" onclick="this.classList.toggle('open')">
-                        <div class="cause-header">
-                            <div class="cause-title">Bronchospasm</div>
-                            <span class="cause-arrow">▼</span>
-                        </div>
-                        <div class="cause-body">
-                            <div class="cause-clues">Bronchodilators, systemic corticosteroids, supplemental O₂. If anaphylaxis → adrenaline IM. Consider NIV if tiring.</div>
-                        </div>
+                <div class="trache-step">
+                    <div class="trache-step-num">4</div>
+                    <div class="trache-step-content">
+                        <div class="trache-step-action">Assess position</div>
+                        <div class="trache-step-hint">Subcutaneous emphysema? Obvious migration? Loss of EtCO₂?</div>
+                        <div class="trache-step-hint">Consider bronchoscopy if available</div>
                     </div>
+                </div>
 
-                    <div class="cause-card" onclick="this.classList.toggle('open')">
-                        <div class="cause-header">
-                            <div class="cause-title">Pulmonary oedema</div>
-                            <span class="cause-arrow">▼</span>
-                        </div>
-                        <div class="cause-body">
-                            <div class="cause-clues">Sit upright, supplemental O₂. GTN if hypertensive. Diuretics. Consider NIV (CPAP). Treat underlying cause.</div>
-                        </div>
+                <div class="trache-step">
+                    <div class="trache-step-num">5</div>
+                    <div class="trache-step-content">
+                        <div class="trache-step-action">If still unable to oxygenate → Remove tracheostomy</div>
+                        <div class="trache-step-hint"><strong>Plan A:</strong> O₂ via face AND stoma simultaneously</div>
+                        <div class="trache-step-hint"><strong>Plan B:</strong> (if stoma >10 days) Size 6 ETT through stoma</div>
                     </div>
+                </div>
 
-                    <div class="cause-card" onclick="this.classList.toggle('open')">
-                        <div class="cause-header">
-                            <div class="cause-title">Pneumonia</div>
-                            <span class="cause-arrow">▼</span>
-                        </div>
-                        <div class="cause-body">
-                            <div class="cause-clues">Supplemental O₂, IV antibiotics per local guidelines, blood cultures. Assess for sepsis.</div>
-                        </div>
-                    </div>
-
-                    <div class="cause-card" onclick="this.classList.toggle('open')">
-                        <div class="cause-header">
-                            <div class="cause-title">Pulmonary embolism</div>
-                            <span class="cause-arrow">▼</span>
-                        </div>
-                        <div class="cause-body">
-                            <div class="cause-clues">Supplemental O₂, anticoagulation. If massive/unstable → consider thrombolysis. Call for senior help.</div>
-                        </div>
-                    </div>
-
-                    <div class="cause-card" onclick="this.classList.toggle('open')">
-                        <div class="cause-header">
-                            <div class="cause-title">Tension pneumothorax</div>
-                            <span class="cause-arrow">▼</span>
-                        </div>
-                        <div class="cause-body">
-                            <div class="cause-clues">Immediate needle decompression or finger thoracostomy. Formal chest drain. Call Code Blue if haemodynamically unstable.</div>
-                        </div>
-                    </div>
-
-                    <div class="cause-card" onclick="this.classList.toggle('open')">
-                        <div class="cause-header">
-                            <div class="cause-title">Pleural effusion</div>
-                            <span class="cause-arrow">▼</span>
-                        </div>
-                        <div class="cause-body">
-                            <div class="cause-clues">Supplemental O₂, therapeutic drainage if large and symptomatic. Investigate underlying cause.</div>
-                        </div>
-                    </div>
+                <div class="warning-box" style="margin-top: 20px;">
+                    <span class="warning-icon">⚠️</span>
+                    <span>Assumes NO laryngectomy. Laryngectomy patients have no upper airway — do not attempt oral ventilation.</span>
                 </div>
             </div>
         </div>
 
+        <!-- HYPOXIA DDX OVERVIEW (DEPRECATED - to be removed) -->
+        <div class="page" id="page-hypoxia-ddx" style="display:none;"></div>
+
         <!-- STRIDOR/STERTOR PATHWAY -->
         <div class="page" id="page-hypoxia-stridor">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPage('page-hypoxia-ddx')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-hypoxia-causes')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -4785,19 +5091,26 @@
                 </div>
             </div>
             <div class="bottom-nav">
-                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-ddx')">‹ Back</button>
+                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-causes')">‹ Back</button>
                 <button class="nav-btn primary" onclick="goToPage('page-hypoxia-airway')">All differentials ›</button>
             </div>
         </div>
 
         <!-- WHEEZE PATHWAY -->
         <div class="page" id="page-hypoxia-wheeze">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPage('page-hypoxia-ddx')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-hypoxia-causes')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -4843,19 +5156,26 @@
                 </div>
             </div>
             <div class="bottom-nav">
-                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-ddx')">‹ Back</button>
+                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-causes')">‹ Back</button>
                 <button class="nav-btn primary" onclick="goToPage('page-hypoxia-airway')">All differentials ›</button>
             </div>
         </div>
 
         <!-- CREPITATIONS PATHWAY -->
         <div class="page" id="page-hypoxia-creps">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPage('page-hypoxia-ddx')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-hypoxia-causes')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -4907,19 +5227,26 @@
                 </div>
             </div>
             <div class="bottom-nav">
-                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-ddx')">‹ Back</button>
+                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-causes')">‹ Back</button>
                 <button class="nav-btn primary" onclick="goToPage('page-hypoxia-airway')">All differentials ›</button>
             </div>
         </div>
 
         <!-- QUIET CHEST - ONSET QUESTION -->
         <div class="page" id="page-hypoxia-quiet">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPage('page-hypoxia-ddx')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-hypoxia-causes')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -4950,12 +5277,19 @@
 
         <!-- SUDDEN ONSET PATHWAY -->
         <div class="page" id="page-hypoxia-sudden">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPage('page-hypoxia-quiet')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-hypoxia-quiet')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -5014,12 +5348,19 @@
 
         <!-- GRADUAL ONSET PATHWAY -->
         <div class="page" id="page-hypoxia-gradual">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPage('page-hypoxia-quiet')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-hypoxia-quiet')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -5078,12 +5419,19 @@
 
         <!-- HYPOXIA: AIRWAY -->
         <div class="page" id="page-hypoxia-airway">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPage('page-hypoxia-ddx')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-hypoxia-causes')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -5136,12 +5484,19 @@
 
         <!-- HYPOXIA: BREATHING -->
         <div class="page" id="page-hypoxia-breathing">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPrevHypoxiaDDx('page-hypoxia-breathing')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPrevHypoxiaDDx('page-hypoxia-breathing')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -5265,12 +5620,19 @@
 
         <!-- HYPOXIA: CIRCULATION -->
         <div class="page" id="page-hypoxia-circ">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPrevHypoxiaDDx('page-hypoxia-circ')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPrevHypoxiaDDx('page-hypoxia-circ')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -5327,12 +5689,19 @@
 
         <!-- HYPOXIA: DISABILITY -->
         <div class="page" id="page-hypoxia-disability">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPrevHypoxiaDDx('page-hypoxia-disability')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPrevHypoxiaDDx('page-hypoxia-disability')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -5409,12 +5778,19 @@
 
         <!-- HYPOXIA: OTHER -->
         <div class="page" id="page-hypoxia-other">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPrevHypoxiaDDx('page-hypoxia-other')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPrevHypoxiaDDx('page-hypoxia-other')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item current">DDx</div>
+                    <div class="hypo-seg-item" onclick="goToPage('page-hypoxia-plan')">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -5498,12 +5874,19 @@
 
         <!-- HYPOXIA: CALCULATORS -->
         <div class="page" id="page-hypoxia-calc">
-            <div class="header">
-                <div class="header-left">
-                    <button class="back-btn" onclick="goToPage('page-hypoxia-mgmt')">‹ Back</button>
+            <div class="hypo-header">
+                <div class="hypo-header-back">
+                    <button onclick="goToPage('page-hypoxia')">‹</button>
                 </div>
-                <div class="header-right">
-                    <button class="home-btn" onclick="goHome()">
+                <div class="hypo-seg-control">
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia')">Urgent</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-o2')">O₂</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-history')">Assess</div>
+                    <div class="hypo-seg-item completed" onclick="goToPage('page-hypoxia-causes')">Causes</div>
+                    <div class="hypo-seg-item current">Mgmt</div>
+                </div>
+                <div class="hypo-header-home">
+                    <button onclick="goHome()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -6214,6 +6597,138 @@
             `);
         }
 
+        // Hypovolaemic cause info modals
+        function showExternalBleedInfo() {
+            showModal('External Blood Loss', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Sources to check:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Surgical wounds and drains</li>
+                        <li>GI — haematemesis, melaena, PR bleeding</li>
+                        <li>Urological — haematuria (rarely significant volume)</li>
+                        <li>Obstetric — postpartum haemorrhage</li>
+                    </ul>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Management principles:</strong></p>
+                    <ul style="margin-left:20px;">
+                        <li>Direct pressure to wounds</li>
+                        <li>Quantify drain losses</li>
+                        <li>Group & hold / crossmatch early</li>
+                        <li>Activate massive transfusion if needed</li>
+                    </ul>
+                </div>
+            `);
+        }
+
+        function showOccultBleedInfo() {
+            showModal('Occult Blood Loss', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">When to suspect:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Recent surgery or trauma</li>
+                        <li>Anticoagulation</li>
+                        <li>Known AAA or aortic pathology</li>
+                        <li>Ectopic pregnancy risk</li>
+                        <li>Pelvic or long bone fractures</li>
+                    </ul>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Where to look:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li><strong>Retroperitoneal</strong> — ruptured AAA, renal, pancreatic</li>
+                        <li><strong>Intra-abdominal</strong> — splenic, hepatic, mesenteric</li>
+                        <li><strong>Pelvis</strong> — pelvic fractures can lose litres</li>
+                        <li><strong>Thigh</strong> — femur fractures (1-2L per side)</li>
+                        <li><strong>Chest</strong> — haemothorax</li>
+                    </ul>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Key investigations:</strong></p>
+                    <ul style="margin-left:20px;">
+                        <li>Serial Hb (may be initially normal)</li>
+                        <li>Lactate, base excess</li>
+                        <li>Bedside USS (FAST scan)</li>
+                        <li>CT if stable enough</li>
+                    </ul>
+                </div>
+            `);
+        }
+
+        function showGILossInfo() {
+            showModal('GI Fluid Losses', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Common causes:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Vomiting — pyloric obstruction, ileus, gastroenteritis</li>
+                        <li>Diarrhoea — infective, inflammatory, overflow</li>
+                        <li>High NG aspirates — bowel obstruction</li>
+                        <li>Stoma losses</li>
+                    </ul>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Assessment:</strong></p>
+                    <ul style="margin-left:20px;">
+                        <li>Quantify losses (NGT, stoma output)</li>
+                        <li>Check electrolytes — particularly K⁺, Mg²⁺</li>
+                        <li>Assess for metabolic alkalosis (vomiting) or acidosis (diarrhoea)</li>
+                    </ul>
+                </div>
+            `);
+        }
+
+        function showRenalLossInfo() {
+            showModal('Renal Fluid Losses', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Common causes:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Diuretics — especially loop diuretics</li>
+                        <li>Osmotic diuresis — DKA, HHS, mannitol</li>
+                        <li>Post-obstructive diuresis</li>
+                        <li>Diabetes insipidus</li>
+                        <li>Salt-wasting nephropathy</li>
+                    </ul>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Assessment:</strong></p>
+                    <ul style="margin-left:20px;">
+                        <li>Urine output — often inappropriately high</li>
+                        <li>Urine osmolality and sodium</li>
+                        <li>Serum sodium and osmolality</li>
+                    </ul>
+                </div>
+            `);
+        }
+
+        function showThirdSpacingInfo() {
+            showModal('Third Spacing', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;">Fluid shifts from intravascular space into interstitium or body cavities.</p>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Common causes:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Pancreatitis</li>
+                        <li>Burns</li>
+                        <li>Bowel obstruction</li>
+                        <li>Major surgery</li>
+                        <li>Sepsis (capillary leak)</li>
+                    </ul>
+                    <p><strong style="color:var(--text);">Note:</strong> May have oedema despite being intravascularly depleted.</p>
+                </div>
+            `);
+        }
+
+        function showPoorIntakeInfo() {
+            showModal('Poor Oral Intake', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Risk factors:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Prolonged NBM status</li>
+                        <li>Dysphagia</li>
+                        <li>Reduced conscious state</li>
+                        <li>Elderly with poor access to fluids</li>
+                        <li>Nausea limiting intake</li>
+                    </ul>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Clinical signs:</strong></p>
+                    <ul style="margin-left:20px;">
+                        <li>Dry mucous membranes</li>
+                        <li>Reduced skin turgor</li>
+                        <li>Thirst (if alert)</li>
+                        <li>Concentrated urine</li>
+                    </ul>
+                </div>
+            `);
+        }
+
         // RR Counter
         let rrBreaths = 0;
         let rrStartTime = null;
@@ -6524,6 +7039,63 @@
             clearTimeout(rrTimeout);
         }
 
+        // RR counter for hypoxia exam page
+        let rrTapsHypoxia = [];
+        let rrTimeoutHypoxia = null;
+
+        // Hypoxia assessment state
+        let hypoxiaOnset = null;
+        let hypoxiaSound = null;
+
+        function tapRRHypoxia() {
+            const now = Date.now();
+            rrTapsHypoxia.push(now);
+
+            // Update button state
+            document.getElementById('rr-tap-btn-hypoxia')?.classList.add('counting');
+
+            // Calculate rate if we have at least 2 taps
+            if (rrTapsHypoxia.length >= 2) {
+                const intervals = [];
+                for (let i = 1; i < rrTapsHypoxia.length; i++) {
+                    intervals.push(rrTapsHypoxia[i] - rrTapsHypoxia[i-1]);
+                }
+                const avgInterval = intervals.reduce((a,b) => a+b, 0) / intervals.length;
+                const rate = Math.round(60000 / avgInterval);
+                document.getElementById('rr-value-hypoxia').textContent = rate;
+            }
+
+            // Reset after 10 seconds of no taps
+            clearTimeout(rrTimeoutHypoxia);
+            rrTimeoutHypoxia = setTimeout(() => {
+                document.getElementById('rr-tap-btn-hypoxia')?.classList.remove('counting');
+            }, 10000);
+        }
+
+        function resetRRHypoxia() {
+            rrTapsHypoxia = [];
+            document.getElementById('rr-value-hypoxia').textContent = '—';
+            document.getElementById('rr-tap-btn-hypoxia')?.classList.remove('counting');
+            clearTimeout(rrTimeoutHypoxia);
+        }
+
+        function setHypoxiaOnset(value) {
+            hypoxiaOnset = value;
+            document.getElementById('hypoxia-onset-sudden')?.classList.toggle('active', value === 'sudden');
+            document.getElementById('hypoxia-onset-gradual')?.classList.toggle('active', value === 'gradual');
+        }
+
+        function setHypoxiaSound(value) {
+            hypoxiaSound = value;
+            document.querySelectorAll('.auscultation-tile').forEach(t => t.classList.remove('active'));
+            event.currentTarget?.classList.add('active');
+            // Navigate to appropriate cause page based on sound
+            if (value === 'stridor') goToPage('page-hypoxia-stridor');
+            else if (value === 'wheeze') goToPage('page-hypoxia-wheeze');
+            else if (value === 'creps') goToPage('page-hypoxia-creps');
+            else if (value === 'quiet') goToPage('page-hypoxia-quiet');
+        }
+
         function setHypoOnset(value) {
             hypoOnset = value;
             document.getElementById('btn-onset-sudden')?.classList.toggle('active', value === 'sudden');
@@ -6546,43 +7118,45 @@
         }
 
         function updateHypoDifferential() {
-            // Default order (no selections)
+            // Default order
             let order = ['Distributive', 'Hypovolaemic', 'Cardiogenic', 'Obstructive', 'Endocrine'];
 
-            // Sudden onset makes haemorrhage/hypovolaemia and obstructive MORE likely
-            // Progressive onset makes distributive (sepsis) and cardiogenic MORE likely
-
+            // Peripheries is the strongest discriminator
             if (hypoPeripheries === 'warm') {
                 // Warm = vasodilated = distributive (sepsis, anaphylaxis, neurogenic)
                 order = ['Distributive', 'Endocrine', 'Hypovolaemic', 'Cardiogenic', 'Obstructive'];
             } else if (hypoPeripheries === 'cool') {
+                // Cool peripheries - need more info
                 if (hypoRespiratory === 'distress') {
                     if (hypoOnset === 'sudden') {
-                        // Cool + resp distress + sudden = PE, tension pneumo, massive MI
+                        // Cool + distress + sudden = PE, tension pneumo, massive MI
                         order = ['Obstructive', 'Cardiogenic', 'Hypovolaemic', 'Distributive', 'Endocrine'];
                     } else {
-                        // Cool + resp distress + progressive = cardiogenic (CCF), late sepsis
+                        // Cool + distress + progressive = cardiogenic (CCF), late sepsis
                         order = ['Cardiogenic', 'Distributive', 'Obstructive', 'Hypovolaemic', 'Endocrine'];
                     }
                 } else {
+                    // Cool + no respiratory distress
                     if (hypoOnset === 'sudden') {
-                        // Cool + no resp distress + sudden = haemorrhage, hypovolaemia
+                        // Cool + no distress + sudden = haemorrhage, but also consider obstructive
                         order = ['Hypovolaemic', 'Obstructive', 'Cardiogenic', 'Distributive', 'Endocrine'];
                     } else {
-                        // Cool + no resp distress + progressive = hypovolaemia, adrenal
-                        order = ['Hypovolaemic', 'Endocrine', 'Distributive', 'Cardiogenic', 'Obstructive'];
+                        // Cool + no distress + progressive = hypovolaemia (dehydration), adrenal
+                        order = ['Hypovolaemic', 'Endocrine', 'Cardiogenic', 'Distributive', 'Obstructive'];
                     }
                 }
             } else {
-                // Only onset selected
+                // Only onset selected (no peripheries info yet)
                 if (hypoOnset === 'sudden') {
-                    order = ['Hypovolaemic', 'Obstructive', 'Cardiogenic', 'Distributive', 'Endocrine'];
+                    // Sudden WITHOUT other info: think obstructive and cardiogenic first
+                    order = ['Obstructive', 'Cardiogenic', 'Hypovolaemic', 'Distributive', 'Endocrine'];
                 } else if (hypoOnset === 'progressive') {
-                    order = ['Distributive', 'Cardiogenic', 'Hypovolaemic', 'Endocrine', 'Obstructive'];
+                    // Progressive WITHOUT other info: think distributive and hypovolaemic
+                    order = ['Distributive', 'Hypovolaemic', 'Cardiogenic', 'Endocrine', 'Obstructive'];
                 }
             }
 
-            // Update both history and exam panels
+            // Update both history and exam differential panels
             ['diff-list-history', 'diff-list-exam'].forEach(id => {
                 const container = document.getElementById(id);
                 if (container) {
@@ -7328,6 +7902,111 @@
                 </div>
             `;
             showModal('Indications for 100% SpO₂ Target', html);
+        }
+
+        function showMildHypoxiaDevices() {
+            const html = `
+                <div class="o2-device-section">
+                    <div class="o2-device-title">Nasal prongs</div>
+                    <div class="o2-device-fio2">FiO₂ ~24-44%</div>
+                    <div class="o2-device-table" style="margin-top:8px;">
+                        <div class="o2-device-row"><span>1 lpm</span><span>~24%</span></div>
+                        <div class="o2-device-row"><span>2 lpm</span><span>~28%</span></div>
+                        <div class="o2-device-row"><span>3 lpm</span><span>~32%</span></div>
+                        <div class="o2-device-row"><span>4 lpm</span><span>~36%</span></div>
+                        <div class="o2-device-row"><span>5-6 lpm</span><span>~40-44%</span></div>
+                    </div>
+                    <div style="font-size:12px;color:var(--text3);margin-top:8px;">
+                        FiO₂ is approximate — depends on RR, tidal volume, and mouth breathing
+                    </div>
+                </div>
+            `;
+            showModal('Mild Hypoxia (SpO₂ 90-94%)', html);
+        }
+
+        function showModSevereHypoxiaDevices() {
+            const html = `
+                <div class="o2-device-section" style="margin-bottom:16px;">
+                    <div class="o2-device-title">Simple face mask</div>
+                    <div class="o2-device-fio2">FiO₂ ~40-60%</div>
+                    <div class="o2-device-table" style="margin-top:8px;">
+                        <div class="o2-device-row"><span>5 lpm</span><span>~40%</span></div>
+                        <div class="o2-device-row"><span>6-7 lpm</span><span>~50%</span></div>
+                        <div class="o2-device-row"><span>8-10 lpm</span><span>~60%</span></div>
+                    </div>
+                    <div style="font-size:12px;color:var(--text3);margin-top:4px;">Minimum 5 lpm to prevent CO₂ rebreathing</div>
+                </div>
+                <div class="o2-device-section" style="margin-bottom:16px;">
+                    <div class="o2-device-title">Non-rebreather mask</div>
+                    <div class="o2-device-fio2">FiO₂ ~60-80%</div>
+                    <div style="font-size:13px;color:var(--text2);margin-top:4px;">Run at 15 lpm. Ensure reservoir bag stays inflated.</div>
+                </div>
+                <div class="o2-device-section" style="margin-bottom:16px;">
+                    <div class="o2-device-title">High-flow nasal prongs (HFNP)</div>
+                    <div class="o2-device-fio2">FiO₂ 21-100%</div>
+                    <div style="font-size:13px;color:var(--text2);margin-top:4px;">Heated, humidified O₂ up to 60 lpm. Provides small amount of PEEP. Washout of pharyngeal dead space.</div>
+                </div>
+                <div class="o2-device-section">
+                    <div class="o2-device-title">Bag valve mask (BVM)</div>
+                    <div class="o2-device-fio2">FiO₂ ~100%</div>
+                    <div style="font-size:13px;color:var(--text2);margin-top:4px;">15 lpm wall O₂ with reservoir. Can be used for assisted ventilation or as high-flow passive oxygenation.</div>
+                </div>
+            `;
+            showModal('Moderate-Severe Hypoxia (SpO₂ <90%)', html);
+        }
+
+        function showOSAAPODevices() {
+            const html = `
+                <div class="o2-device-section">
+                    <div class="o2-device-title">CPAP</div>
+                    <div class="o2-device-fio2">FiO₂ 21-100%</div>
+                    <div style="font-size:13px;color:var(--text2);margin-top:8px;">
+                        Continuous positive airway pressure. Recruits alveoli, reduces work of breathing, splints upper airway.
+                    </div>
+                    <div style="font-size:13px;color:var(--text2);margin-top:8px;">
+                        <strong>Indications:</strong> OSA, acute pulmonary oedema
+                    </div>
+                    <div class="warning-box" style="margin-top:12px;">
+                        <span class="warning-icon">⚠️</span>
+                        <span>Requires senior input. Contraindicated if unable to protect airway, facial trauma, undrained pneumothorax, vomiting.</span>
+                    </div>
+                </div>
+            `;
+            showModal('OSA / Acute Pulmonary Oedema', html);
+        }
+
+        function showHypercapnicDevices() {
+            const html = `
+                <div class="o2-device-section" style="margin-bottom:16px;">
+                    <div class="o2-device-title">Venturi mask</div>
+                    <div class="o2-device-fio2">Fixed FiO₂ 24-60%</div>
+                    <div style="font-size:13px;color:var(--text2);margin-top:4px;">
+                        Colour-coded adaptors deliver precise FiO₂. Useful when accurate FiO₂ needed.
+                    </div>
+                    <div class="o2-device-table" style="margin-top:8px;">
+                        <div class="o2-device-row"><span>Blue</span><span>24%</span></div>
+                        <div class="o2-device-row"><span>White</span><span>28%</span></div>
+                        <div class="o2-device-row"><span>Yellow</span><span>35%</span></div>
+                        <div class="o2-device-row"><span>Red</span><span>40%</span></div>
+                        <div class="o2-device-row"><span>Green</span><span>60%</span></div>
+                    </div>
+                </div>
+                <div class="o2-device-section">
+                    <div class="o2-device-title">BiPAP</div>
+                    <div class="o2-device-fio2">FiO₂ 21-100%</div>
+                    <div style="font-size:13px;color:var(--text2);margin-top:4px;">
+                        Bilevel positive airway pressure. Adds inspiratory support to assist ventilation.
+                    </div>
+                    <div style="font-size:13px;color:var(--text2);margin-top:4px;">
+                        <strong>Indications:</strong> COPD exacerbation, neuromuscular weakness
+                    </div>
+                    <div class="warning-box" style="margin-top:12px;">
+                        <span class="warning-icon">⚠️</span>
+                        <span>Requires senior input. Contraindicated if unable to protect airway, facial trauma, undrained pneumothorax, vomiting.</span>
+                    </div>
+                </div>
+            `;
+            showModal('Hypercapnic Respiratory Failure', html);
         }
 
         function calcPF() {
