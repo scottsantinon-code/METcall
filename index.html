@@ -70,6 +70,7 @@
         .page-title { font-size: 22px; font-weight: 700; margin-bottom: 16px; }
         .section-title { font-size: 11px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 8px; }
         .section-title:first-child { margin-top: 0; }
+        .section-label { font-size: 11px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
 
         /* Home */
         .home-header { text-align:center; padding:40px 0 30px; }
@@ -3103,6 +3104,180 @@
             color: #fff;
         }
 
+        /* Onset toggle buttons with hints */
+        .onset-toggle-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .onset-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 14px 12px;
+            background: #fff;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.15s;
+            text-align: center;
+        }
+
+        .onset-btn:active {
+            transform: scale(0.98);
+        }
+
+        .onset-btn.active {
+            border-color: var(--blue);
+            background: rgba(0,122,255,0.06);
+        }
+
+        .onset-btn-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .onset-btn-hint {
+            font-size: 11px;
+            color: var(--text3);
+            margin-top: 4px;
+        }
+
+        .onset-btn.active .onset-btn-title {
+            color: var(--blue);
+        }
+
+        /* History checklist items */
+        .history-checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .history-check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.15s;
+            text-align: left;
+            width: 100%;
+        }
+
+        .history-check-item:active {
+            transform: scale(0.99);
+        }
+
+        .history-check-item.checked {
+            border-color: var(--blue);
+            background: rgba(0,122,255,0.04);
+        }
+
+        .history-check-box {
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+            transition: all 0.15s;
+        }
+
+        .history-check-item.checked .history-check-box {
+            background: var(--blue);
+            border-color: var(--blue);
+        }
+
+        .history-check-item.checked .history-check-box::after {
+            content: '✓';
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .history-check-content {
+            flex: 1;
+        }
+
+        .history-check-q {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .history-check-hint {
+            font-size: 13px;
+            color: var(--text3);
+            margin-top: 2px;
+        }
+
+        /* Auscultation section in B card */
+        .ausc-section {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+        }
+
+        .ausc-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text2);
+            margin-bottom: 10px;
+        }
+
+        .ausc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .ausc-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 8px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.15s;
+            text-align: center;
+        }
+
+        .ausc-btn:active {
+            transform: scale(0.97);
+        }
+
+        .ausc-btn.active {
+            border-color: var(--blue);
+            background: rgba(0,122,255,0.08);
+        }
+
+        .ausc-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .ausc-btn.active .ausc-title {
+            color: var(--blue);
+        }
+
+        .ausc-hint {
+            font-size: 10px;
+            color: var(--text3);
+            margin-top: 2px;
+        }
+
         /* Inline toggle pills (compact style for ABCDE cards) */
         .inline-toggle-row {
             display: flex;
@@ -4197,7 +4372,7 @@
 
                 <div class="section-title" style="margin-top: 24px;">Ask about</div>
                 <div class="history-prompts">
-                    <div class="history-prompt">Fever, rigors, focal infective symptoms</div>
+                    <div class="history-prompt">Fever, rigors, focal infective symptoms <span class="info-btn" onclick="event.stopPropagation();showFocalInfectiveInfo()">ⓘ</span></div>
                     <div class="history-prompt">Haematemesis, melaena, diarrhoea, poor intake</div>
                     <div class="history-prompt">Chest pain, dyspnoea, cardiac history</div>
                     <div class="history-prompt">Immobility, recent surgery, malignancy</div>
@@ -4325,7 +4500,7 @@
 
                 <div class="differential-panel">
                     <div class="differential-title">Working differential</div>
-                    <div class="diff-list" id="diff-list-exam">
+                    <div class="differential-list" id="diff-list-exam">
                         <div class="diff-list-item" data-cause="distributive">Distributive</div>
                         <div class="diff-list-item" data-cause="hypovolaemic">Hypovolaemic</div>
                         <div class="diff-list-item" data-cause="cardiogenic">Cardiogenic</div>
@@ -5352,49 +5527,103 @@
             <div class="content">
                 <div class="page-title">Focused history</div>
 
-                <div class="section-title">Onset</div>
-                <div class="toggle-row" style="margin-bottom: 16px;">
-                    <button class="toggle-btn" id="hypoxia-onset-sudden" onclick="setHypoxiaOnset('sudden')">Sudden</button>
-                    <button class="toggle-btn" id="hypoxia-onset-gradual" onclick="setHypoxiaOnset('gradual')">Gradual</button>
+                <div class="section-label">ONSET</div>
+                <div class="onset-toggle-row">
+                    <button class="onset-btn" id="btn-hypoxia-sudden" onclick="setHypoxiaOnset('sudden')">
+                        <span class="onset-btn-title">Sudden</span>
+                        <span class="onset-btn-hint">PE, pneumothorax, anaphylaxis</span>
+                    </button>
+                    <button class="onset-btn" id="btn-hypoxia-gradual" onclick="setHypoxiaOnset('gradual')">
+                        <span class="onset-btn-title">Gradual</span>
+                        <span class="onset-btn-hint">Pneumonia, APO, COPD</span>
+                    </button>
                 </div>
 
-                <div class="history-card">
-                    <div style="font-weight: 600; margin-bottom: 4px;">Chest pain?</div>
-                    <div style="font-size: 13px; color: var(--text3);">Pleuritic (PE, pneumonia) vs tight (ACS, APO)</div>
+                <div class="pearl-box" id="pe-pearl" style="display:none; margin-top: 16px;">
+                    <span class="pearl-icon">💡</span>
+                    <span>Sudden + pleuritic chest pain = <strong>PE until proven otherwise</strong></span>
                 </div>
 
-                <div class="history-card">
-                    <div style="font-weight: 600; margin-bottom: 4px;">Recent procedures or surgery?</div>
-                    <div style="font-size: 13px; color: var(--text3);">VTE risk, aspiration, pneumothorax</div>
+                <div class="section-label" style="margin-top: 20px;">KEY QUESTIONS</div>
+                <div class="history-checklist">
+                    <button class="history-check-item" id="hx-chest-pain" onclick="toggleHypoxiaHx('chest-pain')">
+                        <div class="history-check-box"></div>
+                        <div class="history-check-content">
+                            <div class="history-check-q">Chest pain?</div>
+                            <div class="history-check-hint">Pleuritic → PE, pneumothorax. Tight → ACS, APO</div>
+                        </div>
+                    </button>
+
+                    <button class="history-check-item" id="hx-leg-swell" onclick="toggleHypoxiaHx('leg-swell')">
+                        <div class="history-check-box"></div>
+                        <div class="history-check-content">
+                            <div class="history-check-q">Leg swelling or immobility?</div>
+                            <div class="history-check-hint">DVT → PE</div>
+                        </div>
+                    </button>
+
+                    <button class="history-check-item" id="hx-orthopnoea" onclick="toggleHypoxiaHx('orthopnoea')">
+                        <div class="history-check-box"></div>
+                        <div class="history-check-content">
+                            <div class="history-check-q">Orthopnoea or PND?</div>
+                            <div class="history-check-hint">Pulmonary oedema, cardiac failure</div>
+                        </div>
+                    </button>
+
+                    <button class="history-check-item" id="hx-fever" onclick="toggleHypoxiaHx('fever')">
+                        <div class="history-check-box"></div>
+                        <div class="history-check-content">
+                            <div class="history-check-q">Fever or infective symptoms?</div>
+                            <div class="history-check-hint">Pneumonia, sepsis</div>
+                        </div>
+                    </button>
+
+                    <button class="history-check-item" id="hx-resp-disease" onclick="toggleHypoxiaHx('resp-disease')">
+                        <div class="history-check-box"></div>
+                        <div class="history-check-content">
+                            <div class="history-check-q">Known asthma or COPD?</div>
+                            <div class="history-check-hint">Exacerbation. Remember target SpO₂ 88-92%</div>
+                        </div>
+                    </button>
+
+                    <button class="history-check-item" id="hx-allergy" onclick="toggleHypoxiaHx('allergy')">
+                        <div class="history-check-box"></div>
+                        <div class="history-check-content">
+                            <div class="history-check-q">New medication, food, or transfusion?</div>
+                            <div class="history-check-hint">Anaphylaxis, TRALI, drug-induced</div>
+                        </div>
+                    </button>
+
+                    <button class="history-check-item" id="hx-procedure" onclick="toggleHypoxiaHx('procedure')">
+                        <div class="history-check-box"></div>
+                        <div class="history-check-content">
+                            <div class="history-check-q">Recent procedure or surgery?</div>
+                            <div class="history-check-hint">Central line → pneumothorax. Immobility → PE</div>
+                        </div>
+                    </button>
+
+                    <button class="history-check-item" id="hx-aspiration" onclick="toggleHypoxiaHx('aspiration')">
+                        <div class="history-check-box"></div>
+                        <div class="history-check-content">
+                            <div class="history-check-q">Witnessed aspiration or choking?</div>
+                            <div class="history-check-hint">Aspiration pneumonitis, foreign body</div>
+                        </div>
+                    </button>
                 </div>
 
-                <div class="history-card">
-                    <div style="font-weight: 600; margin-bottom: 4px;">New medications, foods, or transfusion?</div>
-                    <div style="font-size: 13px; color: var(--text3);">Anaphylaxis, TRALI, drug-induced</div>
-                </div>
-
-                <div class="history-card">
-                    <div style="font-weight: 600; margin-bottom: 4px;">Known respiratory disease?</div>
-                    <div style="font-size: 13px; color: var(--text3);">COPD, asthma, ILD, OSA</div>
-                </div>
-
-                <div class="history-card">
-                    <div style="font-weight: 600; margin-bottom: 4px;">Fever or infective symptoms?</div>
-                    <div style="font-size: 13px; color: var(--text3);">Pneumonia, sepsis</div>
-                </div>
-
-                <div class="history-card">
-                    <div style="font-weight: 600; margin-bottom: 4px;">Orthopnoea or PND?</div>
-                    <div style="font-size: 13px; color: var(--text3);">Pulmonary oedema, cardiac failure</div>
-                </div>
-
-                <div class="history-card">
-                    <div style="font-weight: 600; margin-bottom: 4px;">Witnessed aspiration or choking?</div>
-                    <div style="font-size: 13px; color: var(--text3);">Aspiration pneumonitis, foreign body</div>
+                <div class="differential-panel" style="margin-top: 20px;">
+                    <div class="differential-title">Working differential</div>
+                    <div class="differential-list" id="diff-list-hypoxia-hx">
+                        <div class="diff-list-item top">Pneumonia</div>
+                        <div class="diff-list-item top">Pulmonary oedema</div>
+                        <div class="diff-list-item">COPD / Asthma</div>
+                        <div class="diff-list-item">PE</div>
+                        <div class="diff-list-item">Pneumothorax</div>
+                    </div>
                 </div>
             </div>
             <div class="bottom-nav">
-                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-devices')">‹ Back</button>
+                <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-o2')">‹ Back</button>
                 <button class="nav-btn primary" onclick="goToPage('page-hypoxia-exam')">Examination ›</button>
             </div>
         </div>
@@ -5425,77 +5654,103 @@
                 <div class="page-title">ABCDE examination</div>
 
                 <div class="abcde-card">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-                        <div class="abcde-badge">A</div>
-                        <div style="font-weight: 600;">Airway</div>
+                    <div class="abcde-header">
+                        <span class="abcde-badge">A</span>
+                        <span class="abcde-title">Airway</span>
                     </div>
-                    <div style="font-size: 14px; color: var(--text2);">Patent? Stridor? Secretions?</div>
+                    <div class="abcde-body">Patent? Stridor? Secretions? Trachea central?</div>
                 </div>
 
                 <div class="abcde-card breathing-card">
-                    <div style="flex: 1;">
-                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-                            <div class="abcde-badge">B</div>
-                            <div style="font-weight: 600;">Breathing</div>
+                    <div class="abcde-card-left">
+                        <div class="abcde-header">
+                            <span class="abcde-badge">B</span>
+                            <span class="abcde-title">Breathing</span>
                         </div>
-                        <div style="font-size: 14px; color: var(--text2);">RR, SpO₂, work of breathing</div>
-                        <div style="font-size: 14px; color: var(--text2);">Auscultation, percussion, trachea</div>
-                        <div class="cause-link" onclick="event.stopPropagation();showChestDrainInfo()" style="margin-top: 6px;">Chest drain present? ›</div>
+                        <div class="abcde-body">
+                            <div>RR, SpO₂, work of breathing</div>
+                            <div>Accessory muscles, tripod position</div>
+                        </div>
+
+                        <div class="ausc-section">
+                            <div class="ausc-label">Auscultation — what do you hear?</div>
+                            <div class="ausc-grid">
+                                <button class="ausc-btn" id="ausc-stridor" onclick="setHypoxiaAusc('stridor')">
+                                    <span class="ausc-title">Stridor / stertor</span>
+                                    <span class="ausc-hint">Upper airway</span>
+                                </button>
+                                <button class="ausc-btn" id="ausc-wheeze" onclick="setHypoxiaAusc('wheeze')">
+                                    <span class="ausc-title">Wheeze</span>
+                                    <span class="ausc-hint">Bronchospasm</span>
+                                </button>
+                                <button class="ausc-btn" id="ausc-creps" onclick="setHypoxiaAusc('creps')">
+                                    <span class="ausc-title">Crackles</span>
+                                    <span class="ausc-hint">Fluid / consolidation</span>
+                                </button>
+                                <button class="ausc-btn" id="ausc-reduced" onclick="setHypoxiaAusc('reduced')">
+                                    <span class="ausc-title">Reduced / absent</span>
+                                    <span class="ausc-hint">Pneumothorax, effusion</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="info-link" onclick="showChestDrainInfo()" style="margin-top: 12px;">
+                            <span>Chest drain present? ›</span>
+                        </div>
                     </div>
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                    <div class="rr-counter">
+                        <div class="rr-counter-title">Resp Rate</div>
+                        <div class="rr-counter-subtitle">Tap on each inspiration</div>
                         <button class="rr-counter-btn" id="rr-tap-btn-hypoxia" onclick="tapRRHypoxia()">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="var(--blue)">
-                                <path d="M12 3C10.5 3 9.2 4 8.5 5.5C7 5.8 5.7 6.8 5 8.5C4.3 10.2 4.5 12 5 13.5L6 18C6.3 19.2 7.3 20 8.5 20H9L9.5 21.5C9.7 22 10.2 22.3 10.7 22.3H13.3C13.8 22.3 14.3 22 14.5 21.5L15 20H15.5C16.7 20 17.7 19.2 18 18L19 13.5C19.5 12 19.7 10.2 19 8.5C18.3 6.8 17 5.8 15.5 5.5C14.8 4 13.5 3 12 3Z"/>
+                            <svg viewBox="0 0 64 64" fill="currentColor" style="width:28px;height:28px;">
+                                <path d="m15.71136 22.98486c6.31949-5.7646 9.73989-.83438 10.36266 6.4882l-1.53619 1.6195-2.68454 1.88031-1.66742-2.61287.20778-3.4121a1.00006 1.00006 0 0 0 -1.99617-.1211l-.17481 2.86631-2.73056.207a1.00006 1.00006 0 0 0 .15143 1.99414l3.00352-.22809 1.56665 2.455-3.537 2.47738-4.4855 1.0723a1.00007 1.00007 0 0 0 .46486 1.94538l3.17955-.75991-.75711 4.15651-4.64664 2.59579a1.00011 1.00011 0 0 0 .97562 1.74616l5.05828-2.8253a1.00067 1.00067 0 0 0 .49611-.69436l1.04245-5.72407s7.86947-5.52045 7.91537-5.56831c0 0 1.97224-2.09089 2.00935-2.15241l2.32381-3.82728a1.00135 1.00135 0 0 0 .145-.51858v-6.04115h3.19494v6.04122a1.00135 1.00135 0 0 0 .145.51858l2.32381 3.82728c.03711.06152 2.00935 2.15241 2.00935 2.15241.0459.04786 7.91537 5.56831 7.91537 5.56831l1.04246 5.72407a1.00064 1.00064 0 0 0 .49611.69436l5.05828 2.8253a1.00048 1.00048 0 0 0 .97549-1.74628l-4.64647-2.59567-.75711-4.15651 3.17956.75991a1.0001 1.0001 0 0 0 .4648-1.94544l-4.48545-1.07224-3.53692-2.47732 1.567-2.4551 3.00315.22815c.02588.002.05127.00293.07666.00293a1.00068 1.00068 0 0 0 .07465-1.99713l-2.7305-.207-.17481-2.86631a.99991.99991 0 1 0 -1.99616.1211l.20826 3.4121-1.66785 2.61294-2.6846-1.88037-1.534-1.61724c.63577-7.29768 3.99636-12.29352 10.34539-6.51573a1.00031 1.00031 0 0 0 1.332-1.49242c-6.33707-5.81978-11.99468-2.857-13.32657 5.41193l-.67678-1.11485v-20.75075a1.00015 1.00015 0 0 0 -2.00007 0v3.00987h-3.19496v-3.00987a1.00015 1.00015 0 0 0 -2.00006 0v20.75071l-.67318 1.10887c-1.32024-8.27855-7.10224-11.17568-13.35617-5.37067a1.00029 1.00029 0 0 0 1.34288 1.48241zm14.68653-12.96138h3.19494v2.98936h-3.19494zm0 4.98943h3.19494v2.99033h-3.19494z"/>
                             </svg>
                         </button>
-                        <div style="font-size: 20px; font-weight: 600;" id="rr-value-hypoxia">—</div>
-                        <div style="font-size: 11px; color: var(--text3);">RR /min</div>
+                        <div class="rr-counter-display">
+                            <span id="rr-value-hypoxia">—</span><span class="rr-unit">/min</span>
+                        </div>
+                        <button class="rr-reset-btn" onclick="resetRRHypoxia()">Reset</button>
                     </div>
                 </div>
 
                 <div class="abcde-card">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-                        <div class="abcde-badge">C</div>
-                        <div style="font-weight: 600;">Circulation</div>
+                    <div class="abcde-header">
+                        <span class="abcde-badge">C</span>
+                        <span class="abcde-title">Circulation</span>
                     </div>
-                    <div style="font-size: 14px; color: var(--text2);">HR / BP. Peripheries: warm or cool? Oedema?</div>
+                    <div class="abcde-body">HR, BP, perfusion, oedema</div>
                 </div>
 
                 <div class="abcde-card">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-                        <div class="abcde-badge">D</div>
-                        <div style="font-weight: 600;">Disability</div>
+                    <div class="abcde-header">
+                        <span class="abcde-badge">D</span>
+                        <span class="abcde-title">Disability</span>
                     </div>
-                    <div style="font-size: 14px; color: var(--text2);">Conscious state, blood glucose</div>
+                    <div class="abcde-body">Conscious state, agitation (hypoxia), drowsiness (CO₂)</div>
                 </div>
 
                 <div class="abcde-card">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-                        <div class="abcde-badge">E</div>
-                        <div style="font-weight: 600;">Exposure</div>
+                    <div class="abcde-header">
+                        <span class="abcde-badge">E</span>
+                        <span class="abcde-title">Exposure</span>
                     </div>
-                    <div style="font-size: 14px; color: var(--text2);">Temp, rash, calves</div>
+                    <div class="abcde-body">Temp, rash, calves (DVT)</div>
                 </div>
 
-                <div class="section-title" style="margin-top: 20px;">What do you hear?</div>
-                <div class="auscultation-options">
-                    <div class="auscultation-tile" onclick="setHypoxiaSound('stridor')">
-                        <div class="auscultation-tile-title">Stridor / stertor</div>
-                    </div>
-                    <div class="auscultation-tile" onclick="setHypoxiaSound('wheeze')">
-                        <div class="auscultation-tile-title">Wheeze</div>
-                    </div>
-                    <div class="auscultation-tile" onclick="setHypoxiaSound('creps')">
-                        <div class="auscultation-tile-title">Crepitations</div>
-                    </div>
-                    <div class="auscultation-tile" onclick="setHypoxiaSound('quiet')">
-                        <div class="auscultation-tile-title">Quiet / normal</div>
+                <div class="differential-panel" style="margin-top: 16px;">
+                    <div class="differential-title">Working differential</div>
+                    <div class="differential-list" id="diff-list-hypoxia-exam">
+                        <div class="diff-list-item top">Pneumonia</div>
+                        <div class="diff-list-item top">Pulmonary oedema</div>
+                        <div class="diff-list-item">COPD / Asthma</div>
+                        <div class="diff-list-item">PE</div>
+                        <div class="diff-list-item">Pneumothorax</div>
                     </div>
                 </div>
             </div>
             <div class="bottom-nav">
                 <button class="nav-btn secondary" onclick="goToPage('page-hypoxia-history')">‹ Back</button>
-                <button class="nav-btn primary" onclick="goToPage('page-hypoxia-causes')">Causes ›</button>
+                <button class="nav-btn primary" onclick="goToPage('page-hypoxia-causes')">View differentials ›</button>
             </div>
         </div>
 
@@ -7767,6 +8022,53 @@
             `);
         }
 
+        function showFocalInfectiveInfo() {
+            showModal('Focal Infective Symptoms & Signs', `
+                <div style="font-size:14px;color:var(--text2);line-height:1.6;">
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Respiratory:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Cough — productive, haemoptysis</li>
+                        <li>Pleuritic chest pain</li>
+                        <li>Dyspnoea, tachypnoea</li>
+                        <li>Crackles, bronchial breathing, dullness</li>
+                    </ul>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Urinary:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Dysuria, frequency, urgency</li>
+                        <li>Suprapubic or loin pain</li>
+                        <li>Cloudy/offensive urine</li>
+                        <li>Renal angle tenderness</li>
+                    </ul>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Skin & soft tissue:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Erythema, warmth, swelling</li>
+                        <li>Wound breakdown or discharge</li>
+                        <li>Crepitus (necrotising fasciitis)</li>
+                        <li>Pain out of proportion to signs</li>
+                    </ul>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Abdominal:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>RUQ pain (cholecystitis/cholangitis)</li>
+                        <li>Peritonism, guarding</li>
+                        <li>Absent bowel sounds</li>
+                        <li>Jaundice (biliary sepsis)</li>
+                    </ul>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">CNS:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:16px;">
+                        <li>Headache, photophobia, neck stiffness</li>
+                        <li>Altered conscious state</li>
+                        <li>Focal neurological signs</li>
+                    </ul>
+                    <p style="margin-bottom:12px;"><strong style="color:var(--text);">Lines & devices:</strong></p>
+                    <ul style="margin-left:20px;">
+                        <li>Erythema, tenderness, discharge at line sites</li>
+                        <li>IDC — cloudy urine, suprapubic pain</li>
+                        <li>Drains — purulent output</li>
+                    </ul>
+                </div>
+            `);
+        }
+
         function showGILossInfo() {
             showModal('GI Fluid Losses', `
                 <div style="font-size:14px;color:var(--text2);line-height:1.6;">
@@ -8157,30 +8459,105 @@
             clearTimeout(rrTimeout);
         }
 
-        // RR counter for hypoxia exam page
+        // Hypoxia state variables
+        let hypoxiaOnset = null;
+        let hypoxiaHx = {};
+        let hypoxiaAusc = null;
         let rrTapsHypoxia = [];
         let rrTimeoutHypoxia = null;
 
-        // Hypoxia assessment state
-        let hypoxiaOnset = null;
-        let hypoxiaSound = null;
+        function setHypoxiaOnset(value) {
+            hypoxiaOnset = value;
+            document.getElementById('btn-hypoxia-sudden')?.classList.toggle('active', value === 'sudden');
+            document.getElementById('btn-hypoxia-gradual')?.classList.toggle('active', value === 'gradual');
+            updateHypoxiaPearl();
+            updateHypoxiaDDx();
+        }
 
+        function toggleHypoxiaHx(item) {
+            hypoxiaHx[item] = !hypoxiaHx[item];
+            document.getElementById('hx-' + item)?.classList.toggle('checked', hypoxiaHx[item]);
+            updateHypoxiaPearl();
+            updateHypoxiaDDx();
+        }
+
+        function updateHypoxiaPearl() {
+            const pearl = document.getElementById('pe-pearl');
+            if (pearl) {
+                const show = hypoxiaOnset === 'sudden' && hypoxiaHx['chest-pain'];
+                pearl.style.display = show ? 'flex' : 'none';
+            }
+        }
+
+        function setHypoxiaAusc(value) {
+            hypoxiaAusc = value;
+            ['stridor', 'wheeze', 'creps', 'reduced'].forEach(s => {
+                document.getElementById('ausc-' + s)?.classList.toggle('active', value === s);
+            });
+            updateHypoxiaDDx();
+        }
+
+        function updateHypoxiaDDx() {
+            let order = ['Pneumonia', 'Pulmonary oedema', 'COPD / Asthma', 'PE', 'Pneumothorax'];
+
+            // Auscultation is key discriminator
+            if (hypoxiaAusc === 'stridor') {
+                order = ['Upper airway obstruction', 'Anaphylaxis', 'Foreign body', 'Epiglottitis', 'Laryngeal oedema'];
+            } else if (hypoxiaAusc === 'wheeze') {
+                order = ['Asthma / COPD', 'Anaphylaxis', 'Cardiac wheeze (APO)', 'Aspiration', 'Bronchitis'];
+            } else if (hypoxiaAusc === 'creps') {
+                order = ['Pulmonary oedema', 'Pneumonia', 'Aspiration', 'Pulmonary fibrosis', 'ARDS'];
+            } else if (hypoxiaAusc === 'reduced') {
+                order = ['Pneumothorax', 'Pleural effusion', 'Collapse', 'Consolidation', 'Mucus plugging'];
+            } else {
+                // No auscultation yet - use history
+                if (hypoxiaOnset === 'sudden') {
+                    if (hypoxiaHx['chest-pain'] || hypoxiaHx['leg-swell']) {
+                        order = ['PE', 'Pneumothorax', 'ACS / APO', 'Anaphylaxis', 'Aspiration'];
+                    } else if (hypoxiaHx['allergy']) {
+                        order = ['Anaphylaxis', 'TRALI', 'Drug reaction', 'Asthma', 'PE'];
+                    } else {
+                        order = ['PE', 'Pneumothorax', 'Anaphylaxis', 'Aspiration', 'Arrhythmia'];
+                    }
+                } else if (hypoxiaOnset === 'gradual') {
+                    if (hypoxiaHx['fever']) {
+                        order = ['Pneumonia', 'Sepsis', 'COPD infective exacerbation', 'Empyema', 'COVID'];
+                    } else if (hypoxiaHx['orthopnoea']) {
+                        order = ['Pulmonary oedema', 'Pleural effusion', 'COPD', 'Pulmonary fibrosis', 'Pneumonia'];
+                    } else if (hypoxiaHx['resp-disease']) {
+                        order = ['COPD exacerbation', 'Asthma', 'Pulmonary fibrosis', 'Pneumonia', 'PE'];
+                    }
+                }
+            }
+
+            // Update both lists
+            ['diff-list-hypoxia-hx', 'diff-list-hypoxia-exam'].forEach(id => {
+                const container = document.getElementById(id);
+                if (container) {
+                    container.innerHTML = order.map((name, i) =>
+                        `<div class="diff-list-item${i < 2 ? ' top' : ''}">${name}</div>`
+                    ).join('');
+                }
+            });
+        }
+
+        // RR counter for hypoxia page
         function tapRRHypoxia() {
             const now = Date.now();
             rrTapsHypoxia.push(now);
+            rrTapsHypoxia = rrTapsHypoxia.filter(t => now - t < 30000);
 
             // Update button state
             document.getElementById('rr-tap-btn-hypoxia')?.classList.add('counting');
 
-            // Calculate rate if we have at least 2 taps
             if (rrTapsHypoxia.length >= 2) {
                 const intervals = [];
                 for (let i = 1; i < rrTapsHypoxia.length; i++) {
                     intervals.push(rrTapsHypoxia[i] - rrTapsHypoxia[i-1]);
                 }
                 const avgInterval = intervals.reduce((a,b) => a+b, 0) / intervals.length;
-                const rate = Math.round(60000 / avgInterval);
-                document.getElementById('rr-value-hypoxia').textContent = rate;
+                const rr = Math.round(60000 / avgInterval);
+                document.getElementById('rr-value-hypoxia').textContent = rr;
             }
 
             // Reset after 10 seconds of no taps
@@ -8195,23 +8572,6 @@
             document.getElementById('rr-value-hypoxia').textContent = '—';
             document.getElementById('rr-tap-btn-hypoxia')?.classList.remove('counting');
             clearTimeout(rrTimeoutHypoxia);
-        }
-
-        function setHypoxiaOnset(value) {
-            hypoxiaOnset = value;
-            document.getElementById('hypoxia-onset-sudden')?.classList.toggle('active', value === 'sudden');
-            document.getElementById('hypoxia-onset-gradual')?.classList.toggle('active', value === 'gradual');
-        }
-
-        function setHypoxiaSound(value) {
-            hypoxiaSound = value;
-            document.querySelectorAll('.auscultation-tile').forEach(t => t.classList.remove('active'));
-            event.currentTarget?.classList.add('active');
-            // Navigate to appropriate cause page based on sound
-            if (value === 'stridor') goToPage('page-hypoxia-stridor');
-            else if (value === 'wheeze') goToPage('page-hypoxia-wheeze');
-            else if (value === 'creps') goToPage('page-hypoxia-creps');
-            else if (value === 'quiet') goToPage('page-hypoxia-quiet');
         }
 
         function setHypoOnset(value) {
