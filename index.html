@@ -73,7 +73,7 @@
         .section-label { font-size: 11px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
 
         /* Home */
-        .home-header { text-align:center; padding:40px 0 30px; }
+        .home-header { text-align:center; padding:40px 0 12px; }
         .home-logo {
             width:56px; height:56px;
             background: linear-gradient(135deg, var(--red), #ff6b6b);
@@ -4166,6 +4166,7 @@
                 </div>
             </div>
             <div class="content">
+                <div class="page-title">Is the patient shocked?</div>
                 <div class="info-box" style="margin-bottom: 24px;">
                     <div class="info-box-title">Signs of inadequate perfusion</div>
                     <ul class="info-box-list">
@@ -4180,13 +4181,13 @@
             </div>
             <div class="bottom-nav" style="flex-direction: column; gap: 8px;">
                 <div style="display: flex; gap: 12px; width: 100%;">
-                    <button class="choice-btn shocked" onclick="setShocked(true)" style="flex: 1;">
-                        <span class="choice-btn-label">Shocked</span>
-                        <span class="choice-btn-sub">Signs present</span>
-                    </button>
                     <button class="choice-btn not-shocked" onclick="setShocked(false)" style="flex: 1;">
                         <span class="choice-btn-label">Not Shocked</span>
                         <span class="choice-btn-sub">Perfusing OK</span>
+                    </button>
+                    <button class="choice-btn shocked" onclick="setShocked(true)" style="flex: 1;">
+                        <span class="choice-btn-label">Shocked</span>
+                        <span class="choice-btn-sub">Signs present</span>
                     </button>
                 </div>
             </div>
@@ -4288,8 +4289,10 @@
                             </svg>
                         </div>
                         <div class="action-tile-content">
-                            <div class="action-tile-title">Lie flat</div>
-                            <div class="action-tile-sub">If safe & no respiratory compromise</div>
+                            <div class="action-tile-text">
+                                <div class="action-tile-title">Lie flat</div>
+                                <div class="action-tile-sub">If safe & no respiratory compromise</div>
+                            </div>
                         </div>
                     </div>
                     <div class="action-tile">
@@ -4319,7 +4322,9 @@
                             </svg>
                         </div>
                         <div class="action-tile-content">
-                            <div class="action-tile-title">Send blood gas</div>
+                            <div class="action-tile-text">
+                                <div class="action-tile-title">Send blood gas</div>
+                            </div>
                         </div>
                     </div>
                     <div class="action-tile">
@@ -4348,8 +4353,10 @@
                             </svg>
                         </div>
                         <div class="action-tile-content">
-                            <div class="action-tile-title">Chart review</div>
-                            <div class="action-tile-sub">Hold/review antihypertensives</div>
+                            <div class="action-tile-text">
+                                <div class="action-tile-title">Chart review</div>
+                                <div class="action-tile-sub">Hold/review antihypertensives</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -4725,19 +4732,30 @@
                             </svg>
                         </div>
                         <div class="action-tile-content">
-                            <div class="action-tile-title">ECG</div>
+                            <div class="action-tile-text">
+                                <div class="action-tile-title">ECG</div>
+                                <div class="action-tile-sub">Rhythm, ischaemia, RV strain</div>
+                            </div>
+                            <div class="action-tile-links">
+                                <button class="action-tile-link" onclick="event.stopPropagation();showECGChoices()">What to look for ›</button>
+                            </div>
                         </div>
                     </div>
                     <div class="action-tile">
                         <div class="action-tile-icon">
-                            <svg viewBox="0 0 512 512" fill="currentColor" style="width:24px;height:24px;">
-                                <path d="M416 0H96C42.98 0 0 42.98 0 96v320c0 53.02 42.98 96 96 96h320c53.02 0 96-42.98 96-96V96c0-53.02-42.98-96-96-96zm64 416c0 35.29-28.71 64-64 64H96c-35.29 0-64-28.71-64-64V96c0-35.29 28.71-64 64-64h320c35.29 0 64 28.71 64 64v320z"/>
-                                <path d="M256 96c-88.37 0-160 71.63-160 160s71.63 160 160 160 160-71.63 160-160S344.37 96 256 96zm0 288c-70.69 0-128-57.31-128-128s57.31-128 128-128 128 57.31 128 128-57.31 128-128 128z"/>
-                                <path d="M256 160c-8.84 0-16 7.16-16 16v64h-64c-8.84 0-16 7.16-16 16s7.16 16 16 16h64v64c0 8.84 7.16 16 16 16s16-7.16 16-16v-64h64c8.84 0 16-7.16 16-16s-7.16-16-16-16h-64v-64c0-8.84-7.16-16-16-16z"/>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 24px; height: 24px; color: var(--red);">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <circle cx="12" cy="10" r="3"/>
+                                <path d="M12 13v4"/>
+                                <path d="M9 17h6"/>
+                                <path d="M8 7h2M14 7h2"/>
                             </svg>
                         </div>
                         <div class="action-tile-content">
-                            <div class="action-tile-title">Mobile CXR</div>
+                            <div class="action-tile-text">
+                                <div class="action-tile-title">Mobile CXR</div>
+                                <div class="action-tile-sub">Pulmonary oedema, pneumothorax</div>
+                            </div>
                         </div>
                     </div>
                     <div class="action-tile">
@@ -4753,8 +4771,10 @@
                             </svg>
                         </div>
                         <div class="action-tile-content">
-                            <div class="action-tile-title">Bloods</div>
-                            <div class="action-tile-sub">Including group & hold, coags</div>
+                            <div class="action-tile-text">
+                                <div class="action-tile-title">Bloods</div>
+                                <div class="action-tile-sub">Including group & hold, coags</div>
+                            </div>
                         </div>
                     </div>
                 </div>
