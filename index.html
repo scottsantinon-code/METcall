@@ -7780,6 +7780,17 @@
                         <div class="exam-items">
                             <div class="exam-item">HR, BP — signs of shock?</div>
                             <div class="exam-item">Cool peripheries = significant loss</div>
+                            <div class="exam-item">Postural vital signs if safe to do so</div>
+                        </div>
+                    </div>
+
+                    <div class="exam-section">
+                        <div class="exam-section-title">
+                            <span class="exam-section-letter">D</span>
+                            Disability
+                        </div>
+                        <div class="exam-items">
+                            <div class="exam-item">GCS — confusion may indicate shock or encephalopathy</div>
                         </div>
                     </div>
 
@@ -7790,8 +7801,10 @@
                         </div>
                         <div class="exam-items">
                             <div class="exam-item">Stigmata of liver disease (spider naevi, ascites, jaundice, caput medusae)</div>
-                            <div class="exam-item">PR exam — melaena, fresh blood</div>
-                            <div class="exam-item">NG aspirate if upper GI suspected</div>
+                            <div class="exam-item">Abdominal tenderness, distension, peritonism</div>
+                            <div class="exam-item">Surgical scars — aorto-enteric fistula, previous GI surgery</div>
+                            <div class="exam-item">Bruising — coagulopathy</div>
+                            <div class="exam-item">PR exam — melaena, fresh blood, haemorrhoids, mass</div>
                         </div>
                     </div>
                 </div>
@@ -7886,8 +7899,9 @@
                     </div>
                 </div>
             </div>
-            <div class="bottom-nav">
-                <button class="nav-btn secondary" onclick="goToPage('page-gi-bleed')">‹ Back</button>
+            <div class="bottom-nav" id="gi-bottom-nav">
+                <button class="nav-btn secondary" id="gi-back-btn" onclick="giNavBack()">‹ Actions</button>
+                <button class="nav-btn primary" id="gi-next-btn" onclick="giNavNext()">Next ›</button>
             </div>
         </div>
 
@@ -8211,15 +8225,57 @@
             document.getElementById('tab-' + tabName).classList.add('active');
         }
 
+        const giTabOrder = ['history', 'exam', 'ddx', 'mx'];
+        let currentGITab = 'history';
+
         function switchGITab(tabName) {
-            // Update tab buttons within the GI assess page
+            currentGITab = tabName;
             const page = document.getElementById('page-gi-assess');
-            page.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
+
+            // Update tab buttons
+            const tabLabels = { history: 'History', exam: 'Exam', ddx: 'DDx', mx: 'Mx' };
+            page.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent === tabLabels[tabName]);
+            });
+
             // Update tab content
             page.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
             document.getElementById('gi-tab-' + tabName).classList.add('active');
+
+            // Update bottom nav
+            updateGIBottomNav();
+
+            // Scroll to top
+            page.querySelector('.content').scrollTop = 0;
+        }
+
+        function giNavNext() {
+            const idx = giTabOrder.indexOf(currentGITab);
+            if (idx < giTabOrder.length - 1) {
+                switchGITab(giTabOrder[idx + 1]);
+            }
+        }
+
+        function giNavBack() {
+            const idx = giTabOrder.indexOf(currentGITab);
+            if (idx === 0) {
+                goToPage('page-gi-bleed');
+            } else {
+                switchGITab(giTabOrder[idx - 1]);
+            }
+        }
+
+        function updateGIBottomNav() {
+            const idx = giTabOrder.indexOf(currentGITab);
+            const backBtn = document.getElementById('gi-back-btn');
+            const nextBtn = document.getElementById('gi-next-btn');
+
+            if (backBtn) {
+                backBtn.textContent = idx === 0 ? '‹ Actions' : '‹ Back';
+            }
+            if (nextBtn) {
+                nextBtn.style.display = idx === giTabOrder.length - 1 ? 'none' : '';
+            }
         }
 
         function toggleGISection(section) {
