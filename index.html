@@ -8191,11 +8191,105 @@
                     <span>Not a substitute for <strong>senior review</strong> or specialist consultation</span>
                 </div>
             </div>
+            <div style="text-align: center; margin: 12px 0; font-size: 12px; opacity: 0.6;">
+                <a href="https://www.criticalcondition.com.au" style="color: inherit;">www.criticalcondition.com.au</a>
+            </div>
+            <div style="text-align: center; margin-bottom: 12px;">
+                <a href="#" onclick="event.preventDefault(); showFullTerms();" style="color: var(--blue); font-size: 12px;">View Full Terms & Privacy Policy</a>
+            </div>
             <button class="disclaimer-btn" onclick="acceptDisclaimer()">I understand</button>
         </div>
     </div>
 
+    <!-- Full Terms Modal -->
+    <div class="disclaimer-overlay" id="fullTermsOverlay" style="z-index: 10001;">
+        <div style="background: white; border-radius: 16px; max-height: 90vh; width: 95%; max-width: 500px; display: flex; flex-direction: column; overflow: hidden;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; border-bottom: 1px solid var(--border);">
+                <span style="font-weight: 600; font-size: 16px;">Terms of Use & Privacy Policy</span>
+                <button onclick="hideFullTerms()" style="background: var(--card); border: none; width: 30px; height: 30px; border-radius: 50%; font-size: 16px; cursor: pointer;">✕</button>
+            </div>
+            <div style="overflow-y: auto; padding: 16px; font-size: 13px; line-height: 1.5; color: var(--text);">
+                <p style="color: var(--text2); margin-bottom: 16px;">Version 1.0 – February 2026</p>
+
+                <p style="background: var(--card); padding: 12px; border-radius: 8px; margin-bottom: 16px;"><strong>IMPORTANT:</strong> Please read these terms carefully before using this application. By using METmate, you acknowledge that you have read, understood, and agree to be bound by these terms.</p>
+
+                <h4 style="font-size: 14px; margin: 16px 0 8px 0;">1. Intended Users</h4>
+                <p>METmate is designed <strong>exclusively for use by qualified healthcare professionals</strong> who work in hospital settings and respond to deteriorating patients. This includes physicians, nurses, and other licensed medical practitioners.</p>
+                <p>This application is <strong>not intended for use by the general public</strong>. If you are not a qualified healthcare professional, do not use this application—call emergency services immediately.</p>
+
+                <h4 style="font-size: 14px; margin: 16px 0 8px 0;">2. Purpose & Intended Use</h4>
+                <p>METmate is a <strong>clinical decision support tool</strong> designed to assist qualified healthcare professionals when assessing and managing deteriorating patients. The application provides:</p>
+                <p>• Structured assessment frameworks<br>• Reference information for common presentations<br>• Differential diagnosis prompts<br>• Management guidance</p>
+                <p>This application is intended to <strong>supplement—not replace—clinical training, professional judgment, senior review, and established protocols</strong>.</p>
+
+                <h4 style="font-size: 14px; margin: 16px 0 8px 0;">3. Not Medical Advice</h4>
+                <p>The information provided in this application is for <strong>general informational and educational purposes only</strong>. It does not constitute medical advice, diagnosis, or treatment recommendations.</p>
+                <p><strong>Nothing in this application creates a physician-patient, provider-patient, or any other healthcare relationship</strong> between Critical Condition and any user or patient.</p>
+
+                <h4 style="font-size: 14px; margin: 16px 0 8px 0;">4. Clinical Judgment Prevails</h4>
+                <p style="background: var(--card); padding: 12px; border-radius: 8px;"><strong>Your professional clinical judgment must always take precedence over any information displayed in this application.</strong></p>
+                <p>Healthcare professionals are responsible for:</p>
+                <p>• Performing thorough patient assessments<br>• Seeking senior review when appropriate<br>• Following their institution's protocols and policies<br>• Staying current with the latest guidelines</p>
+
+                <h4 style="font-size: 14px; margin: 16px 0 8px 0;">5. No Warranty</h4>
+                <p>This application is provided <strong>"AS IS" and "AS AVAILABLE"</strong> without warranty of any kind, including warranties of merchantability, fitness for a particular purpose, accuracy, or non-infringement.</p>
+
+                <h4 style="font-size: 14px; margin: 16px 0 8px 0;">6. Limitation of Liability</h4>
+                <p><strong>To the maximum extent permitted by applicable law</strong>, Critical Condition, its contributors, and any affiliated parties shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages, including but not limited to:</p>
+                <p>• Personal injury or death<br>• Loss of profits, data, or goodwill<br>• Medical malpractice claims<br>• Damages arising from reliance on the application<br>• Any other damages arising from the use or inability to use this application</p>
+                <p>This limitation applies regardless of the legal theory (contract, tort, negligence, strict liability, or otherwise), even if Critical Condition has been advised of the possibility of such damages.</p>
+
+                <h4 style="font-size: 14px; margin: 16px 0 8px 0;">7. Assumption of Risk</h4>
+                <p>By using this application, you expressly acknowledge and agree that:</p>
+                <p>• You use this application <strong>entirely at your own risk</strong><br>• You are solely responsible for any clinical decisions made<br>• You will verify all information independently<br>• You accept full responsibility for patient outcomes</p>
+
+                <h4 style="font-size: 14px; margin: 16px 0 8px 0;">8. Indemnification</h4>
+                <p>You agree to <strong>indemnify, defend, and hold harmless</strong> Critical Condition and any affiliated parties from and against any and all claims, damages, losses, liabilities, costs, and expenses arising from your use of the application, including any medical malpractice or negligence claims.</p>
+
+                <h4 style="font-size: 14px; margin: 16px 0 8px 0;">9. Not a Medical Device</h4>
+                <p>This application is <strong>not a medical device</strong> and has not been cleared or approved by the Therapeutic Goods Administration (TGA), Food and Drug Administration (FDA), or any other regulatory body. It does not diagnose, treat, cure, or prevent any disease, monitor vital signs, or make autonomous clinical decisions.</p>
+
+                <h4 style="font-size: 14px; margin: 16px 0 8px 0;">10. Beta Status</h4>
+                <p>This application is currently in development. Content may be incomplete or contain errors. Always verify information against current guidelines and use clinical judgment.</p>
+
+                <h4 style="font-size: 14px; margin: 16px 0 8px 0;">11. Updates & Changes</h4>
+                <p>Medical guidelines evolve over time. Critical Condition makes no commitment to update the application and may modify or discontinue it at any time. It is your responsibility to verify that information aligns with current guidelines.</p>
+
+                <h4 style="font-size: 14px; margin: 16px 0 8px 0;">12. Privacy Policy</h4>
+                <div style="background: var(--card); padding: 12px; border-radius: 8px;">
+                    <p><strong>Data Collection:</strong> This application does not collect, store, transmit, or share any personal data, health information, or usage analytics.</p>
+                    <p style="margin-top: 8px;"><strong>Local Storage:</strong> All data is stored locally on your device only and is not accessible to Critical Condition or any third party.</p>
+                    <p style="margin-top: 8px;"><strong>Network Access:</strong> This application functions entirely offline.</p>
+                </div>
+
+                <h4 style="font-size: 14px; margin: 16px 0 8px 0;">13. Intellectual Property</h4>
+                <p>© 2026 Critical Condition. All rights reserved.</p>
+                <p>The METmate name, design, and content are protected by copyright and other intellectual property laws.</p>
+
+                <h4 style="font-size: 14px; margin: 16px 0 8px 0;">14. Governing Law</h4>
+                <p>These terms shall be governed by and construed in accordance with the laws of <strong>Victoria, Australia</strong>. Any disputes shall be subject to the exclusive jurisdiction of the courts of Victoria, Australia.</p>
+
+                <h4 style="font-size: 14px; margin: 16px 0 8px 0;">15. Severability</h4>
+                <p>If any provision of these terms is found unenforceable, that provision shall be limited or eliminated to the minimum extent necessary so that these terms shall otherwise remain in full force and effect.</p>
+
+                <h4 style="font-size: 14px; margin: 16px 0 8px 0;">16. Contact</h4>
+                <p>For questions about these terms: <strong><a href="mailto:support@criticalcondition.com.au" style="color: var(--blue);">support@criticalcondition.com.au</a></strong></p>
+                <p>Website: <strong><a href="https://www.criticalcondition.com.au" style="color: var(--blue);">www.criticalcondition.com.au</a></strong></p>
+
+                <p style="color: var(--text2); margin-top: 24px; text-align: center;">Last updated: February 2026</p>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Full Terms
+        function showFullTerms() {
+            document.getElementById('fullTermsOverlay').classList.add('active');
+        }
+        function hideFullTerms() {
+            document.getElementById('fullTermsOverlay').classList.remove('active');
+        }
+
         // Disclaimer
         function showDisclaimer() {
             if (!sessionStorage.getItem('disclaimerAccepted')) {
